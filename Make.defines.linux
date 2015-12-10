@@ -1,0 +1,28 @@
+# Common make definitions, customized for each platform
+
+# Definitions required in all program directories to compile and link
+# C programs using gcc.
+
+
+ifeq ($(DEBUG), y)
+DEFFLAGS=-DDEBUG -DLINUX
+else
+DEFFLAGS=-DRELEASE -DLINUX
+endif
+
+
+CC=gcc
+COMPILE.c=$(CC) $(CFLAGS) $(CPPFLAGS) -c
+LINK.c=$(CC) $(CFLAGS) $(CPPFLAGS) $(LDFLAGS)
+LDFLAGS=-lm
+LDDIR=-L$(ROOT)/lib
+LDLIBS=
+CFLAGS=-std=c99 -Wall $(DEFFLAGS)
+RANLIB=echo
+AR=ar
+AWK=awk
+LIBAPUE=
+
+
+# Common temp files to delete from each directory.
+TEMPFILES=core core.* *.o temp.* *.out
