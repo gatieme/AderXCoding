@@ -1,5 +1,5 @@
 #僵尸进程zombie与孤儿进程orphan
-
+http://blog.csdn.net/gatieme/article/details/50253481
 
 orphan.c  	孤儿进程测试程序
 
