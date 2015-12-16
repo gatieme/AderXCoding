@@ -1,5 +1,6 @@
-# CFamilyCooking
-C/C++思考
+# UltraCode
+原名CFamilyCooking--C/C++思考
+现在增加了一些非C家族语言代码的学习
 
 #Directory
 #unix  --  类Unix系统编程
