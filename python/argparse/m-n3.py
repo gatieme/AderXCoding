@@ -1,0 +1,19 @@
+#!/usr/bin/env python
+# encoding: utf-8
+
+
+import sys
+
+import argparse
+
+
+
+if __name__ == "__main__":
+
+    parser = argparse.ArgumentParser()
+
+    parser.add_argument("-m", "--m_number", dest = "m", help = "pleaer enter the m...", type = int)
+    parser.add_argument("-n", "--n_number", dest = "n", help = "pleaer enter the n...", type = int)
+    args = parser.parse_args()
+
+    print "%d ^ %d = %d" % (args.m,  args.n, args.m ** args.n)
