@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>RestartWidget</class>
+ <widget class="QWidget" name="RestartWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>287</width>
+    <height>194</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>重启程序</string>
+  </property>
+  <widget class="QPushButton" name="pushButtonExitRestart">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>47</y>
+     <width>151</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>使用事件循环重启</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButtonProcess">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>97</y>
+     <width>151</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>使用进程控制重启</string>
+   </property>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>
