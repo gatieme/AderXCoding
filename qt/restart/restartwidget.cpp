@@ -64,6 +64,4 @@ void RestartWidget::slotProceeRestart()
     //args.append("-qws");        //  参数信息
     //args.append("&");           //  后台运行
     QProcess::startDetached(qApp->applicationFilePath(), QStringList());
-
-
 }

@@ -10,7 +10,7 @@ class RestartWidget;
 
 //  773 = 'r'+'e'+'s'+'t'+'a'+'r'+'t'
 //  ==>restart
-#define EXIT_RESTART  773
+#define EXIT_RESTART   773
 
 class RestartWidget : public QWidget
 {
