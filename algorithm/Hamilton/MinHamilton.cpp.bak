@@ -1,0 +1,420 @@
+#include<iomanip>
+#include<limits>
+#include<time.h>
+#include<iostream>
+#include<fstream>
+#include <cstdlib>
+#include <cstring>
+using namespace std;
+// Graph.cpp : 定义控制台应用程序的入口点。
+//
+
+
+#include<iostream>
+#include<fstream>
+#include<stack>
+#include<queue>
+#include<limits>
+using namespace std;
+
+
+
+template<class T,class E>  //T为顶点的数据类型，E为图中边的权值的数据类型
+class Graph
+{
+private:
+	static const int DefaultVertices=10; //默认最大顶点数
+
+	int maxVertices; //图中最大顶点数
+	int numVertices;//图中当前顶点数
+	int numEdges;   //图中当前边数
+	int getVertexPos(T vertex);//给出顶点vertex在图中的位置
+    E **matrix;//邻接矩阵
+	T *VerticesList;//顶点表
+
+public:
+	 E maxWeight; //代表无穷大的值
+	Graph(int sz = DefaultVertices);//根据用户的要求，创建SZ大小的基于邻接矩阵的图
+	~Graph( );//析构函数
+	int NumberOfVertices(){return maxVertices;}//返回最大顶点数
+	int NumberOfEdges(){return numEdges;}//返回当前边数
+	T getValue(int i);               //取顶点i的值，i不合理返回0
+	E getWeight(int v1,int v2);     //取边（v1,v2)上的权值
+	int getFirstNeighbor(int v);//取顶点v的第一个邻接顶点
+	int getNextNeighbor(int v,int w);//取顶点v的邻接顶点W的下一个邻接顶点
+	bool insertVertice(const T &vertex);//插入顶点
+
+	int Init(istream &in);//根据用户输入，获得图的邻接矩阵
+	int RandInit();//随机初始化图(无向图)
+	int output(ostream &out); //输出图的矩阵
+
+};
+
+
+template<class T,class E>
+Graph<T,E>::Graph(int sz) //根据用户的要求，创建SZ大小的基于邻接矩阵的图
+{
+	maxWeight=std::numeric_limits<E>::max();
+	maxVertices=sz;
+	matrix=new E *[sz];
+	for(int i=0;i<sz;i++)
+	{
+		matrix[i]=new E[sz];
+		for(int j=0;j<sz;j++)
+		{
+			matrix[i][j]=maxWeight;
+		}
+	}
+	VerticesList=new T[sz];
+}
+template<class T,class E>
+Graph<T,E>::~Graph()
+{
+	for(int i=0;i<maxVertices;i++)
+	{
+		delete matrix[i];
+	}
+
+	delete VerticesList;
+}
+template<class T,class E>
+T Graph<T,E>::getValue(int i)//取顶点i的值，i不合理返回0
+{
+	if(i>=0&&i<=numVertices)
+	{
+		return VerticesList[i];
+	}
+
+	return NULL;
+}
+template<class T,class E>
+E Graph<T,E>::getWeight(int v1,int v2)//取边（v1,v2)上的权值
+{
+	if(v1>=0&&v1<maxVertices&&v2>=0&&v2<maxVertices)
+	{
+		return matrix[v1][v2];
+	}
+	return 0;
+}
+template<class T,class E>
+int Graph<T,E>::getFirstNeighbor(int v)//取顶点v的第一个邻接顶点
+{
+	if(!(v>=0&&v<maxVertices))   //v不合法
+		return -1;
+
+	for(int col=0;col<maxVertices;col++)
+	{
+		if(matrix[v][col]!=maxWeight)
+		{
+			return col;          //找到
+		}
+	}
+	return -1;                   //未找到
+
+}
+template<class T,class E>
+int Graph<T,E>::getNextNeighbor(int v,int w)//取顶点v的邻接顶点W的下一个邻接顶点
+{
+	if(!(v>=0&&v<maxVertices)||!(w>=0&&w<maxVertices) )  //v或w不合法
+		return -1;
+	for(int col=w+1;col<maxVertices;col++)
+	{
+		if(matrix[v][col]!=maxWeight)
+		{
+			return col;         //找到
+		}
+	}
+	return -1;//未找到
+}
+ template<class T,class E>
+int Graph<T,E>::Init(istream &fin)  //根据用户输入，获得图的邻接矩阵
+{
+	int v1,v2;
+	E edge;
+	while(fin>>v1>>v2>>edge)
+	{
+		if(v1>=0&&v1<maxVertices&&v2>=0&&v2<maxVertices)
+	    {
+		   matrix[v1][v2]=edge;
+		   matrix[v2][v1]=edge;
+		   numVertices++;
+	    }
+		if(edge==maxWeight)    //当输入边值为无穷大时停止输入
+		{
+			break;
+		}
+	}
+	return 1;
+}
+
+template<class T,class E>
+int Graph<T,E>::RandInit()//随机初始化图(无向图)
+{
+	for(int i=0;i<maxVertices;i++)
+	{
+		for(int j=0;j<maxVertices;j++)
+		{
+			matrix[i][j]=maxWeight;
+		}
+	}
+	int rnd=maxVertices*(maxVertices-1)/2;
+	int numOfEdge=rand()/RAND_MAX*rnd/4+3*rnd/4;
+	int count=numOfEdge;
+	int v1,v2;
+	while(count)
+	{
+		v1=rand()%maxVertices;
+		v2=rand()%maxVertices;
+		if(v1!=v2&&matrix[v1][v2]==maxWeight)
+		{
+			matrix[v2][v1]=matrix[v1][v2]=rand()%100;
+			count--;
+		}
+	}
+	return 1;
+
+}
+
+template<class T,class E>
+int Graph<T,E>::output(ostream &out) //输出图的矩阵
+{
+    out <<"There are " <<maxVertices <<"point int this graph..." <<endl;
+	for(int i=0;i<maxVertices;i++)
+	{
+		for(int j=0;j<maxVertices;j++)
+		{
+			out<<setw(15)<<matrix[i][j]<<"   ";
+		}
+		out<<endl;
+	}
+	return 1;
+}
+
+
+
+template<class T,class E>
+int sb(int start,Graph<T,E> &myGraph,ostream & fout)//simple backtracking 算法解决图的最小哈密顿回路问题  v为回路的起点和终点
+{
+	E minDistance=std::numeric_limits<E>::max();
+	stack<int> myStack;
+	myStack.push(start);
+
+
+	int numVertices=myGraph.NumberOfVertices();
+	bool *visited=new bool[numVertices];
+	memset(visited,false,numVertices);
+
+	int v;
+	int w=-1;
+	while(!myStack.empty()) //栈不为空
+	{
+		v=myStack.top();
+		visited[v]=true;
+
+		if(w==-1)
+		{
+			w=myGraph.getFirstNeighbor(v);
+		}
+		else
+		{
+			w=myGraph.getNextNeighbor(v,w);
+		}
+		for(;w!=-1&&visited[w]==true;w=myGraph.getNextNeighbor(v,w))
+		{
+
+		}
+
+		if(w==-1)  //未找到可行的下一个顶点
+		{
+			myStack.pop();  //回溯
+			w=v;
+			visited[v]=false;
+		}
+		else      //找到可行的下一个顶点
+		{
+			myStack.push(w);  //放入栈中
+
+			if(myStack.size()==numVertices)//走过所有的顶点
+			{
+				     if(myGraph.getWeight(start,w)==std::numeric_limits<E>::max()) //判断最后一个顶点有没有回到起点的边
+					 {
+						 myStack.pop();
+						 visited[w]=false;
+					 }
+					 else  //成功找到回路
+					 {
+						 //输出回路 并记录下回路的长度
+						 stack<int> temp;
+						 while(!myStack.empty())
+						 {
+							 int n=myStack.top();
+							 temp.push(n);
+							 myStack.pop();
+						 }
+
+						 fout<<"哈密顿回路 : ";
+						 E distance=0;
+						  int n=temp.top();
+						  myStack.push(n);
+						  temp.pop();
+						  int last=n;
+						   fout<<n<<"--";
+						 while(!temp.empty())
+						 {
+							 n=temp.top();
+							 myStack.push(n);
+							 temp.pop();
+							 distance+=myGraph.getWeight(last,n);
+							 last=n;
+							 fout<<n<<"--";
+						 }
+						 fout<<start<<"--"<<endl;
+						 distance+=myGraph.getWeight(last,start);
+						 fout<<"总长度为:"<<distance<<endl;
+						 //记录最短长度
+						 if(minDistance>distance)
+						 {
+							 minDistance=distance;
+						 }
+
+						 //
+						  myStack.pop();
+						  visited[w]=false;
+					 }
+
+			}
+			else
+			{
+				w=-1;
+			}
+
+		}
+
+	}
+	fout<<"最短哈密顿回路的长度为:"<<minDistance<<endl;
+	return 1;
+}
+
+//分支限界法求解最短哈密顿回路问题
+template<class E>
+struct NODE
+{
+	int dep;        //表示该结点在搜索树的第几层
+	int *vertices;  //该节点力包含的各个顶点
+	E length;       //从根到当前结点已经走过的路径长度
+	NODE(int depth)
+	{
+		dep = depth;
+		vertices = new int[dep];
+	};
+	void cpy(int *&des)
+	{
+		for(int i = 0;i < dep; i++)
+		{
+			des[i] = vertices[i];
+		}
+	}
+	bool find(int v)
+	{
+		for(int i=0;i<dep;i++)
+		{
+			if(vertices[i]==v)
+				return true;
+		}
+		return false;
+	}
+
+};
+
+
+template<class T,class E>
+int bb(int start,Graph<T,E> & myGraph,ostream & fout)
+{
+	stack< NODE<E> > myStack;  //队列
+
+	E minDistance=std::numeric_limits<E>::max();
+
+	int s=myGraph.getFirstNeighbor(start);
+	for(s=myGraph.getNextNeighbor(start,s);s!=-1;s=myGraph.getNextNeighbor(start,s))
+	{
+		NODE<E> n(2);
+		n.vertices[0]=start;n.vertices[1]=s;
+		n.length=myGraph.getWeight(start,s);
+		myStack.push(n);
+	}
+	while(!myStack.empty())   //队列不为空
+	{
+		NODE<E> n=myStack.top();
+		myStack.pop();
+		int v=n.vertices[n.dep-1];
+		if(n.dep+1==myGraph.NumberOfVertices())//到了最后一层 判断是不是哈密顿回路
+		{
+			int w;
+			for( w=myGraph.getFirstNeighbor(v);w!=-1;w=myGraph.getNextNeighbor(v,w))
+		    {
+				if( n.find(w)==false)
+				break;
+			}
+			if(w!=-1)
+			{
+				if(myGraph.getWeight(w,start)<std::numeric_limits<E>::max())
+				{
+					//形成回路
+					fout<<"哈密顿回路为:";
+					for(int i=0;i<n.dep;i++)
+					{
+						fout<<n.vertices[i]<<"   ";
+					}
+					fout<<w<<"   "<<start<<endl;
+					E tempDistance=n.length+myGraph.getWeight(v,w)+myGraph.getWeight(w,start);
+					fout<<"总长度为:  "<<tempDistance<<endl;
+					if(minDistance>tempDistance)
+					{
+						minDistance=tempDistance;
+					}
+				}
+			}
+		}
+
+		for(int w=myGraph.getFirstNeighbor(v);w!=-1;w=myGraph.getNextNeighbor(v,w))
+		{
+			if(n.find(w)==false)
+			{
+
+			NODE<E> ne(n.dep+1);
+			ne.length=n.length+myGraph.getWeight(v,w);
+			if(ne.length<minDistance)
+			{
+				n.cpy(ne.vertices);
+				ne.vertices[ne.dep-1]=w;
+				myStack.push(ne);
+			}
+
+			}
+		}
+	}
+
+
+	fout<<"最短长度为  "<<minDistance<<endl;
+	return minDistance;
+}
+
+
+int main(int argc, char* argv[])
+{
+	Graph<char,int> myGraph(10);
+
+
+    ifstream fin("input.txt");
+	myGraph.Init(fin);
+	myGraph.RandInit();//随机初始化图
+    myGraph.output(cout);
+	//ofstream fout("outputsb.txt");
+
+	//sb(0,myGraph,fout);
+
+	ofstream fout1("outputbb.txt");
+	bb(0,myGraph,fout1);
+	return 0;
+}
+

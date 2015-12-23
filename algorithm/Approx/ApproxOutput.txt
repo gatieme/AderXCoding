@@ -1,0 +1,19 @@
+包的容量为：94 94
+
+包内各物品的重量与价值分别为：
+50475j = 1437, 56 94
+i = 1 is in packeage, j = 1169, value = 268, weight = 310
+i = 2 is in packeage, j = 1128, value = 41, weight = 624
+i = 3 is in packeage, j = 1018, value = 110, weight = 190
+i = 4 is in packeage, j = 247, value = 771, weight = 354
+i = 5 is in packeage, j = -739, value = 986, weight = 480
+       310       268
+       624        41
+       190       110
+       354       771
+       480       986
+
+总重量为：1958
+总价值为：2172
+
+点数N为 : 100, 运行时间为: 66634微秒

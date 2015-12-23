@@ -1,0 +1,93 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+#define MAX_SIZE 21
+
+//查找回路函数
+void getHamiltonPathBybranch(int graph[MAX_SIZE][MAX_SIZE],int visited[MAX_SIZE],
+                             int path[MAX_SIZE],int bestpath[MAX_SIZE],
+                             int len,int currentlen,int *mincost);
+//计算当前路径的代价
+int getPathcost(int path[MAX_SIZE],int graph[MAX_SIZE][MAX_SIZE],int currentlen);
+
+int main()
+//HamiltonBybranch()
+{
+    int len,i,j,mincost;//len为点数
+    int graph[MAX_SIZE][MAX_SIZE];//邻接矩阵
+    int visited[MAX_SIZE],path[MAX_SIZE],bestpath[MAX_SIZE];//标记已读和路径
+    //double start,end;//时间变量
+
+    // CPU频率
+
+    freopen("in.txt","r",stdin);
+   // freopen("BranchOutput.txt","w",stdout);
+    //
+    while(scanf("%d",&len)!=EOF)
+    {
+        //初始化
+        for(i = 0; i<len; i++)
+        {
+            visited[i] = 0;
+            path[i] = -1;
+            bestpath[i] = -1;
+            for(j = 0; j < len; j++)
+            {
+                scanf("%d",&graph[i][j]);
+                printf("%4d", graph[i][j]);
+            }
+            printf("\n");
+        }
+
+        path[0] = 0;
+        visited[0] = 1;
+        mincost = 100*len;
+        getHamiltonPathBybranch(graph, visited, path, bestpath, len, 1, &mincost);
+
+        printf("\nLines \n");
+        for(int i = 0; i < len; i++)
+        {
+            printf("%4d", bestpath[i]);
+        }
+        printf("\ncost = %d\n",mincost);
+    }
+}
+
+void getHamiltonPathBybranch(int graph[MAX_SIZE][MAX_SIZE],int visited[MAX_SIZE],
+                             int path[MAX_SIZE],int bestpath[MAX_SIZE],
+                             int len,int currentlen,int *mincost)
+{
+    int i,costpath;
+    if(len == currentlen)
+    {
+        costpath = getPathcost(path,graph,currentlen) + graph[path[currentlen-1]][0];
+        if(costpath < *mincost)
+        {
+            *mincost = costpath;
+            for(i=0; i<len; i++)
+                bestpath[i] = path[i];
+            return;
+        }
+    }
+    for(i=1; i<len; i++)
+    {
+        if(!visited[i])
+        {
+            visited[i] = 1;
+            path[currentlen] = i;
+            if(getPathcost(path,graph,currentlen+1)<*mincost)
+                getHamiltonPathBybranch(graph,visited,path,bestpath,len,currentlen+1,mincost);
+            path[currentlen] = -1;
+            visited[i] = 0;
+        }
+    }
+}
+
+int getPathcost(int path[MAX_SIZE],int graph[MAX_SIZE][MAX_SIZE],int currentlen)
+{
+    int i,cost;
+    cost = 0;
+    for(i=1; i<currentlen; i++)
+        cost = cost + graph[path[i-1]][path[i]];
+    return cost;
+}
