@@ -1,0 +1,727 @@
+<?xml version="1.0" encoding="GBK"?>
+
+<root>
+	<database>数据库：月度数据</database>
+	<data>
+		<record>
+			<field name="指标">原盐产量_当月值(万吨)</field>
+			<field name="时间">2015年10月</field>
+			<field name="数据">817.5</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_当月值(万吨)</field>
+			<field name="时间">2015年9月</field>
+			<field name="数据">483.6</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_当月值(万吨)</field>
+			<field name="时间">2015年8月</field>
+			<field name="数据">455.8</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_当月值(万吨)</field>
+			<field name="时间">2015年7月</field>
+			<field name="数据">557.2</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_当月值(万吨)</field>
+			<field name="时间">2015年6月</field>
+			<field name="数据">848.3</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_当月值(万吨)</field>
+			<field name="时间">2015年5月</field>
+			<field name="数据">669.0</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_当月值(万吨)</field>
+			<field name="时间">2015年4月</field>
+			<field name="数据">400.8</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_当月值(万吨)</field>
+			<field name="时间">2015年3月</field>
+			<field name="数据">368.2</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_当月值(万吨)</field>
+			<field name="时间">2015年2月</field>
+			<field name="数据"/>
+		</record>
+		<record>
+			<field name="指标">原盐产量_当月值(万吨)</field>
+			<field name="时间">2015年1月</field>
+			<field name="数据"/>
+		</record>
+		<record>
+			<field name="指标">原盐产量_当月值(万吨)</field>
+			<field name="时间">2014年12月</field>
+			<field name="数据">403.8</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_当月值(万吨)</field>
+			<field name="时间">2014年11月</field>
+			<field name="数据">509.9</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_当月值(万吨)</field>
+			<field name="时间">2014年10月</field>
+			<field name="数据">820.2</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_当月值(万吨)</field>
+			<field name="时间">2014年9月</field>
+			<field name="数据">599.8</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_当月值(万吨)</field>
+			<field name="时间">2014年8月</field>
+			<field name="数据">517.4</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_当月值(万吨)</field>
+			<field name="时间">2014年7月</field>
+			<field name="数据">570.3</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_当月值(万吨)</field>
+			<field name="时间">2014年6月</field>
+			<field name="数据">872.3</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_当月值(万吨)</field>
+			<field name="时间">2014年5月</field>
+			<field name="数据">794.8</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_当月值(万吨)</field>
+			<field name="时间">2014年4月</field>
+			<field name="数据">447.4</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_当月值(万吨)</field>
+			<field name="时间">2014年3月</field>
+			<field name="数据">401.6</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_当月值(万吨)</field>
+			<field name="时间">2014年2月</field>
+			<field name="数据"/>
+		</record>
+		<record>
+			<field name="指标">原盐产量_当月值(万吨)</field>
+			<field name="时间">2014年1月</field>
+			<field name="数据"/>
+		</record>
+		<record>
+			<field name="指标">原盐产量_当月值(万吨)</field>
+			<field name="时间">2013年12月</field>
+			<field name="数据">438.7</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_当月值(万吨)</field>
+			<field name="时间">2013年11月</field>
+			<field name="数据">600.7</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_当月值(万吨)</field>
+			<field name="时间">2013年10月</field>
+			<field name="数据">761.9</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_当月值(万吨)</field>
+			<field name="时间">2013年9月</field>
+			<field name="数据">578.0</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_当月值(万吨)</field>
+			<field name="时间">2013年8月</field>
+			<field name="数据">560.2</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_当月值(万吨)</field>
+			<field name="时间">2013年7月</field>
+			<field name="数据">553.3</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_当月值(万吨)</field>
+			<field name="时间">2013年6月</field>
+			<field name="数据">849.5</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_当月值(万吨)</field>
+			<field name="时间">2013年5月</field>
+			<field name="数据">613.3</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_当月值(万吨)</field>
+			<field name="时间">2013年4月</field>
+			<field name="数据">436.6</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_当月值(万吨)</field>
+			<field name="时间">2013年3月</field>
+			<field name="数据">355.7</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_当月值(万吨)</field>
+			<field name="时间">2013年2月</field>
+			<field name="数据"/>
+		</record>
+		<record>
+			<field name="指标">原盐产量_当月值(万吨)</field>
+			<field name="时间">2013年1月</field>
+			<field name="数据"/>
+		</record>
+		<record>
+			<field name="指标">原盐产量_当月值(万吨)</field>
+			<field name="时间">2012年12月</field>
+			<field name="数据">408.9</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_当月值(万吨)</field>
+			<field name="时间">2012年11月</field>
+			<field name="数据">502.2</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_累计值(万吨)</field>
+			<field name="时间">2015年10月</field>
+			<field name="数据">5110.8</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_累计值(万吨)</field>
+			<field name="时间">2015年9月</field>
+			<field name="数据">4305.5</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_累计值(万吨)</field>
+			<field name="时间">2015年8月</field>
+			<field name="数据">3797.8</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_累计值(万吨)</field>
+			<field name="时间">2015年7月</field>
+			<field name="数据">3319.4</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_累计值(万吨)</field>
+			<field name="时间">2015年6月</field>
+			<field name="数据">2908.7</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_累计值(万吨)</field>
+			<field name="时间">2015年5月</field>
+			<field name="数据">2056.6</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_累计值(万吨)</field>
+			<field name="时间">2015年4月</field>
+			<field name="数据">1387.3</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_累计值(万吨)</field>
+			<field name="时间">2015年3月</field>
+			<field name="数据">985.1</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_累计值(万吨)</field>
+			<field name="时间">2015年2月</field>
+			<field name="数据">605.8</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_累计值(万吨)</field>
+			<field name="时间">2015年1月</field>
+			<field name="数据"/>
+		</record>
+		<record>
+			<field name="指标">原盐产量_累计值(万吨)</field>
+			<field name="时间">2014年12月</field>
+			<field name="数据">6433.8</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_累计值(万吨)</field>
+			<field name="时间">2014年11月</field>
+			<field name="数据">6124.6</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_累计值(万吨)</field>
+			<field name="时间">2014年10月</field>
+			<field name="数据">5614.9</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_累计值(万吨)</field>
+			<field name="时间">2014年9月</field>
+			<field name="数据">4852.2</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_累计值(万吨)</field>
+			<field name="时间">2014年8月</field>
+			<field name="数据">4200.2</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_累计值(万吨)</field>
+			<field name="时间">2014年7月</field>
+			<field name="数据">3687.2</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_累计值(万吨)</field>
+			<field name="时间">2014年6月</field>
+			<field name="数据">3292.8</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_累计值(万吨)</field>
+			<field name="时间">2014年5月</field>
+			<field name="数据">2389.4</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_累计值(万吨)</field>
+			<field name="时间">2014年4月</field>
+			<field name="数据">1491.7</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_累计值(万吨)</field>
+			<field name="时间">2014年3月</field>
+			<field name="数据">1077.3</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_累计值(万吨)</field>
+			<field name="时间">2014年2月</field>
+			<field name="数据">628.5</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_累计值(万吨)</field>
+			<field name="时间">2014年1月</field>
+			<field name="数据"/>
+		</record>
+		<record>
+			<field name="指标">原盐产量_累计值(万吨)</field>
+			<field name="时间">2013年12月</field>
+			<field name="数据">6460.3</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_累计值(万吨)</field>
+			<field name="时间">2013年11月</field>
+			<field name="数据">6020.3</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_累计值(万吨)</field>
+			<field name="时间">2013年10月</field>
+			<field name="数据">5419.4</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_累计值(万吨)</field>
+			<field name="时间">2013年9月</field>
+			<field name="数据">4673.0</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_累计值(万吨)</field>
+			<field name="时间">2013年8月</field>
+			<field name="数据">4091.1</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_累计值(万吨)</field>
+			<field name="时间">2013年7月</field>
+			<field name="数据">3509.8</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_累计值(万吨)</field>
+			<field name="时间">2013年6月</field>
+			<field name="数据">2959.5</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_累计值(万吨)</field>
+			<field name="时间">2013年5月</field>
+			<field name="数据">2049.9</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_累计值(万吨)</field>
+			<field name="时间">2013年4月</field>
+			<field name="数据">1434.3</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_累计值(万吨)</field>
+			<field name="时间">2013年3月</field>
+			<field name="数据">999.1</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_累计值(万吨)</field>
+			<field name="时间">2013年2月</field>
+			<field name="数据">639.8</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_累计值(万吨)</field>
+			<field name="时间">2013年1月</field>
+			<field name="数据"/>
+		</record>
+		<record>
+			<field name="指标">原盐产量_累计值(万吨)</field>
+			<field name="时间">2012年12月</field>
+			<field name="数据">6215.8</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_累计值(万吨)</field>
+			<field name="时间">2012年11月</field>
+			<field name="数据">5806.7</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_同比增长(%)</field>
+			<field name="时间">2015年10月</field>
+			<field name="数据">4.1</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_同比增长(%)</field>
+			<field name="时间">2015年9月</field>
+			<field name="数据">-9.6</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_同比增长(%)</field>
+			<field name="时间">2015年8月</field>
+			<field name="数据">-1.7</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_同比增长(%)</field>
+			<field name="时间">2015年7月</field>
+			<field name="数据">6.7</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_同比增长(%)</field>
+			<field name="时间">2015年6月</field>
+			<field name="数据">6.1</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_同比增长(%)</field>
+			<field name="时间">2015年5月</field>
+			<field name="数据">-10.1</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_同比增长(%)</field>
+			<field name="时间">2015年4月</field>
+			<field name="数据">-9.0</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_同比增长(%)</field>
+			<field name="时间">2015年3月</field>
+			<field name="数据">-4.2</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_同比增长(%)</field>
+			<field name="时间">2015年2月</field>
+			<field name="数据"/>
+		</record>
+		<record>
+			<field name="指标">原盐产量_同比增长(%)</field>
+			<field name="时间">2015年1月</field>
+			<field name="数据"/>
+		</record>
+		<record>
+			<field name="指标">原盐产量_同比增长(%)</field>
+			<field name="时间">2014年12月</field>
+			<field name="数据">-8.8</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_同比增长(%)</field>
+			<field name="时间">2014年11月</field>
+			<field name="数据">-16.2</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_同比增长(%)</field>
+			<field name="时间">2014年10月</field>
+			<field name="数据">7.1</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_同比增长(%)</field>
+			<field name="时间">2014年9月</field>
+			<field name="数据">2.0</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_同比增长(%)</field>
+			<field name="时间">2014年8月</field>
+			<field name="数据">-7.3</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_同比增长(%)</field>
+			<field name="时间">2014年7月</field>
+			<field name="数据">0.9</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_同比增长(%)</field>
+			<field name="时间">2014年6月</field>
+			<field name="数据">-1.4</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_同比增长(%)</field>
+			<field name="时间">2014年5月</field>
+			<field name="数据">14.8</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_同比增长(%)</field>
+			<field name="时间">2014年4月</field>
+			<field name="数据">3.9</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_同比增长(%)</field>
+			<field name="时间">2014年3月</field>
+			<field name="数据">10.1</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_同比增长(%)</field>
+			<field name="时间">2014年2月</field>
+			<field name="数据"/>
+		</record>
+		<record>
+			<field name="指标">原盐产量_同比增长(%)</field>
+			<field name="时间">2014年1月</field>
+			<field name="数据"/>
+		</record>
+		<record>
+			<field name="指标">原盐产量_同比增长(%)</field>
+			<field name="时间">2013年12月</field>
+			<field name="数据">6.3</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_同比增长(%)</field>
+			<field name="时间">2013年11月</field>
+			<field name="数据">18.0</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_同比增长(%)</field>
+			<field name="时间">2013年10月</field>
+			<field name="数据">-3.1</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_同比增长(%)</field>
+			<field name="时间">2013年9月</field>
+			<field name="数据">2.2</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_同比增长(%)</field>
+			<field name="时间">2013年8月</field>
+			<field name="数据">7.1</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_同比增长(%)</field>
+			<field name="时间">2013年7月</field>
+			<field name="数据">1.5</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_同比增长(%)</field>
+			<field name="时间">2013年6月</field>
+			<field name="数据">-2.2</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_同比增长(%)</field>
+			<field name="时间">2013年5月</field>
+			<field name="数据">-14.4</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_同比增长(%)</field>
+			<field name="时间">2013年4月</field>
+			<field name="数据">3.6</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_同比增长(%)</field>
+			<field name="时间">2013年3月</field>
+			<field name="数据">-6.2</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_同比增长(%)</field>
+			<field name="时间">2013年2月</field>
+			<field name="数据"/>
+		</record>
+		<record>
+			<field name="指标">原盐产量_同比增长(%)</field>
+			<field name="时间">2013年1月</field>
+			<field name="数据"/>
+		</record>
+		<record>
+			<field name="指标">原盐产量_同比增长(%)</field>
+			<field name="时间">2012年12月</field>
+			<field name="数据">0.5</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_同比增长(%)</field>
+			<field name="时间">2012年11月</field>
+			<field name="数据">10.5</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_累计增长(%)</field>
+			<field name="时间">2015年10月</field>
+			<field name="数据">-1.4</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_累计增长(%)</field>
+			<field name="时间">2015年9月</field>
+			<field name="数据">-3.7</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_累计增长(%)</field>
+			<field name="时间">2015年8月</field>
+			<field name="数据">0.1</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_累计增长(%)</field>
+			<field name="时间">2015年7月</field>
+			<field name="数据">-1.2</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_累计增长(%)</field>
+			<field name="时间">2015年6月</field>
+			<field name="数据">-2.5</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_累计增长(%)</field>
+			<field name="时间">2015年5月</field>
+			<field name="数据">-6.8</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_累计增长(%)</field>
+			<field name="时间">2015年4月</field>
+			<field name="数据">-4.8</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_累计增长(%)</field>
+			<field name="时间">2015年3月</field>
+			<field name="数据">-3.1</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_累计增长(%)</field>
+			<field name="时间">2015年2月</field>
+			<field name="数据">-5.4</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_累计增长(%)</field>
+			<field name="时间">2015年1月</field>
+			<field name="数据"/>
+		</record>
+		<record>
+			<field name="指标">原盐产量_累计增长(%)</field>
+			<field name="时间">2014年12月</field>
+			<field name="数据">-2.0</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_累计增长(%)</field>
+			<field name="时间">2014年11月</field>
+			<field name="数据">1.0</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_累计增长(%)</field>
+			<field name="时间">2014年10月</field>
+			<field name="数据">2.9</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_累计增长(%)</field>
+			<field name="时间">2014年9月</field>
+			<field name="数据">1.9</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_累计增长(%)</field>
+			<field name="时间">2014年8月</field>
+			<field name="数据">0.5</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_累计增长(%)</field>
+			<field name="时间">2014年7月</field>
+			<field name="数据">2.4</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_累计增长(%)</field>
+			<field name="时间">2014年6月</field>
+			<field name="数据">5.5</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_累计增长(%)</field>
+			<field name="时间">2014年5月</field>
+			<field name="数据">9.1</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_累计增长(%)</field>
+			<field name="时间">2014年4月</field>
+			<field name="数据">4.2</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_累计增长(%)</field>
+			<field name="时间">2014年3月</field>
+			<field name="数据">5.0</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_累计增长(%)</field>
+			<field name="时间">2014年2月</field>
+			<field name="数据">-2.0</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_累计增长(%)</field>
+			<field name="时间">2014年1月</field>
+			<field name="数据"/>
+		</record>
+		<record>
+			<field name="指标">原盐产量_累计增长(%)</field>
+			<field name="时间">2013年12月</field>
+			<field name="数据">2.5</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_累计增长(%)</field>
+			<field name="时间">2013年11月</field>
+			<field name="数据">2.2</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_累计增长(%)</field>
+			<field name="时间">2013年10月</field>
+			<field name="数据">0.7</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_累计增长(%)</field>
+			<field name="时间">2013年9月</field>
+			<field name="数据">1.6</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_累计增长(%)</field>
+			<field name="时间">2013年8月</field>
+			<field name="数据">1.4</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_累计增长(%)</field>
+			<field name="时间">2013年7月</field>
+			<field name="数据">0.2</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_累计增长(%)</field>
+			<field name="时间">2013年6月</field>
+			<field name="数据">-0.4</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_累计增长(%)</field>
+			<field name="时间">2013年5月</field>
+			<field name="数据">-4.2</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_累计增长(%)</field>
+			<field name="时间">2013年4月</field>
+			<field name="数据">0.7</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_累计增长(%)</field>
+			<field name="时间">2013年3月</field>
+			<field name="数据">0.7</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_累计增长(%)</field>
+			<field name="时间">2013年2月</field>
+			<field name="数据">5.2</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_累计增长(%)</field>
+			<field name="时间">2013年1月</field>
+			<field name="数据"/>
+		</record>
+		<record>
+			<field name="指标">原盐产量_累计增长(%)</field>
+			<field name="时间">2012年12月</field>
+			<field name="数据">3.7</field>
+		</record>
+		<record>
+			<field name="指标">原盐产量_累计增长(%)</field>
+			<field name="时间">2012年11月</field>
+			<field name="数据">3.8</field>
+		</record>
+	</data>
+</root>
