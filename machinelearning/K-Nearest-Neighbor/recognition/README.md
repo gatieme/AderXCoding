@@ -1,4 +1,4 @@
-K最近邻 k-Nearest Neighbor, KNN 简单示例
+[K最近邻（k-Nearest Neighbor, KNN）分类算法](https://github.com/gatieme/AderXCoding/tree/master/machinelearning/K-Nearest-Neighbor)
 =======
 
  这里我们用kNN来分类一个大点的数据库，包括数据维度比较大和样本数比较多的数据库。
