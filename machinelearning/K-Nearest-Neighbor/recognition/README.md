@@ -19,6 +19,7 @@ K最近邻 k-Nearest Neighbor, KNN 简单示例
 
 ##knn.py
 -------
+```
 kNNClassify(newInput, dataSet, labels, k)
 """
 进行KNN分类
