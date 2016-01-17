@@ -44,8 +44,14 @@ KNN算法中, 所选择的邻居都是已经正确分类的对象.该方法在�
 
 5) 返回前k个点出现频率最高的类别作为当前点的预测分类.
 
-# 示例
+# 示例一
 -------
+
 我们需要先用一个很小的数据库来测试它的正确性, 否则一下子给个大数据给它, 它也很难消化, 而且还不利于我们分析代码的有效性.
 
 [simple-knn code](https://github.com/gatieme/AderXCoding/tree/master/machinelearning/K-Nearest-Neighbor/simple)
+
+# 示例二
+-------
+手写数字识别
+https://github.com/gatieme/AderXCoding/tree/master/machinelearning/K-Nearest-Neighbor/recognition
