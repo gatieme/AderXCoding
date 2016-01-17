@@ -30,3 +30,7 @@
 
 # Debug files
 *.dSYM/
+
+#Python
+*.pyc
+*.pyo
