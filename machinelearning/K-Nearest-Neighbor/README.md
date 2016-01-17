@@ -53,5 +53,4 @@ KNN算法中, 所选择的邻居都是已经正确分类的对象.该方法在�
 
 # 示例二
 -------
-手写数字识别
-https://github.com/gatieme/AderXCoding/tree/master/machinelearning/K-Nearest-Neighbor/recognition
+[手写数字识别](https://github.com/gatieme/AderXCoding/tree/master/machinelearning/K-Nearest-Neighbor/recognition)
