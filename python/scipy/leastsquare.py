@@ -17,7 +17,6 @@ def OridinaryLeastSquareEstimation(xData, yData, ci, test) :
     yArray = np.array(y)
     yMean = yArray.mean( )            #  计算均值
 
-
     print "xMean = %f, yMean = %f" % (xMean, yMean)
 
     Lxx = 0.0
@@ -29,7 +28,7 @@ def OridinaryLeastSquareEstimation(xData, yData, ci, test) :
         Lxy += xArray[pos] * yArray[pos]
     #Lxx = xArray.var(ddof = 0) * length   
     Lxy -= length * xMean * yMean
-    print "Lxx = %f, Lxy = %f" % (Lxx, Lxy)
+    print "Lxx = %f, Lyy = %f, Lxy = %f" % (Lxx, Lyy, Lxy)
     B1 = Lxy / Lxx
     B0 = yMean - B1 * xMean
     print "B0 = %f, B1 = %f" % (B0, B1)
@@ -42,6 +41,7 @@ def OridinaryLeastSquareEstimation(xData, yData, ci, test) :
     for pos in range(0, length):
         yEstimation.append(B1 * xArray[pos] + B0)
     print  yEstimation
+    
     St = Lyy
     Sr = np.power(B1, 2) * Lxx
     Se = St - Sr
@@ -53,8 +53,8 @@ def OridinaryLeastSquareEstimation(xData, yData, ci, test) :
     #  计算F统计量
     F = Sr / (Se / (length - 2))
     # F的上a分位点
-    Fppf = ss.f.ppf(q = ci, dfn = 1, dfd = length - 2)  # F的上a分位点
-    print "F统计量 = %f, F的上%d分位数 = %f" % (F, ci, Fppf)
+    Fppf = ss.f.ppf(0.95, dfn = 1, dfd = length - 2)  # F的上a分位点
+    print "F统计量 = %f, F的上%f分位数 = %f" % (F, ci, Fppf)
     if F > Fppf :
         print "回归方程效果显著, X与Y呈明显的线性关系"
     else :
@@ -63,6 +63,7 @@ def OridinaryLeastSquareEstimation(xData, yData, ci, test) :
 
     # 做点预测
     print "预测x = %d时, y = %f" % (test , B0 + B1 * test)
+    print B0 + B1 * test + 2*np.sqrt(var), B0 + B1 * test - 2*np.sqrt(var)
         #  设置图表的信息
     plt.figure(num = 1, figsize = (8, 6))
     plt.title("OridinaryLeastSquareEstimation")
@@ -70,17 +71,19 @@ def OridinaryLeastSquareEstimation(xData, yData, ci, test) :
     plt.ylabel("y", size = 14)
     
     #ax = fig.add_subplot(111)
-    plt.plot(x, y, color='m', linestyle='', marker='.')
-    plt.plot(x, yEstimation, color='m', linestyle='-', marker='.')
+    plt.plot(x, y, color='b', linestyle='', marker='.')
+    plt.plot(x, yEstimation, color='r', linestyle='-', marker='.')
     plt.legend(loc = "upper left")
+
     #plt.savefig('cdf.pdf', format = 'pdf')
     plt.savefig('cdf.png', format = 'png')
     #plt.show()
 
 if __name__ == "__main__" :
-    x = [1,  2,  3,  4,  5,  6,  7,  8,  9, 10]
-    y = [5, 10, 20, 20, 30, 30, 40, 40, 50, 50]
+    x = [ 0.1, 0.3, 0.4, 0.55, 0.70, 0.80, 0.95]
+    y = [  15,  18,  19,   21, 22.6, 23.8,   26]
+    #x = [1,  2,  3,  4,  5]
+    #y = [5, 10, 20, 20, 40]
 
-    OridinaryLeastSquareEstimation(x, y, 0.95, 6)
-    
+    OridinaryLeastSquareEstimation(x, y, 0.95, 0.50)
     
