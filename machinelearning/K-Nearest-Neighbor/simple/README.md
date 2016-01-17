@@ -15,6 +15,7 @@ K最近邻（k-Nearest Neighbor，KNN）分类算法可以说是最简单的机�
 
 #示例
 ------
+
 ![image](https://github.com/gatieme/AderXCoding/blob/master/machinelearning/K-Nearest-Neighbor/K-Nearest-Neighbor.png)
 
 比如上面这个图，我们有两类数据，分别是蓝色方块和红色三角形，
