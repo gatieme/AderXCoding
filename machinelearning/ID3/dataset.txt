@@ -1,11 +1,15 @@
-T1      T2      T3      T4      T5      T6      Y1
-0.5     0.5     0.5     0.5     0.25    0.5     0
-0.5     0.5     0.5     0.5     0.25    0.5     0
-0.5     0.5     0.5     0.5     0.25    0.5     0
-0.75    0.75    0.5     0.75    0.5     0.5     0
-0.75    0.75    0.5     0.75    0.5     0.5     0
-0.75    0.75    0.5     0.75    0.25    0.5     1
-0.75    0.75    0.5     0.75    0.5     0.5     0
-0.75    0.75    0.5     0.75    0.25    0.5     1
-0.75    0.75    0.5     0.75    0.25    0.5     1
-0.75    0.75    0.5     0.75    0.75    0.5     0
+outlook     remperature      humidity      windy      class
+sunny           hot             high        false       N
+sunny           hot             high        true        N
+overcast        hot             high        false       P
+rain            mild            high        false       P
+rain            cool            normal      false       P
+rain            cool            normal      true        N
+overcast        cool            normal      true        P
+sunny           mild            high        false       N   
+sunny           cool            normal      false       P
+rain            mild            normal      false       P
+sunny           mild            normal      true        P
+overcast        mild            high        true        P
+overcast        hot             normal      false       P
+rain            mild            high        true        N
