@@ -54,10 +54,10 @@ def trainNB0(trainMatrix,trainCategory):  #传入参数为文档矩阵，每篇�
         else:
             p0Num +=trainMatrix[i]
             p0Denom += sum(trainMatrix[i])
-    #p1Vect = p1Num/p1Denom #对每个元素做除法
-    #p0Vect = p0Num/p0Denom
-    p1Vect = log(p1Num/p1Denom)
-    p0Vect = log(p0Num/p0Denom)
+    p1Vect = p1Num/p1Denom #对每个元素做除法
+    p0Vect = p0Num/p0Denom
+    #p1Vect = log(p1Num/p1Denom)
+    #p0Vect = log(p0Num/p0Denom)
     return p0Vect,p1Vect,pAbusive
 
 #朴素贝叶斯分类函数

@@ -13,4 +13,6 @@ if __name__ == "__main__" :
 
     trainMatrix,trainCategory = bayes.getTrainMatrix()
     p0V,p1V,pAb = bayes.trainNB0(trainMatrix,trainCategory)
-    print p0V, p1V
+    print p0V
+    print p1V
+    print pAb
