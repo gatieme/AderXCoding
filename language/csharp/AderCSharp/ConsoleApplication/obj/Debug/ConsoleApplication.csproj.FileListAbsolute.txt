@@ -1,0 +1,4 @@
+F:\[O]GitHub\AderXCoding\language\csharp\AderCSharp\ConsoleApplication\bin\Debug\ConsoleApplication.exe.config
+F:\[O]GitHub\AderXCoding\language\csharp\AderCSharp\ConsoleApplication\obj\Debug\ConsoleApplication.csprojResolveAssemblyReference.cache
+F:\[O]GitHub\AderXCoding\language\csharp\AderCSharp\ConsoleApplication\obj\Debug\Interop.Office.dll
+F:\[O]GitHub\AderXCoding\language\csharp\AderCSharp\ConsoleApplication\obj\Debug\ConsoleApplication.csproj.ResolveComReference.cache
