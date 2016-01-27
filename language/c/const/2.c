@@ -10,7 +10,7 @@ int main(void)
     char * const pstr = "abcd";  //  Pointer to a constant
 
     // I find that pstr(the address of "abcd") is in ReadOnly data
-    // &pstr(the address of pstr) is in stack segment
+    // &pstr(the address of pstr) is in stack segment [because it's a local constant]
     printf("%p  %p\n", pstr, &pstr);
 
     *(pstr + 2) = 'e';  //  segmentation fault (core dumped)

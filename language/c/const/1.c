@@ -32,11 +32,11 @@ int main(void)
     char *buf = "hello world";
     printf("栈区域地址%p  常量区%p\n\n", &buf, buf);
 
-        //  字符串数组
+    //  字符串数组 -=> 数组本身地址就等于串的地址
     const char const str1[] = "abcd";
     const char const str2[] = "abcd";
-    printf("[%p == %p] %d\n", &str1, &str2, &str1 == &str2);  //  栈区
-    printf("[%p == %p] %d\n\n", str1, str2, str1 == str2);    // 栈区
+    printf("[%p == %p] %d\n", &str1, &str2, &str1 == &str2);  // 数组本身存储在栈区
+    printf("[%p == %p] %d\n\n", str1, str2, str1 == str2);    // 数组本身的地址就是串的地址
     //strcpy(str1, "hello");
     printf("%s\n", str1);
 
@@ -61,7 +61,7 @@ int main(void)
     char * const pstr3 = "abcd";
     char * const pstr4 = "abcd";
     //pstr4 = "bcedf";          //  error, 此时指针的指向无法修改
-    printf("[%p == %p] %d\n", &pstr3, &pstr4, &pstr3 == &pstr4);    // 指针作为局部常量存储在栈中 
+    printf("[%p == %p] %d\n", &pstr3, &pstr4, &pstr3 == &pstr4);    // 指针作为局部常量存储在栈中
     printf("[%p == %p] %d\n\n", pstr3, pstr4, pstr3 == pstr4);      // 字符串存储在常量区
 
 
