@@ -4,38 +4,42 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-static int value = 0;
-pthread_mutex_t mutex;
-
-void func(void* args)
+void func1(void *args)
 {
     while( 1 )
     {
-        pthread_mutex_lock(&mutex);
-
         sleep(1);
 
-        value ++;
-        printf("value = %d!\n", value);
+        printf("I am PTHREAD_1 : hello world!\n");
 
-        pthread_mutex_unlock(&mutex);
     }
 }
 
+void func2(void *args)
+{
+    while( 1 )
+    {
+        sleep(2);
+
+        printf("I am PTHREAD_2 : hello gatieme!\n");
+
+    }
+}
 int main()
 {
     pthread_t   pthread1, pthread2;
 
-    pthread_mutex_init(&mutex, NULL);       //  创建互斥锁
 
     //
-    if(pthread_create(&pthread1, NULL, func, NULL))
+    if(pthread_create(&pthread1, NULL, func1, (void *)NULL))
     {
+        perror("error when create PTHREAD_1");
         return -1;
     }
 
-    if(pthread_create(&pthread2, NULL, func, NULL))
+    if(pthread_create(&pthread2, NULL, func2, (void*)NULL))
     {
+        perror("error when create PTHREAD_2");
         return -1;
     }
 
