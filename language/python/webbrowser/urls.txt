@@ -1,0 +1,10 @@
+http://blog.csdn.net/gatieme/article/details/50756050
+
+http://www.admin10000.com/document/2501.html
+
+http://blog.chinaunix.net/uid-24227137-id-3723898.html
+
+http://blog.csdn.net/myarrow/article/details/8624687
+
+
+http://lxr.free-electrons.com/source/arch/x86/include/asm/pgtable_types.h#L227

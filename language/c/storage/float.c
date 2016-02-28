@@ -37,7 +37,7 @@ int print_bit(void *addr, int size)
 }
 
 int print_byte(void *addr, int size)
-{
+{ 
     unsigned char *paddr = (unsigned char *)addr;
     int print_bytes = 0;
  

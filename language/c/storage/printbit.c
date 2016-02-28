@@ -62,6 +62,7 @@ int main(void)
         printf("print SHORT success!\n\n"); 
     }*/
 
+
     int intvalue = 0x12345678;
     if(print_bit((char *)&intvalue, sizeof(intvalue)) != -1)
     {
