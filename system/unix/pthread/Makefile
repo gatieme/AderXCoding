@@ -1,16 +1,16 @@
-ROOT=../../
+ROOT=../../../
 PLATFORM=$(shell $(ROOT)/systype.sh)
 include $(ROOT)/Make.defines.$(PLATFORM)
 LDFLAGS +=-lpthread
 target= pthread mutex multiargs
- 
+
 
 
 all:$(target)
 
 
 pthread : pthread.o
-	$(CC) $^ -o $@ $(LDFLAGS) 
+	$(CC) $^ -o $@ $(LDFLAGS)
 	echo "最简单的pthread测试程序..."
 
 mutex : mutex.o

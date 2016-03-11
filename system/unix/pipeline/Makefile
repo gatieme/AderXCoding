@@ -28,4 +28,4 @@ fifo_read : fifo_read.o
 clean :
 	rm *.o
 	rm $(target)
-	rm $(FIFO_FILE)
+#	rm $(FIFO_FILE)
