@@ -49,7 +49,8 @@ void Copy()
 
 int main(void)
 {
-    Base base(10);
+    std::cout  <<std::endl <<"可以隐式转换为Base类对象的char来初始化, 应该调用拷贝构造函数[被RVO优化]..." <<std::endl;
+    Base base = 'a';
 
     std::cout  <<std::endl <<"参数为Base对象..." <<std::endl;
     Func(base);     //  优化未优化情况下均调用1次拷贝构造函数
