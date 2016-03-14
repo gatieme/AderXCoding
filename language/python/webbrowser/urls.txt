@@ -1,9 +1,2 @@
-
-
-http://lxr.free-electrons.com/source/arch/x86/include/asm/pgtable_types.h#L227
-
-
-
-http://www.cnblogs.com/bavariama/archive/2013/02/25/2932217.html
-http://blog.csdn.net/xiaowei_cqu/article/details/8034195
-http://blog.csdn.net/china_wanglong/article/details/20293687
+http://www.vaikan.com/59-hilarious-but-true-programming-quotes-for-software-developers/
+http://www.cnblogs.com/skynet/p/3343726.html
