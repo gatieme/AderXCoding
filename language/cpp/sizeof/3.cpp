@@ -2,7 +2,7 @@
 
 class A
 {
-
+    explicit int a;
 };
 
 class B

@@ -1,24 +1,24 @@
 #include <iostream>
 
 
-class X
+class A
 {
 };
 
 
-class Y : public virtual X
+class B : public virtual A
 {
 
 };
 
-class Z : public virtual X
+class C : public virtual A
 {
 
 };
 
 
 
-class A : public Y, public Z
+class D : virtual public A, virtual public B
 {
 
 };
@@ -26,10 +26,10 @@ class A : public Y, public Z
 
 int main( )
 {
-    std::cout <<sizeof(X) <<std::endl;
-    std::cout <<sizeof(Y) <<std::endl;
-    std::cout <<sizeof(Z) <<std::endl;
     std::cout <<sizeof(A) <<std::endl;
+    std::cout <<sizeof(B) <<std::endl;
+    std::cout <<sizeof(C) <<std::endl;
+    std::cout <<sizeof(D) <<std::endl;
 
     return 0;
 }
