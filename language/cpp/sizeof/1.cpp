@@ -3,6 +3,7 @@
 
 class A
 {
+
 };
 
 
@@ -30,6 +31,9 @@ int main( )
     std::cout <<sizeof(B) <<std::endl;
     std::cout <<sizeof(C) <<std::endl;
     std::cout <<sizeof(D) <<std::endl;
+
+    std::cout <<&a.pvtrA <<std::endl;
+
 
     return 0;
 }
