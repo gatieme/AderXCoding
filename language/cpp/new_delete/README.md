@@ -1,0 +1,1 @@
+#[Ç³Ì¸ C++ ÖÐµÄ new/delete](http://blog.csdn.net/gatieme/article/details/50916927)
