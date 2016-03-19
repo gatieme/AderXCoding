@@ -1,0 +1,1 @@
+[如何实现 C 语言的继承和多态](http://www.cnblogs.com/haippy/archive/2012/12/31/2840501.html)

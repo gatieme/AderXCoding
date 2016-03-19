@@ -1,0 +1,1 @@
+ [技巧：用 C 语言实现程序的多态性](http://www.ibm.com/developerworks/cn/linux/l-cn-cpolym/)
