@@ -2,7 +2,7 @@ ROOT=../../
 PLATFORM=$(shell $(ROOT)/systype.sh)
 include $(ROOT)/Make.defines.$(PLATFORM)
 
-DIRS=rvo
+DIRS=rvo typeinfo
 
 
 all:
