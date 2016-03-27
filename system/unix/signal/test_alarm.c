@@ -7,9 +7,19 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <signal.h>
+
+void sigroutine(int signo)
+{
+    printf("Catch a signal -- SIGALRM \n");
+
+    alarm(3);
+    signal(SIGALRM, sigroutine);
+}
 
 int main(void)
 {
+    signal(SIGALRM, sigroutine);
 
     if(alarm(3) < 0)
     {
@@ -24,7 +34,7 @@ int main(void)
 
         sleep(1);
 
-        printf("i am father process\n");
+        printf("i am running now...\n");
 
     }
 

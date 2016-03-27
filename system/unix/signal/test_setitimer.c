@@ -46,7 +46,7 @@ int main()
 
     signal(SIGALRM, sigroutine);
 
-    //signal(SIGVTALRM, sigroutine);
+    signal(SIGVTALRM, sigroutine);
 
     value.it_value.tv_sec = 1;
     value.it_value.tv_usec = 0;

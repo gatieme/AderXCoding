@@ -14,7 +14,7 @@
 #include <signal.h>
 
 
-int main()
+int main(int argc, char *argv[])
 {
     int pid;
 
@@ -39,7 +39,7 @@ int main()
         while(scanf("%d",&signum) == 1) //  用户输入带发送的信号
         {
             kill(pid, signum);          //  父进程向子进程发送信号
-            system("ps -aux | grep ./test");
+            system("ps -aux | grep ./test_kill1");
         }
     }
 
