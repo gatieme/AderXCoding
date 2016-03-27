@@ -2,7 +2,7 @@ ROOT=../../
 PLATFORM=$(shell $(ROOT)/systype.sh)
 include $(ROOT)/Make.defines.$(PLATFORM)
 
-DIRS=zombie pipeline
+DIRS=zombie pipeline pthread  semaphore  signal
 
 
 all:

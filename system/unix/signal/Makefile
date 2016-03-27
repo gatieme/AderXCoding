@@ -2,16 +2,17 @@ ROOT=../../..
 PLATFORM=$(shell $(ROOT)/systype.sh)
 include $(ROOT)/Make.defines.$(PLATFORM)
 
-target=	test_kill1 test_kill2 			\
-	   	test_raise test_alarm			\
-	   	test_setitimer	test_pause		\
-	   	test_abort						\
-		test_sigaction					\
-		sigaction_signal				\
-		sigaction_mask					\
-		send_int						\
-		send_data	recv_data		
-
+target=	test_kill1 test_kill2 				\
+	   	test_raise test_alarm				\
+	   	test_setitimer	test_pause			\
+	   	test_abort							\
+		test_sigaction						\
+		sigaction_signal					\
+		sigaction_mask						\
+		send_int							\
+		send_data	recv_data				\
+		test_sigprocmask test_sigpending	\
+		test_sigset
 
 all:$(target)
 
@@ -68,6 +69,18 @@ send_data:send_data.o
 recv_data:recv_data.o
 	$(CC) $^ -o $@ $(LDFLAGS)
 	@echo -e "接收数据的服务器...\n"
+
+test_sigprocmask:test_sigprocmask.o
+	$(CC) $^ -o $@ $(LDFLAGS)
+	@echo -e "测试sigprocmask屏蔽和取消屏蔽信号量...\n"
+
+test_sigpending:test_sigpending.o
+	$(CC) $^ -o $@ $(LDFLAGS)
+	@echo -e "测试sigpengding检测未决的信号量...\n"
+
+test_sigset:test_sigset.o
+	$(CC) $^ -o $@ $(LDFLAGS)
+	@echo -e "测试sigset信号集...\n"
 
 %.o : %.c
 	$(CC) -c $^ -o $@  $(CFLAGS) $(DEFINES)

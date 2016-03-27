@@ -17,7 +17,7 @@ LINK.c=$(CC) $(CFLAGS) $(CPPFLAGS) $(LDFLAGS)
 LDFLAGS=-lm
 LDDIR=-L$(ROOT)/lib
 LDLIBS=
-CFLAGS=-std=c99 -Wall $(DEFFLAGS)
+CFLAGS=-std=gnu9x -Wall $(DEFFLAGS)
 RANLIB=echo
 AR=ar
 AWK=awk
