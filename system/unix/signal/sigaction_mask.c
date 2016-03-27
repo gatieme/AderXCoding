@@ -11,13 +11,6 @@
 #include <signal.h>
 
 
-#define ERR_EXIT(m) \
-    do \
-    { \
-        perror(m); \
-        exit(EXIT_FAILURE); \
-    } while(0)
-
 void handler(int sig);
 
 int main(int argc, char *argv[])
@@ -29,7 +22,9 @@ int main(int argc, char *argv[])
     act.sa_flags = 0;
 
     if (sigaction(SIGINT, &act, NULL) < 0)
-        ERR_EXIT("sigaction error");
+    {
+        perror("sigaction error");
+    }
 
     struct sigaction act2;
     act2.sa_handler = handler;
@@ -37,10 +32,15 @@ int main(int argc, char *argv[])
     act2.sa_flags = 0;
 
     if (sigaction(SIGQUIT, &act2, NULL) < 0)
-        ERR_EXIT("sigaction error");
+    {
+        perror("sigaction error");
+    }
 
     for (;;)
+    {
         pause();
+    }
+
     return 0;
 }
 
