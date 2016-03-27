@@ -2,12 +2,15 @@ ROOT=../../..
 PLATFORM=$(shell $(ROOT)/systype.sh)
 include $(ROOT)/Make.defines.$(PLATFORM)
 
-target=test_kill1 test_kill2 			\
-	   test_raise test_alarm			\
-	   test_setitimer	test_pause		\
-	   test_abort	
-
-FIFO_FILE=./myfifo
+target=	test_kill1 test_kill2 			\
+	   	test_raise test_alarm			\
+	   	test_setitimer	test_pause		\
+	   	test_abort						\
+		test_sigaction					\
+		sigaction_signal				\
+		sigaction_mask					\
+		send_int						\
+		send_data	recv_data		
 
 
 all:$(target)
@@ -41,6 +44,30 @@ test_pause : test_pause.o
 test_abort : test_abort.o
 	$(CC) $^ -o $@ $(LDFLAGS)
 	@echo -e "通过abort终止进程...\n"
+
+test_sigaction:test_sigaction.o
+	$(CC) $^ -o $@ $(LDFLAGS)
+	@echo -e "利用sigaction安装SIGINT信号...\n"
+
+sigaction_signal:sigaction_signal.o
+	$(CC) $^ -o $@ $(LDFLAGS)
+	@echo -e "利用sigaction实现signal...\n"
+
+sigaction_mask:sigaction_mask.o
+	$(CC) $^ -o $@ $(LDFLAGS)
+	@echo -e "验证sigaction.sa_mask效果...\n"
+
+send_int:send_int.o
+	$(CC) $^ -o $@ $(LDFLAGS)
+	@echo -e "给自身发送int型数据...\n"
+
+send_data:send_data.o
+	$(CC) $^ -o $@ $(LDFLAGS)
+	@echo -e "发送数据的客户端...\n"
+
+recv_data:recv_data.o
+	$(CC) $^ -o $@ $(LDFLAGS)
+	@echo -e "接收数据的服务器...\n"
 
 %.o : %.c
 	$(CC) -c $^ -o $@  $(CFLAGS) $(DEFINES)

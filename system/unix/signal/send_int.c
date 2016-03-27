@@ -31,6 +31,7 @@ int main(void)
     return 0;
 }
 
+
 void sighandler(int signo, siginfo_t *info,void *ctx)
 {
     //以下两种方式都能获得sigqueue发来的数据

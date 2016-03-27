@@ -12,14 +12,19 @@ int main(void)
     act.sa_sigaction = sighandler;
     sigemptyset(&act.sa_mask);
     act.sa_flags = SA_SIGINFO;//信息传递开关
-    if(sigaction(SIGINT,&act,NULL) == -1){
+
+    if(sigaction(SIGINT, &act, NULL) == -1)
+    {
         perror("sigaction error");
         exit(EXIT_FAILURE);
     }
-    for(; ;){
+
+    for(; ;)
+    {
         printf("waiting a SIGINT signal....\n");
         pause();
     }
+
     return 0;
 }
 
