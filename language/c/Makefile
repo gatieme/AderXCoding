@@ -2,7 +2,7 @@ ROOT=../../
 PLATFORM=$(shell $(ROOT)/systype.sh)
 include $(ROOT)/Make.defines.$(PLATFORM)
 
-DIRS=const errno memorylayout inlineasm 
+DIRS=const errno memory_layout inline_asm
 
 
 all:
