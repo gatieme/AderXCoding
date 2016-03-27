@@ -4,6 +4,8 @@
 #include <stdlib.h>
 
 void sighandler(int signo, siginfo_t *info,void *ctx);
+
+
 //给自身传递信息
 int main(void)
 {
@@ -12,14 +14,17 @@ int main(void)
     act.sa_sigaction = sighandler;
     sigemptyset(&act.sa_mask);
     act.sa_flags = SA_SIGINFO;//信息传递开关
-    if(sigaction(SIGINT,&act,NULL) == -1){
+    if(sigaction(SIGINT,&act,NULL) == -1)
+    {
         perror("sigaction error");
         exit(EXIT_FAILURE);
     }
+
     sleep(2);
     union sigval mysigval;
     mysigval.sival_int = 100;
-    if(sigqueue(getpid(),SIGINT,mysigval) == -1){
+    if(sigqueue(getpid(),SIGINT,mysigval) == -1)
+    {
         perror("sigqueue error");
         exit(EXIT_FAILURE);
     }
