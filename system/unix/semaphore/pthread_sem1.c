@@ -14,7 +14,7 @@
 #include <stdio.h>
 #include <unistd.h>
 
-#define DEFINE_SEMAPHORE
+//#define DEFINE_SEMAPHORE
 
 int         number;             // 被保护的全局变量
 
@@ -22,12 +22,12 @@ sem_t       sem_id;
 
 void* thread_one_fun(void *arg)
 {
-    printf("thread_one start...\n");
+    //printf("thread_one start...\n");
 
-    while(1)
-    {
+    //while(1)
+    //{
 
-#ifdef DEINE_SEMAPHOER
+#ifdef DEFINE_SEMAPHORE
         ///  等待并锁定信号量
         sem_wait(&sem_id);
         printf("thread_one have the semaphore\n");
@@ -35,38 +35,41 @@ void* thread_one_fun(void *arg)
 
         number++;
 
-        sleep(1);
+        //sleep(1);
 
         printf("thread_one : number = %d\n", number);
 
-#ifdef DEINE_SEMAPHOER
+#ifdef DEFINE_SEMAPHORE
         ///  释放信号量
         sem_post(&sem_id);
 #endif
-    }
+
+    //}
     return NULL;
 }
 
 void* thread_two_fun(void *arg)
 {
-    printf("thread_two start...\n");
-    while(1)
-    {
+    //printf("thread_two start...\n");
+    //while(1)
+    //{
 
-#ifdef DEINE_SEMAPHOER
+#ifdef DEFINE_SEMAPHORE
         sem_wait(&sem_id);
+
         printf("thread_two have the semaphore \n");
 #endif
+
         number--;
 
         sleep(1);
 
         printf("thread_two : number = %d\n", number);
 
-#ifdef DEINE_SEMAPHOER
+#ifdef DEFINE_SEMAPHORE
         sem_post(&sem_id);
 #endif
-    }
+    //}
     return NULL;
 }
 
