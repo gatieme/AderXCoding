@@ -1,10 +1,14 @@
-#include <sys/ipc.h>
-#include <sys/shm.h>
-#include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
 
+#include <sys/ipc.h>
+#include <sys/shm.h>
+#include <string.h>
+
+
 #define IPCKEY 0x366378
+
+
 
 typedef struct st_setting
 {
@@ -15,7 +19,7 @@ typedef struct st_setting
 int main(int argc, char** argv)
 {
     int         shm_id;
-    key_t       key;
+    //key_t       key;
     st_setting  *p_setting;
 
     //  首先检查共享内存是否存在，存在则先删除
@@ -43,11 +47,11 @@ int main(int argc, char** argv)
     //  将这块共享内存区附加到自己的内存段
     p_setting = (st_setting *)shmat(shm_id, NULL, 0);
 
-    strncpy(p_setting->agen, "gatueme", 10);
-    printf( "agen:%s\n",p_setting->agen );
+    strncpy(p_setting->agen, "gatieme", 10);
+    printf("agen : %s\n", p_setting->agen);
 
     p_setting->file_no = 1;
-    printf( "file_no:%d\n",p_setting->file_no );
+    printf("file_no : %d\n",p_setting->file_no);
 
     system("ipcs -m");//  此时可看到有进程关联到共享内存的信息，nattch为1
 
@@ -63,6 +67,8 @@ int main(int argc, char** argv)
         perror(" delete error ");
     }
 
-    return RXIT_SUCCESS;
+    system("ipcs -m");//  此时可看到有进程关联到共享内存的信息，nattch为0
 
+
+    return EXIT_SUCCESS;
 }
