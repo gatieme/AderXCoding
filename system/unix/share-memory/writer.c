@@ -38,13 +38,15 @@ int main()
         exit(-1);
     }
 
-    signal(SIGUSR1, handler);//注册一个信号处理函数
-    if ((shmid = shmget(key, sizeof(SHM), 0666|IPC_CREAT|IPC_EXCL)) < 0)
+    signal(SIGUSR1, handler);               //  注册一个信号处理函数
+    if ((shmid = shmget(key, sizeof(SHM), 0666 | IPC_CREAT | IPC_EXCL)) < 0)
     {
-        if (EEXIST == errno)//存在则直接打开
+        if (EEXIST == errno)                //  存在则直接打开
         {
             shmid = shmget(key, sizeof(SHM), 0666);
+
             p = (SHM *)shmat(shmid, NULL, 0);
+
             pid = p->pid;
             p->pid = getpid();
             kill(pid, SIGUSR1);
@@ -57,22 +59,24 @@ int main()
     }
     else//成功
     {
+
         p = (SHM *)shmat(shmid, NULL, 0);
-        p->pid = getpid();//把自己的pid写到共享内存
+        p->pid = getpid();                  //  把自己的pid写到共享内存
         pause();
-        pid = p->pid;//得到读端进程的pid
+        pid = p->pid;                       //  得到读端进程的pid
+
     }
 
     while ( 1 )
     {
         printf("write to shm : ");
-        fgets(p->buf, N, stdin);//接收输入
-        kill(pid, SIGUSR1);//向读进程发SIGUSR1信号
+        fgets(p->buf, N, stdin);            //  接收输入
+        kill(pid, SIGUSR1);                 //  向读进程发SIGUSR1信号
         if (strcmp(p->buf, "quit\n") == 0) break;
-        pause();//阻塞，等待信号
+        pause();                            //  阻塞，等待信号
     }
     shmdt(p);
-    shmctl(shmid, IPC_RMID, NULL);//删除共享内存
+    shmctl(shmid, IPC_RMID, NULL);          //  删除共享内存
 
     return 0;
 }

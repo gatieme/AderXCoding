@@ -13,7 +13,7 @@
 
 #define N 64
 
-typedef struct 
+typedef struct
 {
     pid_t pid;
     char buf[N];
@@ -72,4 +72,8 @@ int main()
     }
 
     return 0;
+
+
 }
+
+
