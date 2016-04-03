@@ -29,7 +29,7 @@ LIBAPUE=
 # Common temp files to delete from each directory.
 TEMPFILES=core core.* *.o temp.* *.out
 
-COMMIT="kgdb调试内核..."
+COMMIT="C语言调用C++的接口..."
 
 
 
