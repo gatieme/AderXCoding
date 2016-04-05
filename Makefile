@@ -1,7 +1,7 @@
 ROOT=.
 PLATFORM=$(shell $(ROOT)/systype.sh)
 include $(ROOT)/Make.defines.$(PLATFORM)
-include $(ROOT)/Make.defines.readme
+include $(ROOT)/Make.readme
 
 
 DIRS=language
