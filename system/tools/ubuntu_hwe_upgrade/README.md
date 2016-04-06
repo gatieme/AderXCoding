@@ -32,12 +32,75 @@ https://wiki.ubuntu.com/TrustyTahr/ReleaseNotes/ChangeSummary/14.04.5
 | [](http://forum.ubuntu.org.cn/viewtopic.php?p=3174908) | 如何升级14.04.4到14.04.5 |
 
 
+#1  背景
+-------
 
-#1	HWE介绍
+之前更新Ubuntu内核, 往往使用如下两个命令
+
+| 更新 | 描述 |
+|:----:|:----:|
+| apt-get upgrade | 系统将现有的Package升级,如果有相依性的问题,而此相依性需要安装其它新的Package或影响到其它Package的相依性时,此Package就不会被升级,会保留下来 |
+| apt-get dist-upgrade | 可以聪明的解决相依性的问题,如果有相依性问题,需要安装/移除新的Package,就会试着去安装/移除它. (所以通常这个会被认为是有点风险的升级) |
+
+
+**upgrade 和 dist-upgrade 的区别**
+
+apt-get upgrade 和 apt-get dist-upgrade 本质上是没有什么不同的。
+
+
+只不过, `dist-upgrade`会识别出当依赖关系改变的情形并作出处理, 而`upgrade`对此情形不处理.
+
+例如软件包 a 原先依赖 b c d，但是在源里面可能已经升级了，现在是 a 依赖 b c e。这种情况下，dist-upgrade 会删除 d 安装 e，并把 a 软件包升级，而 upgrade 会认为依赖关系改变而拒绝升级 a 软件包
+
+
+**内核的升级**
+
+使用dist-upgrade可能会升级内核, 但是内核的主版本号不会变, 只是不断在修订和修复bug.
+
+
+就比如我系统安装的时候, 安装的是Ubuntu14.04.4, 系统的内核使用的是Linux-4.2.0的内核, 那么我更新之后, 内核可能从4.2.0-36到4.2.0-44, 但是内核版本没有变动
+
+如果我想升级系统的内核, 那么只有如下几种方法
+
+
+*   升级系统版本(比如14.04升级到16.04)
+
+*   自己下载并编译新的内核
+
+*   升级Ubuntu硬件实现栈
+
+
+
+#2	Ubuntu硬件实现栈HWE介绍
 -------
 
 
 Ubuntu硬件实现栈(HWE)是一个功能旨在提供硬件支持, 实现了在Ubuntu的新版本提供了Ubuntu的LTS版本. 这些硬件实现栈纳入安装选择Ubuntu LTS(长期支持)媒体发布. 硬件实现栈本身是由更新内核和图形叠加.
+
+我们知道Ubuntu每隔半年会发布一个新版本, 然后每隔两年会发布一个LTS长期支持版, 发布的版本号往往用"年份.月份"来命名
+
+
+
+```cpp
+*   2004年发行第一个版本4.10
+
+*   2005年4月发行第二个版本5.04
+
+*   2005年10月发行第三个版本5.10
+
+*   2006年6月发行第四个版本6.06 LTS  2
+
+*   2006年10月发行第五个版本6.10
+
+*   2007年4月发行第六个版本7.04
+
+......
+
+*   2016年四月发布16.04 LTS
+```
+
+
+每个LTS长期支持版的维护的周期都很长, 但是Ubuntu发布的周期又很快, 每个版本都重新维护很麻烦, 所以开发人员提供硬件实现栈HWE, 这样LTS可以使用主线版本的内核信息, 维护起来很方便
 
 
 下表将Ubuntu 14.04.x LTS的对应的硬件实现栈和EOL日期
@@ -54,7 +117,7 @@ Ubuntu硬件实现栈(HWE)是一个功能旨在提供硬件支持, 实现了在U
 
 
 
-#2	升级HWE
+#3	升级HWE
 -------
 
 
@@ -62,7 +125,7 @@ Ubuntu硬件实现栈(HWE)是一个功能旨在提供硬件支持, 实现了在U
 
 
 
-##2.1	查看你的HWE的基本信息
+##3.1	查看你的HWE的基本信息
 -------
 
 
@@ -114,17 +177,17 @@ cat /var/log/installer/media-info
 
 
 
-##2.2	升级HWE
+##3.2	升级HWE
 -------
 
-DESKTOP
+DESKTOP桌面版, 请使用如下命令升级
 
 ```cpp
 sudo apt-get install --install-recommends linux-generic-lts-xenial xserver-xorg-core-lts-xenial xserver-xorg-lts-xenial xserver-xorg-video-all-lts-xenial xserver-xorg-input-all-lts-xenial libwayland-egl1-mesa-lts-xenial
 ```
 
 
-MULTIARCH DESKTOP
+MULTIARCH DESKTOP桌面版, 请使用如下命令升级
 
 >If you run a multiarch desktop (for example, i386 and amd64 on amd64, for gaming or Wine), you may find you need a slightly more involved command, like this:
 
@@ -133,7 +196,7 @@ MULTIARCH DESKTOP
 sudo apt-get install --install-recommends linux-generic-lts-xenial xserver-xorg-core-lts-xenial xserver-xorg-lts-xenial xserver-xorg-video-all-lts-xenial xserver-xorg-input-all-lts-xenial libwayland-egl1-mesa-lts-xenial libgl1-mesa-glx-lts-xenial libgl1-mesa-glx-lts-xenial:i386 libglapi-mesa-lts-xenial:i386
 ```
 
-SERVER
+SERVER服务器版, 请使用如下命令升级
 
 >Install the HWE kernel derived from 16.04 (xenial):
 
@@ -142,12 +205,32 @@ sudo apt-get install --install-recommends linux-generic-lts-xenial
 ```
 
 
+当然您也可以运行更新管理器, 让系统检查并提示您升级
+
+
+```cpp
+sudo rm /var/lib/update-notifier/disable-hwe-eol-messages
+hwe-support-status
+update-manager
+```
+
+然后一般会提示类似如下的对话框
+
+
+
+![更新HWE对话框](update-manager-hwe.png)
+
+
+
+Ubuntu14.04的主线支持信息和内核版本, 如下图所示
+
+
 ![Ubuntu14.04的开发和支持主线](14.04schedule.png)
 
 
 
 
-##2.3	验证EOL
+##3.3	验证EOL
 -------
 
 
@@ -179,7 +262,7 @@ sudo dpkg -l | grep linux-generic-lts
 可以看到系统中安装了linux-generic-lts-xenial-4.4.0.38.28的内核
 
 
-##2.4	卸载旧的HWE
+##3.4	卸载旧的HWE
 -------
 
 如果不确定新的HWE是否安装成功, 请慎用此命令
@@ -189,7 +272,7 @@ sudo apt-get remove $(hwe-support-status --show-all-unsupported)
 ```
 
 
-##2.5	使用新的HWE
+##3.5	使用新的HWE
 -------
 
 一般来说安装好后重启, 系统会自己加载新的内核镜像, 如果没有加载可手动生成grub.cfg的信息, 参见[Ubuntu下grub配置详解](http://blog.csdn.net/gatieme/article/details/52722955)
