@@ -77,7 +77,9 @@ hwe-support-status --verbose
 ```
 
 
-![](hwe-support-status--verbose.png)
+![HWE的EOL日期](hwe-support-status--verbose.png)
+
+
 
 如果您想查看你升级HWE的过程中那些包将会升级, 请使用如下命令
 To determine which packages to upgrade use:
@@ -87,7 +89,10 @@ hwe-support-status --show-replacements
 ```
 
 
-![](hwe-support-status--show-replacements.png)
+
+![待升级的HWE软件包](hwe-support-status--show-replacements.png)
+
+
 
 如果您想查看那么包将不再支持(这些包通常是旧的内核的包)
 To find out what packages are unsupported run:
@@ -96,7 +101,7 @@ To find out what packages are unsupported run:
 hwe-support-status --show-all-unsupported
 ```
 
-![](hwe-support-status--show-all-unsupported.png)
+![升级后HWE将不再维护和支持的包](hwe-support-status--show-all-unsupported.png)
 
 
 你可以使用如下命令检查系统安装时的信息
@@ -105,7 +110,7 @@ hwe-support-status --show-all-unsupported
 cat /var/log/installer/media-info
 ```
 
-![](cat_var_log_installer_media-info.png)
+![查看系统安装的信息](cat_var_log_installer_media-info.png)
 
 
 
@@ -137,7 +142,9 @@ sudo apt-get install --install-recommends linux-generic-lts-xenial
 ```
 
 
-![](14.04schedule.png)
+![Ubuntu14.04的开发和支持主线](14.04schedule.png)
+
+
 
 
 ##2.3	验证EOL
@@ -150,9 +157,12 @@ sudo apt-get install --install-recommends linux-generic-lts-xenial
 hwe-support-status --verbose
 ```
 
+
+
 可以看到我们的支持日期是2019年
 
-![](hwe-support-status--verbose.png)
+
+![HWE的支持日期](hwe-support-status--verbose.png)
 
 
 
@@ -163,7 +173,7 @@ hwe-support-status --verbose
 sudo dpkg -l | grep linux-generic-lts
 ```
 
-![](list-linux-generic-lts.png)
+![系统的内核镜像](list-linux-generic-lts.png)
 
 
 可以看到系统中安装了linux-generic-lts-xenial-4.4.0.38.28的内核
@@ -201,5 +211,5 @@ grub-mkconfig -o /boot/grub/grub.cfg
 然后reboot重新启动, 然后使用`uname -r`查看内核版本
 
 
-![](uname.png)
+![当前系统运行内核的信息](uname.png)
 
