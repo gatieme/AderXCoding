@@ -29,15 +29,21 @@ typedef struct fox
 #define offsetof(TYPE, MEMBER) ((size_t) &((TYPE *)0)->MEMBER)
 
 
-#define container_of(ptr, type, member)                     \
-{                                                           \
-    const_typeof( ((type *)0)->member *m_ptr = (ptr);       \
-    (type *)( (char *)m_ptr - offset(type, member))         \
-}
+#define container_of(ptr, type, member)                             \
+({                                                                  \
+    const typeof( ((type *)0)->member) *m_ptr = (ptr);              \
+    (type *)( (char *)m_ptr - offsetof(type, member) );             \
+})
 
 
-#define list_entry(ptr, type, member)                       \
+#define list_entry(ptr, type, member)                               \
+    container_of(ptr, type, member)
+
+#define my_list_entry(ptr, type, member)                            \
     ((type *)((char *)(ptr)-(unsigned long)(&((type *)0)->member)))
+
+
+
 int main(void)
 {
     fox f;
@@ -46,12 +52,22 @@ int main(void)
     f.m_is_fantastic = true;
 
     list_head *pl = &(f.m_list);
+
     fox *pf = list_entry(pl, fox, m_list);
 
+    printf("\n==use list_entry==\n");
     printf("%p == %p\n", pf, &f);
     printf("tail_length  = %ld\n", pf->m_tail_length);
     printf("weight       = %ld\n", pf->m_weight);
     printf("is_fantastic = %d\n", pf->m_is_fantastic);
+
+    printf("\n==use my list_entry==\n");
+    fox *mpf = my_list_entry(pl, fox, m_list);
+    printf("%p == %p\n", pf, &f);
+    printf("tail_length  = %ld\n", mpf->m_tail_length);
+    printf("weight       = %ld\n", mpf->m_weight);
+    printf("is_fantastic = %d\n", mpf->m_is_fantastic);
+
     return 0;
 }
 
