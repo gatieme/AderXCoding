@@ -1,6 +1,9 @@
 Ubuntu14.04更新硬件实现堆栈(HWE)
 =======
 
+| CSDN | GitHub |
+|:----:|:------:|
+| [Ubuntu14.04.4升级硬件实现堆栈(HWE)到14.04.5(Xenial Kernel-v4.4)](http://blog.csdn.net/gatieme/article/details/52744417) | [`AderXCoding/system/tools/ubuntu_hwe_upgrade`](https://github.com/gatieme/AderXCoding/tree/master/system/tools/ubuntu_hwe_upgrade)
 
 
 
@@ -29,7 +32,10 @@ https://wiki.ubuntu.com/TrustyTahr/ReleaseNotes/ChangeSummary/14.04.5
 |:---:|:---:|
 | [1404_HWE_EOL](https://wiki.ubuntu.com/1204_HWE_EOL) | 详细的讲解了Ubuntu 14.04 HWE的信息 |
 | [LTSEnablementStack](https://wiki.ubuntu.com/Kernel/LTSEnablementStack) | 详解的讲解了如何升级Ubuntu HWE |
-| [](http://forum.ubuntu.org.cn/viewtopic.php?p=3174908) | 如何升级14.04.4到14.04.5 |
+| [求助Ubuntu14.04.5 LTS软件源中提示hardware enablement stack升级的问题](http://forum.ubuntu.org.cn/viewtopic.php?p=3174908) | 如何升级14.04.4到14.04.5 |
+| [Ubuntu 14.04.5 Released with Kernel 4.4 and 16.04 X Stack](http://ubuntuhandbook.org/index.php/2016/08/ubuntu-14-04-5-released/) | 升级Ubuntu 14.04到14.04.5 |
+
+
 
 
 #1  背景
@@ -69,7 +75,10 @@ apt-get upgrade 和 apt-get dist-upgrade 本质上是没有什么不同的。
 
 *   升级Ubuntu硬件实现栈
 
+其中前两种方法不推荐, 自己新编译的内核，可能会导致某些开发库因为没有相应的适配所以无法正常使用, 同样Ubuntu跨版本升级, 往往导致很多兼容性问题, 请谨慎升级. 相比较来说, 升级硬件实现栈HWE则相对来说安全很多
 
+
+![Ubuntu 14.04.5发布](ubuntu1404-5.jpg)
 
 #2	Ubuntu硬件实现栈HWE介绍
 -------
@@ -103,6 +112,14 @@ Ubuntu硬件实现栈(HWE)是一个功能旨在提供硬件支持, 实现了在U
 每个LTS长期支持版的维护的周期都很长, 但是Ubuntu发布的周期又很快, 每个版本都重新维护很麻烦, 所以开发人员提供硬件实现栈HWE, 这样LTS可以使用主线版本的内核信息, 维护起来很方便
 
 
+
+
+按惯例, Ubuntu 14.04 的第一个HWE 将使用Ubuntu 14.10内核, 版本更新为14.04.1, Ubuntu 16.04 的第一个 HWE 将使用 Ubuntu 16.10 内核, 版本为14.04.1, 正常来说如果第一个HWE版本被释放, 我们就可以认为此版本LTS已经趋于稳定了
+
+>**参见**
+>
+>https://wiki.ubuntu.com/Kernel/LTSEnablementStack
+
 下表将Ubuntu 14.04.x LTS的对应的硬件实现栈和EOL日期
 
 | Ubuntu 14.04.x LTS Point Release | HWE Stack | EOL Date |
@@ -114,6 +131,15 @@ Ubuntu硬件实现栈(HWE)是一个功能旨在提供硬件支持, 实现了在U
 | 14.04.5 | Ubuntu 16.04 Xenial HWE Stack (v4.4. Kernel) | April, 2019 |
 
 我们可以看到14.04.4的支持和维护已经终止了(Aug 4, 2016 ), 但是14.04.5将采用16.04的新内核, 并最终维护到2019年, 所以还等什么呢, 速度升级吧.
+
+你可以使用如下命令检查系统安装时的信息
+
+```cpp
+cat /var/log/installer/media-info
+```
+
+![查看系统安装的信息](cat_var_log_installer_media-info.png)
+
 
 
 
@@ -167,13 +193,6 @@ hwe-support-status --show-all-unsupported
 ![升级后HWE将不再维护和支持的包](hwe-support-status--show-all-unsupported.png)
 
 
-你可以使用如下命令检查系统安装时的信息
-
-```cpp
-cat /var/log/installer/media-info
-```
-
-![查看系统安装的信息](cat_var_log_installer_media-info.png)
 
 
 
@@ -186,8 +205,7 @@ DESKTOP桌面版, 请使用如下命令升级
 sudo apt-get install --install-recommends linux-generic-lts-xenial xserver-xorg-core-lts-xenial xserver-xorg-lts-xenial xserver-xorg-video-all-lts-xenial xserver-xorg-input-all-lts-xenial libwayland-egl1-mesa-lts-xenial
 ```
 
-
-MULTIARCH DESKTOP桌面版, 请使用如下命令升级
+MULTIARCH DESKTOP桌面版, 请使用如下命令升级(如果不出意外的话, 多数系统比如`amd64`等架构的桌面系统都应该使用此命令进行升级)
 
 >If you run a multiarch desktop (for example, i386 and amd64 on amd64, for gaming or Wine), you may find you need a slightly more involved command, like this:
 
@@ -214,12 +232,16 @@ hwe-support-status
 update-manager
 ```
 
-然后一般会提示类似如下的对话框
+然后一般会提示类似如下的对话框, 软件源提示"New important security and hardware support update."
 
 
 
 ![更新HWE对话框](update-manager-hwe.png)
 
+
+> **注意**
+>
+> 使用`apt-get install`命令与使用软件更新管理器`update-manager`没有任何实质的差别, 但是如果您担心自己命令输入错误而导致的一些不稳定因素, 可选择使用软件更新管理器`update-manager`由系统自行执行更新命令
 
 
 Ubuntu14.04的主线支持信息和内核版本, 如下图所示
@@ -272,7 +294,7 @@ sudo apt-get remove $(hwe-support-status --show-all-unsupported)
 ```
 
 
-##3.5	使用新的HWE
+##3.5	使用新的HWE并验证
 -------
 
 一般来说安装好后重启, 系统会自己加载新的内核镜像, 如果没有加载可手动生成grub.cfg的信息, 参见[Ubuntu下grub配置详解](http://blog.csdn.net/gatieme/article/details/52722955)
@@ -291,8 +313,14 @@ grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
 
-然后reboot重新启动, 然后使用`uname -r`查看内核版本
+然后reboot重新启动, 然后使用`uname -r`查看内核版本,　看到现在系统的内核是Linux-4.4
 
 
 ![当前系统运行内核的信息](uname.png)
 
+
+
+
+`lsb_release -a`查看系统的信息, 可以看到现在系统升级为`14.04.5`
+
+![lsb_release -a](lsb_release-a.png)

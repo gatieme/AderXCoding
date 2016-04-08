@@ -3,7 +3,14 @@
 # Definitions required in all program directories to compile and link
 # C programs using gcc.
 
+COMMIT_BLOG_LICENSES="modify licenses 知识共享署名 4.0 国际许可协议 to 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议..."
+
 COMMIT_C_LINK_CPP="C++与C之间相互接口和库函数调用--http://blog.csdn.net/gatieme/article/details/52730680"
 COMMIT_TERMINAL_FUN="终端的乐趣--Linux下有趣的终端命令或者工具--http://blog.csdn.net/gatieme/article/details/52144603"
 COMMIT_CREATE_INTERACTIVE_SHELL="Linux如何在交互式shell脚本中创建对话框--http://blog.csdn.net/gatieme/article/details/52738870"
 COMMIT_ZSH="Linux终极shell-Z Shell-用强大的zsh & oh-my-zsh把Bash换掉--http://blog.csdn.net/gatieme/article/details/52741221"
+COMMIT_UPGRADE_UBUNTU_HWE="Ubuntu14.04.4升级硬件实现堆栈(HWE)到14.04.5(Xenial Kernel-v4.4)--http://blog.csdn.net/gatieme/article/details/52744417"
+COMMIT_UBUNTU_MAKE="Ubuntu安装开发者中心Ubuntu Make(原Ubuntu Developer Tools Center)--http://blog.csdn.net/gatieme/article/details/52745534"
+COMMIT_UPGRADE_VIM_8="Ubuntu14.04升级vim7.4到8.0--http://blog.csdn.net/gatieme/article/details/52752070"
+COMMIT_DOCK_TOOLS="未添加博客网址..."
+COMMIT_SYSTEMBACK="未添加博客网址..."
