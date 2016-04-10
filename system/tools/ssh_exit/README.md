@@ -165,7 +165,12 @@ nohup ./hello &
 -------
 
 
-如果想在关闭ssh连接后刚才启动的程序继续运行怎么办，可以使用nohup. 但是如果要求第二天来的时候，一开ssh，还能查看到昨天运行的程序的状态，然后继续工作，这时nohup是不行了，需要使用screen来达到这个目的。
+如果想在关闭ssh连接后刚才启动的程序继续运行怎么办, 可以使用nohup.
+
+
+但是如果要求第二天来的时候. 一开ssh, 还能查看到昨天运行的程序的状态,
+
+然后继续工作，这时nohup是不行了, 需要使用screen来达到这个目的。
 
 
 虽然nohup很容易使用，但还是比较“简陋”的，对于简单的命令能够应付过来，对于复杂的需要人机交互的任务就麻烦了
@@ -175,11 +180,29 @@ nohup ./hello &
 
 执行screen ， 按任意键进入子界面;
 
-我用ping命令开始执行,如果下班了，但是想关闭ssh以后ping继续运行，那么按ctrl+a   再按d   这样暂停了子界面，会显示[detached]的字样，这时候 我回到了父界面；
+
+![screen进入子界面](screen.png)
+
+
+我用./hello命令开始执行,如果下班了，但是想关闭ssh以后./hello继续运行，那么按ctrl+a再按d   
+
+
+![screen中运行子程序](screen_hello.png)
+
+
+
+这样暂停了子界面，会显示[detached]的字样，这时候 我回到了父界面；
+
 用screen –ls查看目前子界面的状态screen -ls
-There is a screen on: 22292.pts-3.free (Detached)
+
+
+![screen查看进程的状态](screen_ls.png)
+
+There is a screen on: d22292.pts-3.free (Detached)
 1 Socket in /tmp/screens/S-root，这里的22292其实是子界面的pid号；
 
-如果回到子界面 用screen –r 22292，一下子弹到了ping 的子界面；
 
+如果回到子界面 用screen –r 22292，一下子弹到了./hello的子界面；
+
+![切回到screen中查看子程序的运行状态](screen_hello2.png)
 
