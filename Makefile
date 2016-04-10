@@ -21,5 +21,5 @@ clean:
 
 github:
 	git add -A
-	git commit -m $(COMMIT_PYTHON_PIP)
+	git commit -m $(COMMIT_SSH_EXIT)
 	git push origin master
