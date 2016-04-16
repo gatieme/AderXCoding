@@ -96,13 +96,21 @@
 #define outpw(port, val) (*((volatile word *)(port))=((word)(val)))
 #define outpdw(port, val) (*((volatile dword *)(port))=((dword)(val)))
 
-/*
+
+
+
+/**
  * Macros to help with debugging. Set SCULL_DEBUG to 1 enable
  * debugging (which you can do from the Makefile); these macros work
  * in both kernelspace and userspace.
  */
 
 /* undef it, just in case someone else defined it. */
+
+#ifdef dbgprint
+#undef dbgprint
+#endif // dbgprint
+
 #ifdef dprint
 #undef dprint
 #endif // dprint
@@ -111,38 +119,51 @@
 #undef dount
 #endif // dout
 
-#define DEBUG
+
+/**when you define DEBUG macro
+    dbgprint to use printk with line and funcitonname in kernel
+    dprint to use print without line and funcitonname in kernel
+
+
+    dbgprint to use printf with line and funcitonname in userspace
+    dprint to use printf without line and funcitonname in userspace
+    it's the same to dbgcout and dcout in userspace
+
+*/
 #ifdef DEBUG
 
     #ifdef __KERNEL__
         #ifdef __FILE__ && __LINE__
             //printk with line and function name
-            #define dprint(format,args...); \
+            #define dbgprint(format,args...); \
             printk(KERN_INFO "[%s, %d] : "format, __FILE__, __LINE__, ##args);
-        #else
-			#define dprint(format,args...); printk(KERN_INFO format, ##args);
         #endif
 
+        //printk without line and function name
+        #define dprint(format,args...); printk(KERN_INFO format, ##args);
 
-    #else
+
+    #else   //  userspace
 
         #ifdef __FILE__ && __LINE__
-            //printk with line and function name
-            #define dprint(format,args...); \
+            //printf with line and function name
+            #define dbgprint(format,args...); \
             printf("[%s,%d] : "format, __FILE__, __LINE__, ##args);
-            #define dcout cout <<"[" <<__FILE__ <<", " <<__LINE__ <<"] : "
-        #else
+            #define dbgcout cout <<"[" <<__FILE__ <<", " <<__LINE__ <<"] : "
 
-        /* Debugging is on and we are in userspace. */
+        #endif // __FILE__ && __LINE__
+
+            /* Debugging is on and we are in userspace. */
             #define dprint(fmt, args...) printf(fmt, ## args)
             #define dcout cout
-        #endif // __LINE__
+
 
     #endif // __KERNEL__
 
-#else
+#else           /* Not debugging: do nothing. */
+    #define dbgprint(format,args...)
 
-    #define dprint(fmt, args...) /* Not debugging: do nothing. */
+    #define dprint(fmt, args...)
     #define dcout 0 && cout
 #endif
 
