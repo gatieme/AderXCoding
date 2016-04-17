@@ -37,11 +37,12 @@ public :
 
     TreeNode(int x)
     : val(x), left(NULL), right(NULL)
-    {
+    {   
     }
 
     static void PreOrder(TreeNode *root);
     static void PreOrderDev(TreeNode *root);
+    static void PreOrderDFS(TreeNode *root);
 
     static void InOrder(TreeNode *root);
     static void InOrderDev(TreeNode *root);
@@ -140,6 +141,40 @@ void TreeNode::PreOrderDev(TreeNode *root)
     }
 }
 
+//
+//  前序遍历的方法二，利用了栈的特性，但是此方法不通用
+//  此过程相当于一次深度优先遍历
+//
+void TreeNode::PreOrderDFS(TreeNode *root)
+{
+    if(root == NULL)
+    {
+        return;
+    }
+    stack<TreeNode *> nstack;
+    nstack.push(root);
+
+    TreeNode *node = root;
+    while(nstack.empty() != true)
+    {
+        node = nstack.top( );
+        nstack.pop( );
+        cout <<node->val;
+
+        if(node->right != NULL)
+        {
+            nstack.push(node->right);
+        }
+        if(node->left != NULL)
+        {
+            nstack.push(node->left);
+        }
+    }
+}
+
+//  中序与前序的区别在于
+//  前序在递归至最左的时候就会输出递归的节点, 因此先输出根，然后是左
+//  但是中序在递归至最左时，弹栈时才输出, 因此先输出最左，再输出根
 void TreeNode::InOrderDev(TreeNode *root)
 {
     if(root == NULL)
@@ -544,6 +579,9 @@ public:
 };
 
 
+
+
+
 int main( )
 {
     int pre[] = { 1, 2, 4, 7, 3, 5, 6, 8 };
@@ -559,6 +597,8 @@ int main( )
     TreeNode::PreOrder(root);
     cout <<endl;
     TreeNode::PreOrderDev(root);
+    cout <<endl;
+    TreeNode::PreOrderDFS(root);
     cout <<endl;
 
     cout <<"InOrder " <<endl;   //  47215386
@@ -586,5 +626,6 @@ int main( )
     cout <<endl;
     TreeNode::LevelOrderUseEnd(root);
     cout <<endl;
+
     return 0;
 }
