@@ -119,6 +119,15 @@
 #undef dount
 #endif // dout
 
+#ifdef dbgcout
+#undef dbgcunt
+#endif // dbgount
+
+
+#ifdef dout
+#undef dount
+#endif // dout
+
 
 /**when you define DEBUG macro
     dbgprint to use printk with line and funcitonname in kernel
