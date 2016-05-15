@@ -1,4 +1,8 @@
 #include <stdio.h>
+#include <stdlib.h>
+
+#include <sys/types.h>
+#include <unistd.h>
 
 /**
 
@@ -17,7 +21,7 @@ int main(void)
     int child;
 
     if(!(child = fork()))
-    {   
+    {
         //开始创建子进程
         printf("This is son, his count is: %d. and his pid is: %d\n", ++count, getpid());//子进程的内容
     }
