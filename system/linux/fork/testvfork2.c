@@ -1,28 +1,33 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main()
+#include <sys/types.h>
+#include <unistd.h>
+
+
+int main(void)
 {
-    int count = 1;
+   int count = 1;
     int child;
 
-    printf("Before create son, the father's count is:%d\n", count);
+   // child = vfork( );
 
-    if(!(child = vfork()))
-    {
-        int i;
-        for(i = 0; i < 100; i++)
-        {
-            printf("This is son, The i is: %d\n", i);
-            if(i == 70)
-                exit(1);
-        }
+    printf("Before create son, the father's count is : %d\n", count);
 
-        printf("This is son, his pid is: %d and the count is: %d\n", getpid(), ++count);
-        exit(1);
-    }
-    else
+    if((child = vfork())< 0)
     {
-        printf("After son, This is father, his pid is: %d and the count is: %d, and the child is: %d\n", getpid(), count, child);
+        perror("fork error : ");
     }
+    else if(child == 0)     //  fork return 0 in the child process because child can get hid PID by getpid( )
+    {
+        printf("This is son, his count is: %d (%p). and his pid is: %d\n", ++count, &count, getpid());
+
+    }
+    else                    //  the PID of the child process is returned in the parent’s thread of execution
+    {
+        printf("After son, This is father, his count is: %d (%p), his pid is: %d\n", count, &count, getpid());
+        sleep(2);
+    }
+
+    return EXIT_SUCCESS;
 }
