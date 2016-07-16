@@ -26,3 +26,6 @@ LIBAPUE=
 
 # Common temp files to delete from each directory.
 TEMPFILES=core core.* *.o temp.* *.out
+
+COMMIT="kmp算法"
+GITHUB_COMMIT=$(COMMIT)

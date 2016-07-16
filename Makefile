@@ -14,3 +14,9 @@ clean:
 	for i in $(DIRS); do \
 		(cd $$i && echo "cleaning $$i" && $(MAKE) clean) || exit 1; \
 	done
+
+
+github:
+	git add -A
+	git commit -m "$(GITHUB_COMMIT)"
+	git push origin master
