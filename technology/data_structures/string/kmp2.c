@@ -24,28 +24,45 @@ void GetNext(char *str, int *next)
     while(i < strlen(str) - 1)  /*  数组next的下标范围为0~strlen(str) - 1*/
     {
         printf("i = %d, j = %d\n", i, j);
-        if(j == -1)
+        if(j == -1 || str[i] == str[j])
         {
-            i++;
-            j++;
-            next[i] = j;
-            printf("j == -1, next[%d] = %d\n", i, 0);
-        }
-        else if(str[i] == str[j])
-        {
-            /*  此时如果未发生回溯 next[i] = j,
+            /*  IF str[i] == str[j]
+             *  就定位next[i + 1] = 回溯位置j的下一个位置j + 1
+             *
+             *  此时如果未发生回溯 next[i] = j,
              *  而i,j完成自增后next[i-1]=j-1
              *  则next[i + 1] = next[i - 1] + 1 = j + 1;
              *  如果发生回溯, 则j则是其回溯的位置,
-             *  那么next[i + 1] = 回溯位置的下一个位置 = j + 1*/
+             *  那么next[i + 1] = 回溯位置的下一个位置 = j + 1
+             *
+             *  否则如果j == -1说明匹配刚开始或者回溯到最初始位置
+             *  直接next[i + 1] = j + 1 = 0;
+             *  */
+#ifdef DEBUG
+            if(str[i] == str[j])
+            {
+                if(next[i] == j)
+                {
+                    printf("un back : str[%d] == str[%d], ", i, j);
+                }
+                else
+                {
+                    printf("back to : str[%d] == str[%d], ", i, j);
+                }
+            }
+            else /*if(j == -1)*/
+            {
+                printf("back to begin : j == -1, ");
+            }
+            printf("next[%d] = j + 1 = %d\n", i, j + 1);
+#endif
             i++;
             j++;
             next[i] = j;
-            printf("str[%d] == str[%d], next[%d] = %d\n", i - 1, j - 1, i, j);
         }
         else
         {
-            printf("str[%d] != str[%d], j = next[j]\n", i, j, j);
+            printf("start back : str[%d] != str[%d], j = next[j] = %d\n", i, j, j);
             j = next[j];        /*  若字符不相等, 则j回溯  */
         }
         printf("next[%d] = %2d\n", i, next[i]);
