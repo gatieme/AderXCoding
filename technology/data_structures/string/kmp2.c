@@ -27,17 +27,19 @@ void GetNext(char *str, int *next)
         if(j == -1)
         {
             i++;
-            j++
+            j++;
             next[i] = j;
             printf("j == -1, next[%d] = %d\n", i, 0);
         }
         else if(str[i] == str[j])
         {
+            /*  此时如果未发生回溯 next[i] = j,
+             *  而i,j完成自增后next[i-1]=j-1
+             *  则next[i + 1] = next[i - 1] + 1 = j + 1;
+             *  如果发生回溯, 则j则是其回溯的位置,
+             *  那么next[i + 1] = 回溯位置的下一个位置 = j + 1*/
             i++;
             j++;
-            /* 此时next[i] = next[i] + 1
-             * 由于str[i] == str[j]
-             * 所以next[i] = next[i - 1] + 1 = j*/
             next[i] = j;
             printf("str[%d] == str[%d], next[%d] = %d\n", i - 1, j - 1, i, j);
         }
@@ -65,7 +67,7 @@ int KMPIndex(char *str, char *sub, int pos)
     int i = pos, j = 0;
     int next[255];
 
-    GetNext(str, next);     /*  分析子串sub的next数组  */
+    GetNext(sub, next);     /*  分析子串sub的next数组  */
     while(i < strlen(str) && j < strlen(sub))
     {
         if(j == -1 || str[i] == sub[j])  /*  两字符相等, 则继续匹配  */
@@ -98,7 +100,13 @@ int main(int argc, char *argv[])
     strcpy(str, "abaabcac");
     GetNext(str, next);
 
-    //printf("%d\n", KMPIndex("aaaaacefghij", "aaac", 0));
+    strcpy(str, "aaac");
+    GetNext(str, next);
+
+    strcpy(str, "abab");
+    GetNext(str, next);
+
+    printf("%d\n", KMPIndex("aaaaacefghij", "aaac", 0));
     return EXIT_SUCCESS;
 }
 

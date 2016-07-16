@@ -2,7 +2,7 @@ ROOT=../../../
 PLATFORM=$(shell $(ROOT)/systype.sh)
 include $(ROOT)/Make.defines.$(PLATFORM)
 
-target=simple front_rear kmp
+target=simple front_rear kmp kmp2
 
 
 
@@ -24,9 +24,21 @@ kmp: kmp.o
 	@echo "KMP字符串模式匹配算法"
 	@echo ""
 
+kmp2: kmp2.o
+	$(CC) $^ -o $@ $(LDFLAGS)
+	@echo "KMP字符串模式匹配算法"
+	@echo ""
+
 %.o : %.c
 	$(CC) -c $^ -o $@  $(CFLAGS) $(DEFINES)
 
 clean :
-	rm *.o
+	rm -rf *.o
+	rm $(target)
+
+%.o : %.c
+	$(CC) -c $^ -o $@  $(CFLAGS) $(DEFINES)
+
+clean :
+	rm -rf *.o
 	rm $(target)

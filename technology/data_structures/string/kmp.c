@@ -37,8 +37,8 @@ void GetNext(char *str, int *next)
             printf("i = %d, j = %d\n", i, j);
             if(str[i] != str[j])
             {
-                printf("str[%d] != str[%d], next[%d] = j = %d, j = next[%d]\n",
-                       i, j, i, j, j, j);
+                printf("str[%d] != str[%d], next[%d] = j = %d\n",
+                       i, j, i, j);
                 next[i] = j;
                 //j = next[j];        /*  若字符不相等, 则j回溯  */
             }
@@ -50,6 +50,7 @@ void GetNext(char *str, int *next)
         }
         else
         {
+            printf("back j = next[%d] = %d\n", j, next[j]),
             j = next[j];
         }
         printf("next[%d] = %d\n", i, next[i]);
@@ -105,7 +106,7 @@ int main(int argc, char *argv[])
     GetNext(str, next);
     strcpy(str, "abcac");
     GetNext(str, next);
-    strcpy(str, "aaaaacefghij");
+    strcpy(str, "aaac");
     GetNext(str, next);
 
     printf("%d\n", KMPIndex("aaaaacefghij", "aaac", 0));
