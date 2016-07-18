@@ -12,12 +12,14 @@ endif
 
 
 CC=gcc
+CXX=g++
 COMPILE.c=$(CC) $(CFLAGS) $(CPPFLAGS) -c
 LINK.c=$(CC) $(CFLAGS) $(CPPFLAGS) $(LDFLAGS)
 LDFLAGS=-lm
 LDDIR=-L$(ROOT)/lib
 LDLIBS=
 CFLAGS=-std=gnu9x -Wall $(DEFFLAGS)
+CXXFLAGS=-std=c++11 -Wall $(DEFFLAGS)
 RANLIB=echo
 AR=ar
 AWK=awk
