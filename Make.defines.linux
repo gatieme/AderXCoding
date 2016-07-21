@@ -29,5 +29,5 @@ LIBAPUE=
 # Common temp files to delete from each directory.
 TEMPFILES=core core.* *.o temp.* *.out
 
-COMMIT="kmp算法"
+COMMIT="process_net一个用于在linux下面获取进程网络带宽的python扩展库，用c++以及libcap开发"
 GITHUB_COMMIT=$(COMMIT)

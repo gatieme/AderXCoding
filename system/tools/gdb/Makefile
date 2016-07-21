@@ -23,6 +23,7 @@ args_test : args_test.o
 %.o : %.c
 	$(CC) -g -c $^ -o $@  $(CFLAGS) $(DEFINES)
 
+.PHONY : clean
 clean :
 	rm *.o
 	rm $(target)
