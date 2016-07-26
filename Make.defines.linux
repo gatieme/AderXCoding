@@ -29,5 +29,6 @@ LIBAPUE=
 # Common temp files to delete from each directory.
 TEMPFILES=core core.* *.o temp.* *.out
 
-COMMIT="process_net一个用于在linux下面获取进程网络带宽的python扩展库，用c++以及libcap开发"
+COMMIT="C程序的内存布局(Memory Layout)--http://blog.csdn.net/gatieme/article/details/43567433"
+
 GITHUB_COMMIT=$(COMMIT)
