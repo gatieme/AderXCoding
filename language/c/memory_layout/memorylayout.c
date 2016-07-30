@@ -108,10 +108,10 @@ int main(void)
 
     // RO data  --  只读数据段
     printf("------------------------------------------------------\n\n");
-    printf("RW data");
+    printf("RO data:\n");
     SHW_VAR_ADR("ini_glo_cnt_var", ini_glo_cnt_var);     // 初始化全局常量，同字符串面变量一样，位于文本区，即常量区
-    SHW_POT_ADR("str_cnt", str_cnt);                  //  字符串面变量保存在常量区，即文本区
-    SHW_VAR_ADR("str_cnt", str_cnt);             //  指针str1本身在栈中
+    SHW_POT_ADR("str_cnt point to RO data", str_cnt);                     //  字符串面变量保存在常量区，即文本区
+    SHW_VAR_ADR("point str_cnt in stack", str_cnt);                     //  指针str1本身在栈中
 
     printf("------------------------------------------------------\n\n");
 
