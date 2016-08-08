@@ -20,6 +20,6 @@ leak_mtrace : leak_mtrace.o
 
 .PHONY : clean
 clean :
-	rm *.o
-	rm $(target)
-	rm mtrace.out
+	rm -rf *.o
+	rm -rf $(target)
+	rm -rf mtrace.out
