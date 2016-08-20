@@ -30,7 +30,7 @@ int Partition(vector<int> &numbers, int left, int right)
 
     while(i < j)
     {
-        while(i < j && numbers[j] >= pivotNum)
+        while(i < j && pivotNum <= numbers[j])
         {
             debug <<"[" <<i <<", " <<j <<"] " <<numbers[j] <<" >= " <<pivotNum <<endl;
             j--;
