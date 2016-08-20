@@ -9,11 +9,9 @@
 #endif
 
 int main()
-
 {
 
     //精确到秒 ==========================================
-
     time_t t1,t2;
 
     time(&t1);
@@ -24,10 +22,9 @@ int main()
     //////////////////////
     time(&t2);
 
-    printf("%d %d %d秒\n",t1,t2,t2-t1);
+    printf("%d %d %ds\n",t1,t2,t2-t1);
 
     //精确到毫秒 ========================================
-
     clock_t c1,c2;
 
     c1=clock();
@@ -38,7 +35,7 @@ int main()
 
     c2=clock();
 
-    printf("%d %d %lf毫秒\n",c1,c2,(c2-c1) / CLOCKS_PER_SEC);
+    printf("%d %d %lfms\n",c1,c2,(c2-c1) / CLOCKS_PER_SEC);
 
 #ifdef WINDOWS
     //精确到 0.000001毫秒 ===============================
@@ -79,5 +76,5 @@ int main()
     //此处放要测试的代码或程序
     sleep(2);
     gettimeofday(&tv_end, NULL);
-    printf("%lf秒\n", tv_end.tv_sec-tv_start.tv_sec+(tv_end.tv_usec-tv_start.tv_usec)/1000000.0);
+    printf("%lfs\n", tv_end.tv_sec-tv_start.tv_sec+(tv_end.tv_usec-tv_start.tv_usec)/1000000.0);
 }

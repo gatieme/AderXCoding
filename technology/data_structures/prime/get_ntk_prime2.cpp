@@ -36,8 +36,7 @@ void fun( )
 
 int main()
 {
-    clock_t begin, end;
-    begin = clock( ); //
+
     fun( );
     int n, cnt=0;
     scanf("%d", &n);
@@ -50,9 +49,7 @@ int main()
         }
         if(cnt == n)
         {
-            end=clock( ); //
             printf("the %dth prime is %d\n",n,i);
-            printf("execution time: %.6lf\n",end-begin);
             break;
         }
     }
