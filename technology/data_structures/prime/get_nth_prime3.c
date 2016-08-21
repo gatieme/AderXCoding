@@ -42,7 +42,7 @@ long get_prime(int n)
 
 int main(void)
 {
-    const int N = 10;
+    const int N = 10000;
     printf("the %d th prime is %ld\n", N, get_prime(N));
 
     getchar( );

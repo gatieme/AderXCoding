@@ -47,4 +47,4 @@ get_prime_count : get_prime_count.o
 
 clean :
 	rm -rf *.o
-	rm $(target)
+	rm -rf $(target)

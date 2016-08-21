@@ -29,6 +29,6 @@ LIBAPUE=
 # Common temp files to delete from each directory.
 TEMPFILES=core core.* *.o temp.* *.out
 
-COMMIT="Linux下几款C++程序中的内存泄露检查工具--http://blog.csdn.net/gatieme/article/details/51959654"
+COMMIT="求出第N个素数..."
 
 GITHUB_COMMIT=$(COMMIT)
