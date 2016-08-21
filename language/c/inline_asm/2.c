@@ -16,14 +16,14 @@ int main(void)
 
 
     int a = 10, b = 15, sum;            // 主函数内部直接潜入汇编代码
-    asm(
-        "addl %%ebx, %%eax"
+    /*asm(
+        "add %%ebx, %%eax"
         : "=a"(sum)
         : "a"(a), "b"(b)
         : "memory"
      );
      printf("%d\n", sum);
-
+    */
      return EXIT_SUCCESS;
 }
 
@@ -34,12 +34,10 @@ int main(void)
 // 使用指定的寄存器实现两个操作数相加
 int AddReg(int a, int b)
 {
-    __asm__ __volatile__
-    (
-        "addl %%ebx, %%eax"
+    asm(
+        "add %%ebx, %%eax"
         : "=a"(a)
         : "b"(b), "a"(a)
-//        : "%ebx", "%eax"
     );
 
     return a;
@@ -48,10 +46,10 @@ int AddReg(int a, int b)
 // 不指定寄存器实现两个整数相加
 int Add(int a, int b)
 {
-    __asm__ __volatile__
+    asm
     (
         //"lock;\n"
-        "addl %1,%0;\n"
+        "add %1,%0;\n"
         : "=m"(a)
         : "r"(b), "m"(a)
       //  :
