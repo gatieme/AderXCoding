@@ -2,11 +2,11 @@
 #include <string.h>
 #include <math.h>
 #include <time.h>
+#include <stdbool.h>
 
 
-
-using namespace std;
-const int inf = 1000000000;
+//const int inf = 1000000000;
+#define inf 1000000000
 bool prime[inf];
 
 void fun( )
@@ -30,7 +30,6 @@ void fun( )
             }
          }
      }
-     printf("finish\n");
 }
 
 

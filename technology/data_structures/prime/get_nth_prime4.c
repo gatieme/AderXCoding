@@ -22,17 +22,19 @@ int getprimer(int index)
             primer[1]=3;
             primer[2]=5;
             primer[3]=7;
-            for(i = 3;i!= index -1;++i)
+            for(i = 3; i != index - 1; ++i)
             {
-                t=primer[i];
-                _NOT_PRIMER:
-                t=t+2;
-                for(j=1;primer[j]*primer[j]<=t;++j)
+                t = primer[i];
+_NOT_PRIMER :
+                t = t + 2;
+                for(j = 1; primer[j] * primer[j] <= t; ++j)
                 {
-                    if(t%primer[j] == 0)
+                    if(t % primer[j] == 0)
+                    {
                         goto _NOT_PRIMER;
+                    }
                 }
-                primer[i+1]=t;
+                primer[i + 1] = t;
             }
             free(primer);
             return t;
