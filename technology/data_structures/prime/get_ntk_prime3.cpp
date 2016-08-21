@@ -16,14 +16,22 @@ int get_prime(int n)
     for(i = 3; count < n; i += 2)
     {
         int sqrt_i = sqrt(i);
+        //printf("sqrt{%d) = %d\n", i, sqrt_i);
 
+        //  已经得到的素数的倍数必然不是素数
         for(j = 1;
             sqrt_i >= p_r[j] && i % p_r[j] != 0;
-            ++j);
+            ++j)
+        {
+            /// NOP
+            //printf("skip %d\n", j);
+        }
 
+        //printf("j = %d\n", j);
         if(sqrt_i < p_r[j])
         {
             p_r[count++] = i;
+            //printf("%d is a primer\n", i);
         }
     }
     return p_r[count - 1];
@@ -31,10 +39,8 @@ int get_prime(int n)
 
 int main()
 {
-    for(int i = 1; i <= 10; i++)
-    {
-        cout <<"the" <<setw(3)<<i <<" th prime is " <<get_prime(i)<<endl;
-    }
+    const int N = 10;
+    cout <<"the " <<setw(3)<<N <<" th prime is " <<get_prime(N)<<endl;
 
     return 0;
 }

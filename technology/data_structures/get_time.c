@@ -1,3 +1,5 @@
+//  http://svn.code.sf.net/p/codeblocks/code/branches/release-16.xx/src/tools/ConsoleRunner/main.cpp
+
 #include<time.h>
 #include<stdio.h>
 #include<stdlib.h>
@@ -35,7 +37,7 @@ int main()
 
     c2=clock();
 
-    printf("%d %d %lfms\n",c1,c2,(c2-c1) / CLOCKS_PER_SEC);
+    printf("%d %d %lfs\n", c1, c2, (c2 - c1) * 1.0 / CLOCKS_PER_SEC);
 
 #ifdef WINDOWS
     //精确到 0.000001毫秒 ===============================
