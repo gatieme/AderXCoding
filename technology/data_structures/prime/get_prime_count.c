@@ -20,7 +20,7 @@ static int sieve( )
 {
     // bug : 9被误认为是素数
     int primes = 0;
-    printf("the %d th is %d\n", primes, 2);
+    //printf("the %d th is %d\n", primes, 2);
     Prime[primes++] = 2;
     SET_BIT(BaseTpl, 2);
     const uint maxp = (1 << 16) + 1000;
@@ -28,7 +28,7 @@ static int sieve( )
     {
         if ((BaseTpl[i >> MOVE] & (1 << (i / 2 & 7))) == 0)
         {
-            printf("the %d th is %d\n", primes, i);
+            //printf("the %d th is %d\n", primes, i);
             //getchar( );
             Prime[primes++] = i;
             for (uint p = i * i / 2; p < maxp / 2; p += i)
@@ -122,15 +122,9 @@ int main(int argc, char* argv[])
     sieve();
     initBit();
 
-    uint start, stop;
+    //uint start, stop;
     int primeCnt = countPrimes(0, MAXN);
-    printf("PI(%u) = %d, time use %lu ms\n", MAXN, primeCnt, clock() - tstart);
-
-    while (scanf("%u %u", &start, &stop) == 2 && stop >= start) {
-        tstart = clock();
-        primeCnt = countPrimes(start, stop);
-        printf("PI[%u, %u] : primes = %u, time use %lu ms\n", start, stop, primeCnt, clock() - tstart);
-    }
+    //printf("PI(%u) = %d, time use %lu ms\n", MAXN, primeCnt, clock() - tstart);
 
     return 0;
 }
