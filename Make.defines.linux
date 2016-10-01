@@ -29,6 +29,6 @@ LIBAPUE=
 # Common temp files to delete from each directory.
 TEMPFILES=core core.* *.o temp.* *.out
 
-COMMIT="求出第N个素数..."
+COMMIT="增加了grub的学习..."
 
 GITHUB_COMMIT=$(COMMIT)
