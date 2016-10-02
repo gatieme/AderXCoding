@@ -29,6 +29,6 @@ LIBAPUE=
 # Common temp files to delete from each directory.
 TEMPFILES=core core.* *.o temp.* *.out
 
-COMMIT="增加了grub的学习..."
+COMMIT="Ubuntu安装JDK详解--http://blog.csdn.net/gatieme/article/details/52723931"
 
 GITHUB_COMMIT=$(COMMIT)
