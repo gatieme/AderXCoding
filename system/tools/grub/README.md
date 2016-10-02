@@ -1,6 +1,7 @@
 #1	Grub简介
 -------
 
+
 ##1.1	GNU GRUB
 -------
 
@@ -99,7 +100,7 @@ Windows 7 (loader) (on /dev/sd**) ## /dev/sd**对应你Windows系统所在的分
 [中文版 info grub](http://g.51cto.com/linux/746)
 
 
-
+[GRUB2配置文件"grub.cfg"详解(GRUB2实战手册)--金步国作品](http://www.jinbuguo.com/linux/grub.cfg.html)
 
 #3	grub组件
 -------
@@ -125,7 +126,7 @@ grub2的组件为grub-pc， 同时grub-common也会默认被安装，grub2是过
 
 1.	安装grub到设备中，如果需要会创建/boot/grub目录
 
-2.他会把*.mod、*.lst、*.img从 /usr/lib/grub/i386-pc/ 目录复制到/boot/grub目录下，他会覆盖已有文件
+2.	他会把*.mod、*.lst、*.img从 /usr/lib/grub/i386-pc/ 目录复制到/boot/grub目录下，他会覆盖已有文件
 
 3.	然后会调用grub_probe扫描计算机并收集磁盘和分区信息
 
@@ -320,7 +321,15 @@ update-grub命令执行时会读取此目录下的文件，并将配置合并至
 
 但是这个文件的权限是444，连root也不让修改，这是刻意为之的，不要修改文件权限
 
-grub.cfg的内容更新由update-grub命令来更新, 其实就是执行如下操作
+grub.cfg的内容更新由update-grub命令来更新, 我们从下图中看到系统中/boot中安装了4.2.0-42版本的内核, 而我们update-grub就会发现他们
+
+![update-grub](update-grub.png)
+
+
+
+其实就是执行如下操作
+
+
 
 1.	备份/boot/grub/menu.lst文件到/boot/grub/menu.lst~, 以防止出错后无法恢复
 
