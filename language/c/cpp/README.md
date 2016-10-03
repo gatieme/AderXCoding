@@ -625,7 +625,9 @@ clean :
 
 其实我们可以为类中每个函数对象都进行接口重构, 然后在参数中加入类似this指针的参数
 
-下面这个示例中, 我们为`C++`的`MyClass`类实现了C的构造和析构函数, 这样我们就相当于完成把一个`C++`写成的库完全做出了一套`C`语言的调用借口
+下面这个示例中, 我们为`C++`的`MyClass`类实现了C的构造和析构函数, 这样我们就相当于完成把一个`C++`写成的库完全做出了一套`C`语言的调用接口
+
+该示例参见[`language/c/cpp/c_link_cpp_class`](https://github.com/gatieme/AderXCoding/tree/master/language/c/cpp/c_link_cpp_class)
 
 
 首先是`MyClass`类, 类中有一个虚函数`func`
@@ -837,5 +839,311 @@ clean :
 本文给出了一种方法. 基本思想是, 写一个`wrapper`文件. 把`C++`类封装起来, 对外只提供C语言的接口, 和`C++`相关的都在`wrapper`的实现文件里实现
 
 
-**C++的接口**
+这里我们针对一个完整的类对象, 实现一套接口, 代码参见[`language/c/cpp/apple`](https://github.com/gatieme/AderXCoding/tree/master/language/c/cpp/apple)
 
+
+###2.3.1	C++的接口
+-------
+
+
+```cpp
+/////////////////////
+//  apple.h
+/////////////////////
+#ifndef __APPLE_H_INCLUDE__
+#define __APPLE_H_INCLUDE__
+
+class Apple
+{
+public :
+
+    enum
+    {
+        APPLE_COLOR_RED,
+        APPLE_COLOR_BLUE,
+        APPLE_COLOR_GREEN,
+    };
+
+
+    Apple();
+
+    int GetColor(void);
+
+    void SetColor(int color);
+
+
+private:
+    int m_nColor;
+};
+
+
+#endif  //  #define __APPLE_H_INCLUDE__
+```
+
+
+```cpp
+/////////////////////
+//  apple.cpp
+/////////////////////
+#include <iostream>
+using namespace std;
+
+
+#include "apple.h"
+
+Apple::Apple()
+: m_nColor(APPLE_COLOR_RED)
+{
+
+}
+
+void Apple::SetColor(int color)
+{
+    this->m_nColor = color;
+}
+
+int Apple::GetColor(void)
+{
+    return this->m_nColor;
+}
+```
+
+
+###2.3.2	wrapper接口
+-------
+
+
+```cpp
+/////////////////////
+//  applewrapper.h
+/////////////////////
+#ifndef __APPLE_WRAPPER_H_INCLUDE__
+#define __APPLE_WRAPPER_H_INCLUDE__
+
+
+struct tagApple;
+
+
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
+struct tagApple *GetInstance(void);
+void ReleaseInstance(struct tagApple **ppInstance);
+extern void SetColor(struct tagApple *pApple, int color);
+extern int GetColor(struct tagApple *pApple);
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif	//	#define __APPLE_WRAPPER_H_INCLUDE__
+```
+
+
+```cpp
+/////////////////////
+//  applewrapper.cpp
+/////////////////////
+#include "applewrapper.h"
+#include "apple.h"
+
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
+struct tagApple
+{
+    Apple apple;
+};
+
+struct tagApple *GetInstance(void)
+{
+    return new struct tagApple;
+}
+
+void ReleaseInstance(struct tagApple **ppInstance)
+{
+    delete *ppInstance;
+    *ppInstance = 0;
+
+}
+
+void SetColor(struct tagApple *pApple, int color)
+{
+    pApple->apple.SetColor(color);
+}
+
+int GetColor(struct tagApple *pApple)
+{
+    return pApple->apple.GetColor();
+}
+
+
+#ifdef __cplusplus
+}
+#endif
+```
+
+###2.3.3	C源程序
+-------
+
+
+```cpp
+/////////////////////
+//  main.c
+/////////////////////
+#include "applewrapper.h"
+#include <assert.h>
+
+int main(void)
+{
+
+    struct tagApple * pApple;
+
+    pApple = GetInstance();
+
+    SetColor(pApple, 1);
+
+    int color = GetColor(pApple);
+
+    printf("color = %d\n", color);
+    ReleaseInstance(&pApple);
+    assert(pApple == 0);
+    return 0;
+}
+```
+
+
+
+其实, `wrapper`里的`struct`完全可以不要, 定义一个  `handle`更好
+
+###2.3.4	handle接口
+-------
+
+```cpp
+/////////////////////
+//  applehandle.h
+/////////////////////
+#ifndef __APPLE_HANDLE_H_INCLUDE__
+#define __APPLE_HANDLE_H_INCLUDE__
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+int  GetInstance(int *handle);
+void ReleaseInstance(int *handle);
+extern void SetColor(int handle, int color);
+extern int GetColor(int handle);
+#ifdef __cplusplus
+};
+#endif
+#endif	//	#define __APPLE_HANDLE_H_INCLUDE__
+```
+
+```cpp
+/////////////////////
+//  applehandle.cpp
+/////////////////////
+#include "applehandle.h"
+#include "apple.h"
+#include <vector>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+static std::vector<Apple *> g_appleVector;
+
+int GetInstance(int * handle)
+{
+    g_appleVector[0] =  new Apple;
+    *handle = 0;
+    return 1;
+}
+void ReleaseInstance(int *handle)
+{
+    delete g_appleVector[*handle];
+    *handle = -1;
+
+}
+void SetColor(int handle, int color)
+{
+    g_appleVector[handle]->SetColor(color);
+}
+
+int GetColor(int handle)
+{
+    return g_appleVector[handle]->GetColor();
+}
+#ifdef __cplusplus
+};
+#endif
+```
+
+
+###2.3.5	Makefile
+-------
+
+
+```cpp
+#####################
+#  Makefile
+#####################
+
+#  the compile options
+CFLAGS = -Wall -std=gnu99 -O2 -pedantic -Wextra -g
+CXXFLAGS = -Wall -std=c++11 -O2 -pedantic -Wextra -g
+
+SHAREDLIB_LINK_OPTIONS = -shared
+
+
+FPIC = -fPIC
+
+#  the include directory
+INC = -I./
+
+
+target=main_wrapper
+
+
+all:$(target)
+
+main_wrapper : main.o libapplewrapper.a
+	$(CC) $^ -o $@ -lstdc++
+
+main_handle : main.o libapplehandle.a 
+	$(CC) $^ -o $@ -lstdc++
+
+main_wrapper_sdk : main.o libapplewrapper.so
+	$(CC) $^ -o $@ -lstdc++ -L./ -lapplewrapper
+
+main_handle_sdk : main.o libapplehandle.so
+	$(CC) $^ -o $@ -lstdc++ -L./ -lapplehandle
+
+libapplewrapper.a:apple.o applewrapper.o
+	ar crv $@ $^
+
+libapplehandle.a:apple.o applehandle.o
+	ar crv $@ $^
+
+libapplewrapper.ao : apple.o applewrapper.o
+	$(CXX) $(SHAREDLIB_LINK_OPTIONS) $(FPIC) $(LDFLAGS) $^ -o $@
+
+libapplehandle.ao : apple.o applehandle.o
+	$(CXX) $(SHAREDLIB_LINK_OPTIONS) $(FPIC) $(LDFLAGS) $^ -o $@
+
+
+%.o:%.cpp
+	$(CXX) $(FPIC) $(CXXFLAGS) -c $^ -o $@ $(INC)
+
+%.o:%.c
+	$(CC) $(FPIC) $(CFLAGS) -c $^ -o $@ $(INC)
+
+clean :
+	rm -rf *.o
+	rm -rf libapple.so libapple.a
+	rm -rf $(target)
+```

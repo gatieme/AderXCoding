@@ -21,7 +21,7 @@ endif
 INC = -I./
 
 
-target=main main_sdk
+target=main_wrapper
 
 
 
@@ -29,18 +29,30 @@ all:$(target)
 
 
 
-main:main.o libapple.a
+main_wrapper : main.o libapplewrapper.a
 	$(CC) $^ -o $@ -lstdc++
 
 
-main_sdk : main.o libapple.so
-	$(CC) $^ -o $@ -lstdc++ -L./ -lapple
+main_handle : main.o libapplehandle.a 
+	$(CC) $^ -o $@ -lstdc++
+
+main_wrapper_sdk : main.o libapplewrapper.so
+	$(CC) $^ -o $@ -lstdc++ -L./ -lapplewrapper
+
+main_handle_sdk : main.o libapplehandle.so
+	$(CC) $^ -o $@ -lstdc++ -L./ -lapplehandle
 
 
-libapple.a:apple.o applewrapper.o
+libapplewrapper.a:apple.o applewrapper.o
 	ar crv $@ $^
 
-libapple.so : apple.o applewrapper.o
+libapplehandle.a:apple.o applehandle.o
+	ar crv $@ $^
+
+libapplewrapper.ao : apple.o applewrapper.o
+	$(CXX) $(SHAREDLIB_LINK_OPTIONS) $(FPIC) $(LDFLAGS) $^ -o $@
+
+libapplehandle.ao : apple.o applehandle.o
 	$(CXX) $(SHAREDLIB_LINK_OPTIONS) $(FPIC) $(LDFLAGS) $^ -o $@
 
 
