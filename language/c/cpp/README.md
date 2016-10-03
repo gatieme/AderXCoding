@@ -455,6 +455,11 @@ clean :
 -------
 
 
+###2.2.1	C调用C++中成员函数
+-------
+
+
+同样以一个示例来展示调用的过程, 代码参见[`language/c/cpp/c_link_cpp_mem_func`](https://github.com/gatieme/AderXCoding/tree/master/language/c/cpp/c_link_cpp_mem_func)
 
 首先是myclass类的信息
 
@@ -498,7 +503,7 @@ int MyClass::add(int a, int b)
 ```
 
 
-接着我们实现的借口类
+接着我们实现的接口, `call_cpp_class_add`函数中创建了一个`MyClass`对象并调用了其成员函数`add`, 由于`extern "C"`的作用C++编译器将`libmyclass`编译成了一个可以被C编译器链接的目标对象格式
 
 ```cpp
 /////////////////////
@@ -611,4 +616,226 @@ clean :
 
 ![C中调用C++中类成员数据(面向对象的数据)](./c_link_cpp_mem_func/c_link_cpp_mem_func.png)
 
+
+
+###2.2.1	C调用C++中类函数
+-------
+
+
+
+其实我们可以为类中每个函数对象都进行接口重构, 然后在参数中加入类似this指针的参数
+
+下面这个示例中, 我们为`C++`的`MyClass`类实现了C的构造和析构函数, 这样我们就相当于完成把一个`C++`写成的库完全做出了一套`C`语言的调用借口
+
+
+首先是`MyClass`类, 类中有一个虚函数`func`
+
+```cpp
+/////////////////////
+//  mfileyclass.h
+/////////////////////
+#ifndef __MY_CLASS_H_INCLUDE__
+#define __MY_CLASS_H_INCLUDE__
+
+
+class MyClass
+{
+public :
+    virtual int func(int);
+};
+
+
+#endif  //  #define __MY_CLASS_H_INCLUDE__
+
+
+/////////////////////
+//  myclass.cpp
+/////////////////////
+#include <iostream>
+
+#include "myclass.h"
+
+
+using namespace std;
+
+
+int MyClass::func(int i)
+{
+    cout <<"virtual function " <<i <<" in class" <<endl;
+
+    return 0;
+}
+```
+
+
+然后是中间层`libmyclass.h`, 中间层将`C++`的`MyClass`类对象进行了一个完整的封装
+
+*	通过`create_myclass( )`构造了一个指向`MyClass`的指针
+
+*	通过`destroy_myclass( void* thisC)`释放类对象的指针
+
+*	通过`call_myclass_func(MyClass *thismc, int i)`调用`MyClass::func( )`函数
+
+
+```cpp
+/////////////////////
+//  libmyclass.h
+/////////////////////
+#ifndef __LIB_MY_CLASS_H_INCLUDE__
+#define __LIB_MY_CLASS_H_INCLUDE__
+
+
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
+
+
+void* create_myclass( );
+
+void destroy_myclass( void* thisC);
+
+int call_myclass_func(void *thismc, int i);
+
+
+#ifdef __cplusplus
+}
+#endif
+
+
+
+#endif  //  #define __LIB_MY_CLASS_H_INCLUDE__
+
+
+
+/////////////////////
+//  libmyclass.cpp
+/////////////////////
+#include <iostream>
+
+#include "myclass.h"
+#include "libmyclass.h"
+
+
+using namespace std;
+
+
+
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
+
+/* extern "C" */void* create_myclass( )
+{
+    return new MyClass( );
+}
+
+/* extern "C" */void destroy_myclass( void* thisC)
+{
+    delete static_cast<MyClass *>(thisC);
+}
+
+/*extern "C"*/int call_myclass_func(void *thismc, int i)
+{
+    return static_cast<MyClass *>(thismc)->func(i);
+}
+
+
+#ifdef __cplusplus
+}
+#endif
+```
+
+
+我们在主函数中调用了中间层的接口, 来实现`C`语言中调用`C++`的接口
+
+
+```cpp
+/////////////////////
+//  main.cpp
+/////////////////////
+#include <stdio.h>
+#include <stdlib.h>
+
+#include "libmyclass.h"
+
+int main( )
+{
+    void *pclass = create_myclass( );
+    call_myclass_func(pclass, 10);
+    destroy_myclass(pclass);
+    pclass = NULL;
+
+
+    return EXIT_SUCCESS;
+}
+```
+
+
+最后我们依旧列出`Makefile`
+
+```cpp
+#####################
+#  Makefile
+#####################
+
+#  the compile options
+CFLAGS = -Wall -std=gnu99 -O2 -pedantic -Wextra -g
+CXXFLAGS = -Wall -std=c++11 -O2 -pedantic -Wextra -g
+
+SHAREDLIB_LINK_OPTIONS = -shared
+
+
+FPIC = -fPIC
+
+#  the include directory
+INC = -I./
+
+target=libmyclass.so libmyclass.a main main_sdk
+
+all:$(target)
+
+main : main.o libmyclass.a
+	$(CC) $^ -o $@ -ldl -lstdc++
+
+
+main_sdk : main.o libmyclass.so
+	$(CC) $^ -o $@ -ldl -lstdc++ -L./ -lmyclass
+
+
+libmyclass.a : myclass.o libmyclass.o
+	ar crv $@ $^
+
+
+libmyclass.so : libmyclass.o myclass.o
+	$(CXX) $(SHAREDLIB_LINK_OPTIONS) $(FPIC) $(LDFLAGS) $^ -o $@
+
+
+%.o:%.cpp
+	$(CXX) $(FPIC) $(CXXFLAGS) -c $^ -o $@ $(INC)
+
+
+%.o:%.c
+	$(CC) $(FPIC) $(CFLAGS) -c $^ -o $@ $(INC)
+
+
+clean :
+	rm -rf *.o
+	rm -rf $(target)
+```
+
+
+![c_link_cpp_class](./c_link_cpp_class/c_link_cpp_class.png)
+
+
+##2.3	`C`调用`C++`的接口总结
+-------
+
+本文给出了一种方法. 基本思想是, 写一个`wrapper`文件. 把`C++`类封装起来, 对外只提供C语言的接口, 和`C++`相关的都在`wrapper`的实现文件里实现
+
+
+**C++的接口**
 
