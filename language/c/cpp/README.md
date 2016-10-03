@@ -308,7 +308,7 @@ all:$(target)
 
 
 main_sdk : main.o libadd.so
-	$(CC) $^ -o $@ -L./ -ladd
+	$(CC) $^ -o $@ -L./ -ladd -lstdc++
 
 
 libadd.so : libadd.o add.o
@@ -330,7 +330,7 @@ clean :
 ![C中调用C++中基本的数据和成员(面向过程的数据)](c_link_cpp_func/c_link_cpp_func.png)
 
 
-##2.2	重载函数的处理
+##2.2	`C`语言调用`C++`重载函数的处理
 -------
 
 
@@ -338,7 +338,7 @@ clean :
 C++支持函数重载的, 函数名相同但是参数不同的重载函数在编译后链接的名字并不相同而可以被识别, 这种情况下, 我们引入一个中间层的方法同样可以实现C中调用C++的函数借口, 其实现与上一节C中调用C++非重载基本函数成员的实现没有什么区别, 只是为各个重载函数均实现一套接口而已
 
 
-我们仍然以一个示例来展示, 代码参见
+我们仍然以一个示例来展示, 代码参见[`language/c/cpp/c_link_cpp_overload_func`](https://github.com/gatieme/AderXCoding/tree/master/language/c/cpp/c_link_cpp_overload_func)
 
 首先是我们的`C++`接口, 如下所示
 
@@ -357,8 +357,11 @@ double add(const double a, const double b)
 }
 ```
 
+我们为此实现一个中间层`libadd.cpp`, 通过`C++`编译器用`extern "C"`将其编译成C编译器可识别的接口
+
 
 ```cpp
+// libadd.cpp
 int add(const int a, const int b);
 double add(const double a, const double b);
 
@@ -372,7 +375,6 @@ int call_cpp_add_int(const int a, const int b)
     return add(a, b);
 }
 
-
 double call_cpp_add_double(const double a, const double b)
 {
     return add(a, b);
@@ -383,6 +385,8 @@ double call_cpp_add_double(const double a, const double b)
 #endif
 ```
 
+
+最后是我们的C源程序, 调用我们的中间层
 
 ```cpp
 //  main.c
@@ -401,6 +405,48 @@ int main( )
     return 0;
 }
 ```
+
+
+
+最后是`Makefile`, 我们通过中间层`libadd.cpp`将`C++`的接口转换成C编译器可以识别的格式, 然后添加在我们的C源程序`main.c`中
+
+
+```cpp
+#  the compile options
+CFLAGS = -Wall -std=gnu99 -O2 -pedantic -Wextra -g
+CXXFLAGS = -Wall -std=c++11 -O2 -pedantic -Wextra -g
+
+SHAREDLIB_LINK_OPTIONS = -shared
+
+FPIC = -fPIC
+
+#  the include directory
+INC = -I./
+
+target=main_sdk libadd.so
+
+all:$(target)
+
+
+main_sdk : main.o libadd.so
+	$(CC) $^ -o $@ -L./ -ladd -lstdc++
+
+libadd.so : libadd.o add.o
+	$(CXX) $(SHAREDLIB_LINK_OPTIONS) $(FPIC) $(LDFLAGS) $^ -o $@
+
+%.o : %.cpp
+	$(CXX) $(FPIC) $(CXXFLAGS) -c $^ -o $@ $(INC)
+
+%.o : %.c
+	$(CC) $(FPIC) $(CFLAGS) -c $^ -o $@ $(INC)
+
+clean :
+	rm -rf *.o
+	rm -rf $(target)
+```
+
+
+![`C`语言调用`C++`重载函数的处理](c_link_cpp_overload_func/c_link_cpp_overload_func.png)
 
 
 ##2.2	C中调用C++中类成员数据(面向对象的数据)

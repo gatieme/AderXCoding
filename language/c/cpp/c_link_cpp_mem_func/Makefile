@@ -3,6 +3,8 @@ PLATFORM=$(shell $(ROOT)/systype.sh)
 include $(ROOT)/Make.defines.$(PLATFORM)
 
 
+
+
 #  the compile options
 CFLAGS = -Wall -std=gnu99 -O2 -pedantic -Wextra -g
 CXXFLAGS = -Wall -std=c++11 -O2 -pedantic -Wextra -g
@@ -14,7 +16,6 @@ FPIC =
 else
 FPIC = -fPIC
 endif
-
 #-Wl,-soname,
 #  the include directory
 INC = -I./
@@ -33,10 +34,11 @@ main:main.o libmyclass.a
 
 
 
-#libfirst.so:first.o
-#	gcc $(SHAREDLIB_LINK_OPTIONS) $(FPIC) $(LDFLAGS) $^ -o $@
+libmyclass.so:libmyclass.o myclass.o
+	$(CXX) $(SHAREDLIB_LINK_OPTIONS) $(FPIC) $(LDFLAGS) $^ -o $@
 
-libmyclass.a:myclass.o func.o
+
+libmyclass.a:libmyclass.o myclass.o
 	ar crv $@ $^
 
 
