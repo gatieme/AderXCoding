@@ -15,7 +15,7 @@ void function( )
 }
 
 // the interface for c compiler
-extern "C"void test_function(void)
+extern "C" void test_function(void)
 {
     function( );
 }
