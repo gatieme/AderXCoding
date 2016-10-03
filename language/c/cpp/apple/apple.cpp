@@ -1,9 +1,3 @@
-/*************************************************************************
-    > File Name: apple.cpp
-    > Author: gatieme
-    > Created Time: Sun 03 Apr 2016 03:57:36 PM CST
- ************************************************************************/
-
 #include <iostream>
 using namespace std;
 

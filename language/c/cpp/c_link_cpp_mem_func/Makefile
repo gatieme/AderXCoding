@@ -21,7 +21,7 @@ endif
 INC = -I./
 
 
-target=libmyclass.so liblibmyclass.so libmyclass.a main main_sdk
+target=libmyclass.so libmyclass.a main main_sdk
 
 
 
@@ -32,19 +32,19 @@ main : main.o libmyclass.a
 	$(CC) $^ -o $@ -ldl -lstdc++
 
 
-main_sdk : main.o liblibmyclass.so
-	$(CC) $^ -o $@ -ldl -lstdc++ -L./ -llibmyclass
+main_sdk : main.o libmyclass.so
+	$(CC) $^ -o $@ -ldl -lstdc++ -L./ -lmyclass
 
 
 
 libmyclass.a : myclass.o libmyclass.o
 	ar crv $@ $^
 
-liblibmyclass.so:libmyclass.o
-	$(CXX) $(SHAREDLIB_LINK_OPTIONS) $(FPIC) $(LDFLAGS) $^ -o $@
+#liblibmyclass.so:libmyclass.o myclass.o
+#	$(CXX) $(SHAREDLIB_LINK_OPTIONS) $(FPIC) $(LDFLAGS) $^ -o $@
 
 
-libmyclass.so : myclass.o
+libmyclass.so : libmyclass.o myclass.o
 	$(CXX) $(SHAREDLIB_LINK_OPTIONS) $(FPIC) $(LDFLAGS) $^ -o $@
 
 

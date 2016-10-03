@@ -1,24 +1,12 @@
-
+#include <iostream>
 
 #include "myclass.h"
 
 
-//  member function
+using namespace std;
+
+
 int MyClass::add(int a, int b)
 {
-    return (a + b);
+    return a + b;
 }
-
-
-/*
-#include <iostream>
-
-class MyClass
-{
-    //  member function
-    int add(int a, int b)
-    {
-        return (a + b);
-    }
-};
-*/

@@ -550,51 +550,45 @@ int main(void)
 ```
 
 
-最后附上我们的`Makefile`
+最后附上我们的`Makefile`, 静态库链接后生成了main, 而动态链接库链接后生成了main_sdk
 
 ```cpp
 #####################
 #  Makefile
 #####################
+
 #  the compile options
 CFLAGS = -Wall -std=gnu99 -O2 -pedantic -Wextra -g
 CXXFLAGS = -Wall -std=c++11 -O2 -pedantic -Wextra -g
 
 SHAREDLIB_LINK_OPTIONS = -shared
 
-ifeq ($(PLATFORM), windows)
-FPIC =
-else
 FPIC = -fPIC
-endif
-#-Wl,-soname,
 #  the include directory
 INC = -I./
 
 
-target=libmyclass.so liblibmyclass.so libmyclass.a main #main_sdk
+target=libmyclass.so libmyclass.a main main_sdk
+
+
 
 all:$(target)
-
 
 
 main : main.o libmyclass.a
 	$(CC) $^ -o $@ -ldl -lstdc++
 
 
-main_sdk : main.o liblibmyclass.so
-	$(CC) $^ -o $@ -ldl -lstdc++ -L./ -llibmyclass
+main_sdk : main.o libmyclass.so
+	$(CC) $^ -o $@ -ldl -lstdc++ -L./ -lmyclass
 
 
 
 libmyclass.a : myclass.o libmyclass.o
 	ar crv $@ $^
 
-liblibmyclass.so:libmyclass.o
-	$(CXX) $(SHAREDLIB_LINK_OPTIONS) $(FPIC) $(LDFLAGS) $^ -o $@
 
-
-libmyclass.so : myclass.o
+libmyclass.so : libmyclass.o myclass.o
 	$(CXX) $(SHAREDLIB_LINK_OPTIONS) $(FPIC) $(LDFLAGS) $^ -o $@
 
 
@@ -612,7 +606,7 @@ clean :
 ```
 
 
-这里我将`C++`的库封装成了静态库, 封装成动态库的时候, 出错发现找不到函数的链接地址
+
 
 
 ![C中调用C++中类成员数据(面向对象的数据)](./c_link_cpp_mem_func/c_link_cpp_mem_func.png)
