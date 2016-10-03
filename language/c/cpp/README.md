@@ -76,6 +76,8 @@ extern "C"
 -------
 
 
+下面我们通过一个示例来看看C++中如果调用C的函数, 代码在[`language/c/cpp/cpp_link_c`](https://github.com/gatieme/AderXCoding/tree/master/language/c/cpp/cpp_link_c)
+
 我们在`add.c`中定义了一个add函数, 这个函数是C语言实现的函数接口
 
 ```cpp
@@ -221,34 +223,116 @@ C++面向过程的部分是完全兼容C的, 因此其本质上俊只是编译�
 
 这部分C与C++是完全兼容的, 没有区别, 因此使用extern "C"的方式就足以处理.
 
-将C++函数声明为"extern "C"(在你的C++代码里做这个声明), 然后调用它(在你的C或者C++代码里调用). 例如：
+将C++函数声明为"extern "C"(在你的C++代码里做这个声明), 然后调用它(在你的C或者C++代码里调用).
+
+例如：
+
+我们有`add.cpp`做出的一套C++的库接口, 其中包含`add`函数借口, 但是这套接口是C++的, 我们想要在C程序中使用这个C++的库借口, 该如何实现呢
 
 
+
+首先是我们的C++库的源代码
 
 ```cpp
-// C++ code:
-
-extern "C" void f(int);
-
-void f(int i)
+// add.cpp
+int add(const int a, const int b)
 {
-	// ...
+    return (a + b);
+}
+```
+
+我们想要在C程序中使用这个函数接口, 但是C++并不兼容C的接口, 考虑我们可以通过增加一个中间层来实现, 进行一次封装, 将C++的库封装成C编译器可识别的形式
+
+中间层`libadd.cpp`的形式如下, 其实就是用`C++`编译器编译出一套C编译器可识别的代码, 同样是通过`extern "C"`来实现, 将`add`函数封装成`call_cpp_add`函数
+
+```cpp
+//  libadd.cpp
+int add(const int a, const int b);
+
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
+int call_cpp_add(const int a, const int b)
+{
+    return add(a, b);
 }
 
-然后，你可以这样使用f()
+#ifdef __cplusplus
+}
+#endif
+```
+
+
+那这样以来`call_cpp_add`函数虽然用`C++`编译器编译, 但是编译成`C`编译器可识别的格式, 我们就可以在`C`源程序`main`中调用`C`编译器可以识别的`call_cpp_add`函数.
 
 ```cpp
-/* C code */
-void f(int);
-void cc(int i)
+//  main.c
+#include <stdio.h>
+#include <stdlib.h>
+
+
+int call_cpp_add(const int a, const int b);
+
+int main( )
 {
-	f(i);
-　　/* ... */
+    printf("%d\n", call_cpp_add(2, 4));
+
+    return 0;
 }
 ```
 
 
+下面是`Makefile`的信息
 
+```cpp
+#  the compile options
+CFLAGS = -Wall -std=gnu99 -O2 -pedantic -Wextra -g
+CXXFLAGS = -Wall -std=c++11 -O2 -pedantic -Wextra -g
+
+SHAREDLIB_LINK_OPTIONS = -shared
+
+
+FPIC = -fPIC
+
+#  the include directory
+INC = -I./
+
+
+target=main_sdk libadd.so
+
+
+
+all:$(target)
+
+
+
+main_sdk : main.o libadd.so
+	$(CXX) $^ -o $@ -L./ -ladd
+
+
+
+libadd.so : libadd.o add.o
+	$(CC) $(SHAREDLIB_LINK_OPTIONS) $(FPIC) $(LDFLAGS) $^ -o $@
+
+
+
+%.o : %.cpp
+	$(CXX) $(FPIC) $(CXXFLAGS) -c $^ -o $@ $(INC)
+
+
+%.o : %.c
+	$(CC) $(FPIC) $(CFLAGS) -c $^ -o $@ $(INC)
+
+
+clean :
+	rm -rf *.o
+	rm -rf $(target)
+```
+
+
+![C中调用C++中基本的数据和成员(面向过程的数据)](c_link_cpp_func/c_link_cpp_func.png)
 
 
 ##2.2	重载函数的处理
