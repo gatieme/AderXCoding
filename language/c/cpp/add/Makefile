@@ -35,11 +35,11 @@ main:main.o libsecond.so
 
 
 libfirst.so:first.o
-	gcc $(SHAREDLIB_LINK_OPTIONS) $(FPIC) $(LDFLAGS) $^ -o $@
+	$(CXX) $(SHAREDLIB_LINK_OPTIONS) $(FPIC) $(LDFLAGS) $^ -o $@
 
 
 libsecond.so:second.o
-	gcc $(SHAREDLIB_LINK_OPTIONS) $(FPIC) $(LDFLAGS) $^ -o $@
+	$(CXX) $(SHAREDLIB_LINK_OPTIONS) $(FPIC) $(LDFLAGS) $^ -o $@
 
 
 %.o:%.cpp

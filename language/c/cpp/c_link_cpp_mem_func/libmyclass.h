@@ -10,13 +10,7 @@ extern "C"
 #endif
 
 
-/* extern "C" */int call_cpp_class_add(int a, int b)
-{
-    MyClass mc;
-
-    return mc.add(a, b);
-}
-
+int call_cpp_class_add(int a, int b);
 
 
 

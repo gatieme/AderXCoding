@@ -1,9 +1,3 @@
-/*************************************************************************
-    > File Name: second.cpp
-    > Author: gatieme
-    > Created Time: Sun 03 Apr 2016 03:05:54 PM CST
- ************************************************************************/
-
 #include <iostream>
 using namespace std;
 

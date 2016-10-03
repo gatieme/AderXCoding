@@ -21,7 +21,7 @@ endif
 INC = -I./
 
 
-target=main
+target=main main_sdk
 
 
 
@@ -33,8 +33,16 @@ main:main.o libapple.a
 	$(CC) $^ -o $@ -lstdc++
 
 
+main_sdk : main.o libapple.so
+	$(CC) $^ -o $@ -lstdc++ -L./ -lapple
+
+
 libapple.a:apple.o applewrapper.o
 	ar crv $@ $^
+
+libapple.so : apple.o applewrapper.o
+	$(CXX) $(SHAREDLIB_LINK_OPTIONS) $(FPIC) $(LDFLAGS) $^ -o $@
+
 
 %.o:%.cpp
 	$(CXX) $(FPIC) $(CXXFLAGS) -c $^ -o $@ $(INC)
@@ -46,4 +54,5 @@ libapple.a:apple.o applewrapper.o
 
 clean :
 	rm -rf *.o
+	rm -rf libapple.so libapple.a
 	rm -rf $(target)

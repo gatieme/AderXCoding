@@ -449,7 +449,172 @@ clean :
 ![`C`语言调用`C++`重载函数的处理](c_link_cpp_overload_func/c_link_cpp_overload_func.png)
 
 
+
+
 ##2.2	C中调用C++中类成员数据(面向对象的数据)
 -------
+
+
+
+首先是myclass类的信息
+
+
+```cpp
+/////////////////////
+// myclass.h
+/////////////////////
+#ifndef __MY_CLASS_H_INCLUDE__
+#define __MY_CLASS_H_INCLUDE__
+
+
+#include <iostream>
+
+using namespace std;
+
+
+class MyClass
+{
+public :
+    //  member function
+    int add(int a, int b);
+};
+
+
+
+#endif  //  #define __MY_CLASS_H_INCLUDE__
+
+
+/////////////////////
+//  myclass.cpp
+/////////////////////
+#include "myclass.h"
+
+
+//  member function
+int MyClass::add(int a, int b)
+{
+    return (a + b);
+}
+```
+
+
+接着我们实现的借口类
+
+```cpp
+/////////////////////
+//  libmyclass.cpp
+/////////////////////
+#include <iostream>
+using namespace std;
+
+#include "myclass.h"
+
+
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
+
+/* extern "C" */int call_cpp_class_add(int a, int b)
+{
+    MyClass mc;
+
+    return mc.add(a, b);
+}
+
+
+#ifdef __cplusplus
+}
+#endif
+```
+
+
+然后是main函数
+
+```cpp
+/////////////////////
+//  main.cpp
+/////////////////////
+#include <stdio.h>
+#include <stdlib.h>
+
+extern int call_cpp_class_add(int a, int b);
+
+int main(void)
+{
+    printf("2 + 4 = %d\n", call_cpp_class_add(2, 4));
+
+    return 0;
+}
+```
+
+
+最后附上我们的`Makefile`
+
+```cpp
+#####################
+#  Makefile
+#####################
+#  the compile options
+CFLAGS = -Wall -std=gnu99 -O2 -pedantic -Wextra -g
+CXXFLAGS = -Wall -std=c++11 -O2 -pedantic -Wextra -g
+
+SHAREDLIB_LINK_OPTIONS = -shared
+
+ifeq ($(PLATFORM), windows)
+FPIC =
+else
+FPIC = -fPIC
+endif
+#-Wl,-soname,
+#  the include directory
+INC = -I./
+
+
+target=libmyclass.so liblibmyclass.so libmyclass.a main #main_sdk
+
+all:$(target)
+
+
+
+main : main.o libmyclass.a
+	$(CC) $^ -o $@ -ldl -lstdc++
+
+
+main_sdk : main.o liblibmyclass.so
+	$(CC) $^ -o $@ -ldl -lstdc++ -L./ -llibmyclass
+
+
+
+libmyclass.a : myclass.o libmyclass.o
+	ar crv $@ $^
+
+liblibmyclass.so:libmyclass.o
+	$(CXX) $(SHAREDLIB_LINK_OPTIONS) $(FPIC) $(LDFLAGS) $^ -o $@
+
+
+libmyclass.so : myclass.o
+	$(CXX) $(SHAREDLIB_LINK_OPTIONS) $(FPIC) $(LDFLAGS) $^ -o $@
+
+
+%.o:%.cpp
+	$(CXX) $(FPIC) $(CXXFLAGS) -c $^ -o $@ $(INC)
+
+
+%.o:%.c
+	$(CC) $(FPIC) $(CFLAGS) -c $^ -o $@ $(INC)
+
+
+clean :
+	rm -rf *.o
+	rm -rf $(target)
+```
+
+
+这里我将`C++`的库封装成了静态库, 封装成动态库的时候, 出错发现找不到函数的链接地址
+
+
+![C中调用C++中类成员数据(面向对象的数据)](./c_link_cpp_mem_func/c_link_cpp_mem_func.png)
 
 
