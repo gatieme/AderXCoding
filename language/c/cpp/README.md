@@ -1,14 +1,7 @@
 C语言调用C++的函数库
 =======
 
-http://blog.csdn.net/coolmeme/article/details/7184331
 
-http://www.educity.cn/develop/478645.html
-
-http://blog.163.com/hbu_lijian/blog/static/1261291532012102571310685/
-
-
-http://blog.csdn.net/caspiansea/article/details/9676153
 
 
 #1	C++中调用C的接口
@@ -1147,3 +1140,23 @@ clean :
 	rm -rf libapple.so libapple.a
 	rm -rf $(target)
 ```
+
+
+
+#3	参照
+-------
+
+| 代码 | 描述 |
+|:---:|:----:|
+| 1.2  extern "C"引入C的库代码 | [`language/c/cpp/cpp_link_c`](https://github.com/gatieme/AderXCoding/tree/master/language/c/cpp/cpp_link_c) |
+| 2.1  C调用C++的基本成员函数 | [`language/c/cpp/c_link_cpp_func`](https://github.com/gatieme/AderXCoding/tree/master/language/c/cpp/c_link_cpp_func) |
+| 
+
+[c语言调用C++库](http://blog.csdn.net/coolmeme/article/details/7184331)
+
+
+[c语言调用c++函数(*.a,*.so)  ](http://www.educity.cn/develop/478645.html)
+
+
+
+[如何用C语言封装 C++的类，在 C里面使用](http://blog.csdn.net/caspiansea/article/details/9676153)
