@@ -59,7 +59,7 @@ extern "C"
 也就是说 : `C++`和`C`在编译后对产生的函数名字的处理是不一样的. 而上面的代码`extern "C"`目的就是主要实现C与C++的相互调用问题.
 
 
-对于C++编译器, 由于`__cplusplus`宏被定义`, 因此通过extern "C"`来通知C++编译器编译后的代码是按照C的obj文件格式编译的，要连接的话按照C的命名规则去找.
+对于C++编译器, 由于`__cplusplus`宏被定义, 因此通过`extern "C"`来通知C++编译器编译后的代码是按照C的obj文件格式编译的，要连接的话按照C的命名规则去找.
 
 
 >`C`和`C++`对函数的处理方式是不同的. `extern "C"`是使`C++`能够调用`C`写作的库文件的一个手段, 如果要对编译器提示使用`C`的方式来处理函数的话, 那么就要使用`extern "C"`来说明.
@@ -196,21 +196,21 @@ clean :
 **C调用C++的函数借口信息**
 
 
-前面我们讲解了, C++是一个C基础上扩展的支持面向对象的高级语言, 因此我们将C调用C++的函数的方法分为面向过程和面向对象两种特性分开讨论.
+前面我们讲解了, `C++`是一个`C`基础上扩展的支持面向对象的高级语言, 因此我们将`C`调用`C++`的函数的方法分为面向过程和面向对象两种特性分开讨论.
 
 
-*	C中调用C++中基本的数据和成员(面向过程的数据)
+*	`C`中调用`C++`中基本的数据和成员(面向过程的数据)
 
-*	C中调用C++中类成员数据(面向对象的数据)
-
-
-
+*	`C`中调用`C++`中类成员数据(面向对象的数据)
 
 
 
 
 
-#2	C中调用C++中基本的数据和成员(面向过程的数据)
+
+
+
+#2	`C`中调用`C++`中基本的数据和成员(面向过程的数据)
 -------
 
 
@@ -231,6 +231,8 @@ C++面向过程的部分是完全兼容C的, 因此其本质上俊只是编译�
 
 
 
+我们同样以一段示例来展示, 参见[`language/c/cpp/c_link_cpp_func`](https://github.com/gatieme/AderXCoding/tree/master/language/c/cpp/c_link_cpp_func)
+
 首先是我们的C++库的源代码
 
 ```cpp
@@ -241,7 +243,7 @@ int add(const int a, const int b)
 }
 ```
 
-我们想要在C程序中使用这个函数接口, 但是C++并不兼容C的接口, 考虑我们可以通过增加一个中间层来实现, 进行一次封装, 将C++的库封装成C编译器可识别的形式
+我们想要在C程序中使用这个函数接口, 但是`C++`并不兼容`C`的接口, 考虑我们可以通过增加一个中间层来实现, 进行一次封装, 将C++的库封装成C编译器可识别的形式
 
 中间层`libadd.cpp`的形式如下, 其实就是用`C++`编译器编译出一套C编译器可识别的代码, 同样是通过`extern "C"`来实现, 将`add`函数封装成`call_cpp_add`函数
 
@@ -299,32 +301,25 @@ FPIC = -fPIC
 #  the include directory
 INC = -I./
 
-
 target=main_sdk libadd.so
-
 
 
 all:$(target)
 
 
-
 main_sdk : main.o libadd.so
-	$(CXX) $^ -o $@ -L./ -ladd
-
+	$(CC) $^ -o $@ -L./ -ladd
 
 
 libadd.so : libadd.o add.o
-	$(CC) $(SHAREDLIB_LINK_OPTIONS) $(FPIC) $(LDFLAGS) $^ -o $@
-
+	$(CXX) $(SHAREDLIB_LINK_OPTIONS) $(FPIC) $(LDFLAGS) $^ -o $@
 
 
 %.o : %.cpp
 	$(CXX) $(FPIC) $(CXXFLAGS) -c $^ -o $@ $(INC)
 
-
 %.o : %.c
 	$(CC) $(FPIC) $(CFLAGS) -c $^ -o $@ $(INC)
-
 
 clean :
 	rm -rf *.o
@@ -337,6 +332,75 @@ clean :
 
 ##2.2	重载函数的处理
 -------
+
+
+
+C++支持函数重载的, 函数名相同但是参数不同的重载函数在编译后链接的名字并不相同而可以被识别, 这种情况下, 我们引入一个中间层的方法同样可以实现C中调用C++的函数借口, 其实现与上一节C中调用C++非重载基本函数成员的实现没有什么区别, 只是为各个重载函数均实现一套接口而已
+
+
+我们仍然以一个示例来展示, 代码参见
+
+首先是我们的`C++`接口, 如下所示
+
+```cpp
+//  add.cpp
+//#include <iostream>
+int add(const int a, const int b)
+{
+    return (a + b);
+}
+
+double add(const double a, const double b)
+{
+    //std::cout <<a <<", " <<b <<std::endl;
+    return (a + b);
+}
+```
+
+
+```cpp
+int add(const int a, const int b);
+double add(const double a, const double b);
+
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
+int call_cpp_add_int(const int a, const int b)
+{
+    return add(a, b);
+}
+
+
+double call_cpp_add_double(const double a, const double b)
+{
+    return add(a, b);
+}
+
+#ifdef __cplusplus
+}
+#endif
+```
+
+
+```cpp
+//  main.c
+#include <stdio.h>
+#include <stdlib.h>
+
+
+int call_cpp_add_int(const int a, const int b);
+double call_cpp_add_double(const double a, const double b);
+
+int main( )
+{
+    printf("2 + 4 = %d\n", call_cpp_add_int(2, 4));
+    printf("2.1 + 4.5 = %lf\n", call_cpp_add_double(2.1, 4.5));
+
+    return 0;
+}
+```
 
 
 ##2.2	C中调用C++中类成员数据(面向对象的数据)

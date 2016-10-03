@@ -30,7 +30,7 @@ all:$(target)
 
 
 main_sdk : main.o libadd.so
-	$(CC) $^ -o $@ -L./ -ladd -lstdc++
+	$(CXX) $^ -o $@ -L./ -ladd
 
 
 
