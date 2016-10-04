@@ -1,19 +1,17 @@
-#include "applewrapper.h"
+#include "applehandle.h"
 #include <assert.h>
 
 int main(void)
 {
+    int handle;
 
-    struct tagApple * pApple;
+    GetInstance(&handle);
 
-    pApple = GetInstance();
+    SetColor(handle, 1);
 
-    SetColor(pApple, 1);
-
-    int color = GetColor(pApple);
+    int color = GetColor(handle);
 
     printf("color = %d\n", color);
-    ReleaseInstance(&pApple);
-    assert(pApple == 0);
+    ReleaseInstance(&handle);
     return 0;
 }

@@ -1,6 +1,9 @@
-C语言调用C++的函数库
+[C++与C之间相互接口和库函数调用](http://blog.csdn.net/gatieme/article/details/52730680)
 =======
 
+| CSDN | GitHub |
+|:----:|:------:|
+| [C++与C之间相互接口和库函数调用](http://blog.csdn.net/gatieme/article/details/52730680) | [AderXCoding/language/c/cpp](https://github.com/gatieme/AderXCoding/tree/master/language/c/cpp) |
 
 
 
@@ -186,7 +189,7 @@ clean :
 
 
 
-**C调用C++的函数借口信息**
+**C调用C++的函数接口信息**
 
 
 前面我们讲解了, `C++`是一个`C`基础上扩展的支持面向对象的高级语言, 因此我们将`C`调用`C++`的函数的方法分为面向过程和面向对象两种特性分开讨论.
@@ -203,15 +206,18 @@ clean :
 
 
 
-#2	`C`中调用`C++`中基本的数据和成员(面向过程的数据)
+#2	`C`中调用`C++`的接口
 -------
 
 
 
+##2.1	`C`中调用`C++`中基本的数据和成员(面向过程的数据)
+-------
+
 C++面向过程的部分是完全兼容C的, 因此其本质上俊只是编译阶段的处理不同而已, 但是C++也引入了一些新的特性, 比如函数重载等, 这些需要我们单独去兼容.
 
 
-##2.1	基本函数的处理
+###2.1.1	基本函数的处理
 -------
 
 这部分C与C++是完全兼容的, 没有区别, 因此使用extern "C"的方式就足以处理.
@@ -220,7 +226,7 @@ C++面向过程的部分是完全兼容C的, 因此其本质上俊只是编译�
 
 例如：
 
-我们有`add.cpp`做出的一套C++的库接口, 其中包含`add`函数借口, 但是这套接口是C++的, 我们想要在C程序中使用这个C++的库借口, 该如何实现呢
+我们有`add.cpp`做出的一套C++的库接口, 其中包含`add`函数接口, 但是这套接口是C++的, 我们想要在C程序中使用这个C++的库接口, 该如何实现呢
 
 
 
@@ -323,12 +329,12 @@ clean :
 ![C中调用C++中基本的数据和成员(面向过程的数据)](c_link_cpp_func/c_link_cpp_func.png)
 
 
-##2.2	`C`语言调用`C++`重载函数的处理
+###2.1.2	`C`语言调用`C++`重载函数的处理
 -------
 
 
 
-C++支持函数重载的, 函数名相同但是参数不同的重载函数在编译后链接的名字并不相同而可以被识别, 这种情况下, 我们引入一个中间层的方法同样可以实现C中调用C++的函数借口, 其实现与上一节C中调用C++非重载基本函数成员的实现没有什么区别, 只是为各个重载函数均实现一套接口而已
+C++支持函数重载的, 函数名相同但是参数不同的重载函数在编译后链接的名字并不相同而可以被识别, 这种情况下, 我们引入一个中间层的方法同样可以实现C中调用C++的函数接口, 其实现与上一节C中调用C++非重载基本函数成员的实现没有什么区别, 只是为各个重载函数均实现一套接口而已
 
 
 我们仍然以一个示例来展示, 代码参见[`language/c/cpp/c_link_cpp_overload_func`](https://github.com/gatieme/AderXCoding/tree/master/language/c/cpp/c_link_cpp_overload_func)
@@ -611,7 +617,7 @@ clean :
 
 
 
-###2.2.1	C调用C++中类函数
+###2.2.2	C调用C++中类函数
 -------
 
 
@@ -826,7 +832,7 @@ clean :
 ![c_link_cpp_class](./c_link_cpp_class/c_link_cpp_class.png)
 
 
-##2.3	`C`调用`C++`的接口总结
+##2.3	`C`调用`C++`的接口总结(wrapper方法和handle方法)
 -------
 
 本文给出了一种方法. 基本思想是, 写一个`wrapper`文件. 把`C++`类封装起来, 对外只提供C语言的接口, 和`C++`相关的都在`wrapper`的实现文件里实现
@@ -980,9 +986,6 @@ int GetColor(struct tagApple *pApple)
 #endif
 ```
 
-###2.3.3	C源程序
--------
-
 
 ```cpp
 /////////////////////
@@ -1011,10 +1014,15 @@ int main(void)
 
 
 
+![wrapper方法接口](./apple/apple_wrapper.png)
+
+
+
+###2.3.3	handle接口
+-------
+
 其实, `wrapper`里的`struct`完全可以不要, 定义一个  `handle`更好
 
-###2.3.4	handle接口
--------
 
 ```cpp
 /////////////////////
@@ -1040,10 +1048,6 @@ extern int GetColor(int handle);
 /////////////////////
 //  applehandle.cpp
 /////////////////////
-#include "applehandle.h"
-#include "apple.h"
-#include <vector>
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -1052,13 +1056,15 @@ static std::vector<Apple *> g_appleVector;
 
 int GetInstance(int * handle)
 {
-    g_appleVector[0] =  new Apple;
+    g_appleVector.push_back(new Apple( ));
     *handle = 0;
     return 1;
 }
 void ReleaseInstance(int *handle)
 {
-    delete g_appleVector[*handle];
+    Apple * papple = g_appleVector[*handle];
+    g_appleVector.erase(g_appleVector.begin( ) + *handle);
+    delete papple;
     *handle = -1;
 
 }
@@ -1071,13 +1077,41 @@ int GetColor(int handle)
 {
     return g_appleVector[handle]->GetColor();
 }
+
+
 #ifdef __cplusplus
-};
+}
 #endif
 ```
 
+```cpp
+/////////////////////
+//  mainhandle.cpp
+/////////////////////
+#include "applehandle.h"
+#include <assert.h>
 
-###2.3.5	Makefile
+int main(void)
+{
+    int handle;
+
+    GetInstance(&handle);
+
+    SetColor(handle, 1);
+
+    int color = GetColor(handle);
+
+    printf("color = %d\n", color);
+    ReleaseInstance(&handle);
+    return 0;
+}
+```
+
+
+![handle方法接口](./apple/apple_handle.png)
+
+
+###2.3.4	Makefile
 -------
 
 
@@ -1148,15 +1182,17 @@ clean :
 
 | 代码 | 描述 |
 |:---:|:----:|
-| 1.2  extern "C"引入C的库代码 | [`language/c/cpp/cpp_link_c`](https://github.com/gatieme/AderXCoding/tree/master/language/c/cpp/cpp_link_c) |
-| 2.1  C调用C++的基本成员函数 | [`language/c/cpp/c_link_cpp_func`](https://github.com/gatieme/AderXCoding/tree/master/language/c/cpp/c_link_cpp_func) |
-| 
-
-[c语言调用C++库](http://blog.csdn.net/coolmeme/article/details/7184331)
-
-
-[c语言调用c++函数(*.a,*.so)  ](http://www.educity.cn/develop/478645.html)
+| 1.2  extern "C" C++中引入C的库代码 | [`language/c/cpp/cpp_link_c`](https://github.com/gatieme/AderXCoding/tree/master/language/c/cpp/cpp_link_c) |
+| 2.1.1  C调用C++的基本成员函数 | [`language/c/cpp/c_link_cpp_func`](https://github.com/gatieme/AderXCoding/tree/master/language/c/cpp/c_link_cpp_func) |
+|  2.1.2	C语言调用C++重载函数的处理 | [`language/c/cpp/c_link_cpp_overload_func`](https://github.com/gatieme/AderXCoding/tree/master/language/c/cpp/c_link_cpp_overload_func) |
+| 2.2.1	C调用C++中成员函数 | [`language/c/cpp/c_link_cpp_mem_func`](https://github.com/gatieme/AderXCoding/tree/master/language/c/cpp/c_link_cpp_mem_func) |
+| 2.2.2	C调用C++中类函数 | [`language/c/cpp/c_link_cpp_class`](https://github.com/gatieme/AderXCoding/tree/master/language/c/cpp/c_link_cpp_class) |
+| 2.3	C调用C++的接口总结(wrapper方法和handle方法) | [`language/c/cpp/apple`](https://github.com/gatieme/AderXCoding/tree/master/language/c/cpp/apple) |
 
 
 
-[如何用C语言封装 C++的类，在 C里面使用](http://blog.csdn.net/caspiansea/article/details/9676153)
+>[c语言调用C++库](http://blog.csdn.net/coolmeme/article/details/7184331)
+>
+>[c语言调用c++函数(*.a,*.so)  ](http://www.educity.cn/develop/478645.html)
+>
+>[如何用C语言封装 C++的类，在 C里面使用](http://blog.csdn.net/caspiansea/article/details/9676153)

@@ -29,7 +29,7 @@ LIBAPUE=
 # Common temp files to delete from each directory.
 TEMPFILES=core core.* *.o temp.* *.out
 
-COMMIT="C语言调用C++的接口..."
+COMMIT="C++与C之间相互接口和库函数调用--http://blog.csdn.net/gatieme/article/details/52730680..."
 
 
 
