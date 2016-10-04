@@ -29,7 +29,7 @@ LIBAPUE=
 # Common temp files to delete from each directory.
 TEMPFILES=core core.* *.o temp.* *.out
 
-COMMIT="终端的乐趣--Linux下有趣的终端命令或者工具--http://blog.csdn.net/gatieme/article/details/52144603..."
+COMMIT="byobu终端增强工具..."
 
 
 
