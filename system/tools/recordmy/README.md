@@ -1,5 +1,7 @@
 ubuntu下的录屏工具介绍
 =======
+http://www.edivaldobrito.com.br/programas-de-gravacao-de-tela-para-linux/
+
 
 >经本人试用, 觉得`recordmydesktop`最好用
 
