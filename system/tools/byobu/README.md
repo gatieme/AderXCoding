@@ -50,6 +50,10 @@ Where there is a shell，there is a way!
 
 默认的快捷键主要有 :
 
+
+>http://byobu.co/documentation.html
+
+
 | 快捷键 | 描述 |
 |:-----:|:---:|
 | F2 | new window |
@@ -59,7 +63,30 @@ Where there is a shell，there is a way!
 | F7 | 回滚模式 |
 | F8 | rename |
 | F12 | lockscreen |
-
+| F2 | Create a new window |
+| F3 | Move to previous window |
+| F4 | Move to next window |
+| F5 | Reload profile |
+| F6 | Detach from this session |
+| F7 | Enter copy/scrollback mode |
+| F8 | Re-title a window |
+| F9 | Configuration Menu |
+| F12 | Lock this terminal |
+| shift-F2 | Split the screen horizontally |
+| ctrl-F2 | Split the screen vertically |
+| shift-F3 | Shift the focus to the previous split region |
+| shift-F4 | Shift the focus to the next split region |
+| shift-F5 | Join all splits |
+| ctrl-F6 | Remove this split |
+| ctrl-F5 | Reconnect GPG and SSH sockets |
+| shift-F6 | Detach, but do not logout |
+| alt-pgup | Enter scrollback mode |
+| alt-pgdn | Enter scrollback mode |
+| Ctrl-a $ | show detailed status |
+| Ctrl-a R | Reload profile |
+| Ctrl-a ! | Toggle key bindings on and off
+| Ctrl-a k | Kill the current window |
+| Ctrl-a ~ | Save the current window's scrollback buffer |
 
 如果你用的是`putty`, 它默认的按键绑定跟`byobu`的冲突. 在`putty`的`Terminal => Keyboard`配置里选 `"Xterm R6"`后保存, 上面的快捷键就都可以用了
 
@@ -127,11 +154,6 @@ sudo vi `which byobu`
 
 
 
-安装过程遇到第一个小坑是首次安装完，执行 byobu-config 提示 "missing python snack module"。
-
-坑中大意是 python 没这个包，可以 python -c "import snack"手动试试咯。起因应该是 brew 和 byobu 依赖的 python 不是同一个，都是自己 pyenv 和 path 搞得太乱导致的。
-
-于是 brew 安了个 python，之后 brew link 后装的 python，重装一次 byobu 好了。
 
 
 [`iterm2`有些快捷键不能被`byobu`捕获](http://stackoverflow.com/questions/26180096/os-x-byobu-vertical-split)
