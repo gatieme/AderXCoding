@@ -21,5 +21,5 @@ clean:
 
 github:
 	git add -A
-	git commit -m $(COMMIT_C_LINK_CPP)
+	git commit -m $(COMMIT_TERMINAL_FUN)
 	git push origin master

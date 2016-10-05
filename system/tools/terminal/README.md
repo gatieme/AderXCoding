@@ -540,6 +540,35 @@ sudo apt-get install byobu
 [项目首页及源代码下载](https://launchpad.net/hollywood)
 
 
+byobu为了展示出黑客的feel, 附带了一系列的工具
+
+| 工具 | 描述 |
+|:---:|:----:|
+| ccze | 安装实时检测网络带宽的小工具bmon |
+| ccze | 为log日志记录颜色的小工具 |
+| jp2a | 把图片转换成 ASCII字符 |
+| speedometer | LINUX终端下的网络监测工具 |
+| moreutils | 工具集合 |
+
+```cpp
+  - chronic: runs a command quietly unless it fails
+  - combine: combine the lines in two files using boolean operations
+  - errno: look up errno names and descriptions
+  - ifdata: get network interface info without parsing ifconfig output
+  - ifne: run a program if the standard input is not empty
+  - isutf8: check if a file or standard input is utf-8
+  - lckdo: execute a program with a lock held
+  - mispipe: pipe two commands, returning the exit status of the first
+  - parallel: run multiple jobs at once
+  - pee: tee standard input to pipes
+  - sponge: soak up standard input and write to a file
+  - ts: timestamp standard input
+  - vidir: edit a directory in your text editor
+  - vipe: insert a text editor into a pipe
+  - zrun: automatically uncompress arguments to command
+```
+
+
 #3	游戏
 -------
 
