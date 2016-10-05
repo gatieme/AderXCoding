@@ -5,6 +5,11 @@ using namespace std;
 class MyClass
 {
 public :
+    //  virtual destructor
+    virtual ~MyClass( )
+    {
+    }
+
     //  function
     int add(int a, int b)
     {
@@ -35,15 +40,17 @@ extern "C"
 
 /* extern "C" */void* create_myclass( )
 {
-    return new MyClass( );
+    return (void *)(new MyClass( ));
 }
 
-/* extern "C" */void destroy_myclass( void* thisC)
+/* extern "C" */void destroy_myclass(void* thisC)
 {
-    delete static_cast<MyClass *>(thisC);
+    //delete static_cast<MyClass *>(thisC);
+    MyClass *pc = (MyClass *)thisC;
+    delete pc;
 }
 
-/*extern "C"*/int call_myclass_func(MyClass *thismc, int i)
+/*extern "C"*/int call_myclass_func(void *thismc, int i)
 {
     return static_cast<MyClass *>(thismc)->func(i);
 }

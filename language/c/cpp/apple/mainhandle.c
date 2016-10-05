@@ -1,5 +1,9 @@
-#include "applehandle.h"
+#include <stdio.h>
+#include <stdlib.h>
 #include <assert.h>
+
+
+#include "applehandle.h"
 
 int main(void)
 {

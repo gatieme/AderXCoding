@@ -5,6 +5,11 @@
 class MyClass
 {
 public :
+    //  virtual destructor
+    virtual ~MyClass( )
+    {
+    }
+
     virtual int func(int);
 };
 

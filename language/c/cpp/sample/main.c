@@ -17,7 +17,7 @@
 
 int main(void)
 {
-    int (*dlfunc)();
+    /*int (*dlfunc)();
 
     void *handle; //定义一个句柄
 
@@ -28,6 +28,7 @@ int main(void)
     printf("%d", (*dlfunc)( ));
 
     dlclose(handle);
+    */
 
 
     return 0;

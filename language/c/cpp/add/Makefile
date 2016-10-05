@@ -21,7 +21,9 @@ endif
 INC = -I./
 
 
-target=libfirst.so libsecond.so main
+target=main_sdk main				\
+	   libfirst.so libsecond.so		\
+	   libsecond.a
 
 
 
@@ -29,24 +31,30 @@ all:$(target)
 
 
 
-main:main.o libsecond.so
-	$(CC) $^ -o $@ -ldl
+main : main.o libsecond.a
+	$(CC) $^ -o $@ -ldl -lstdc++
 
 
+main_sdk : main.o libsecond.so
+	$(CC) $^ -o $@ -ldl -lstdc++
 
-libfirst.so:first.o
+
+libsecond.a : first.o second.o
+	ar crv $@ $^
+
+libfirst.so : first.o
 	$(CXX) $(SHAREDLIB_LINK_OPTIONS) $(FPIC) $(LDFLAGS) $^ -o $@
 
 
-libsecond.so:second.o
+libsecond.so : second.o first.o
 	$(CXX) $(SHAREDLIB_LINK_OPTIONS) $(FPIC) $(LDFLAGS) $^ -o $@
 
 
-%.o:%.cpp
+%.o : %.cpp
 	$(CXX) $(FPIC) $(CXXFLAGS) -c $^ -o $@ $(INC)
 
 
-%.o:%.c
+%.o : %.c
 	$(CC) $(FPIC) $(CFLAGS) -c $^ -o $@ $(INC)
 
 

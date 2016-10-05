@@ -1,0 +1,6 @@
+# Common make definitions, customized for each platform
+
+# Definitions required in all program directories to compile and link
+# C programs using gcc.
+
+COMMIT_C_LINK_CPP="C++与C之间相互接口和库函数调用--http://blog.csdn.net/gatieme/article/details/52730680"

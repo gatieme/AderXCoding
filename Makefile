@@ -1,6 +1,7 @@
 ROOT=.
 PLATFORM=$(shell $(ROOT)/systype.sh)
 include $(ROOT)/Make.defines.$(PLATFORM)
+include $(ROOT)/Make.defines.readme
 
 
 DIRS=language
@@ -20,5 +21,5 @@ clean:
 
 github:
 	git add -A
-	git commit -m $(GITHUB_COMMIT)
+	git commit -m $(COMMIT_C_LINK_CPP)
 	git push origin master

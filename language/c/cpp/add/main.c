@@ -4,7 +4,7 @@
 
 #define   SOFILE   "sec.so"
 
-//int   (*f)();
+int   f( );
 
 int   main()
 
@@ -18,7 +18,7 @@ int   main()
 
     f();
 */
-    f( );
+    printf("function \"f\" return %d", f( ));
     return   0;
 
 }

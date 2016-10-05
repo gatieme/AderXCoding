@@ -1,9 +1,3 @@
-/*************************************************************************
-    > File Name: mylib.cpp
-    > Author: gatieme
-    > Created Time: Sun 03 Apr 2016 02:50:10 PM CST
- ************************************************************************/
-
 #include <iostream>
 using namespace std;
 
@@ -18,7 +12,11 @@ using namespace std;
 */
 
 #ifdef __cplusplus
-    #include "mylib.h"
+
+#include "mylib.h"
+
+extern "C"
+{
 #endif
 
 int myfunc( )
@@ -29,3 +27,7 @@ int myfunc( )
 
     return 0;
 }
+
+#ifdef __cplusplus
+}
+#endif  //  #ifdef __cplusplus

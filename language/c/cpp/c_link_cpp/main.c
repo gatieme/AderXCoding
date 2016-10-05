@@ -1,17 +1,15 @@
-/*************************************************************************
-    > File Name: test.c
-    > Author: gatieme
-    > Created Time: Sun 03 Apr 2016 03:19:11 PM CST
- ************************************************************************/
-
 #include <stdio.h>
 #include <stdlib.h>
 
 
 
 
+
 extern int test_function(void);
 extern int test_add(int a, int b);
+extern void* create_myclass( );
+extern void destroy_myclass( void* thisC);
+extern int call_myclass_func(void *thismc, int i);
 
 
 
