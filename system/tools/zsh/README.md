@@ -215,6 +215,8 @@ ZSH_THEME="random" # (...please let it be pie... please be some pie..)
 ![zsh随机主题](zsh_random_theme.png)
 
 
+详细的主题信息, 可以参见[zsh主题介绍](https://github.com/robbyrussell/oh-my-zsh/wiki/themes)
+
 
 **配置插件**
 
@@ -226,7 +228,8 @@ plugins=(git bundler osx rake ruby)
 ```
 
 
-详细的主题信息, 可以参见[zsh主题介绍](https://github.com/robbyrussell/oh-my-zsh/wiki/themes)
+
+详细的插件信息, 可以参见[zsh插件Plugins介绍](https://github.com/robbyrussell/oh-my-zsh/wiki/Plugins)
 
 **更新oh-my-zsh**
 
