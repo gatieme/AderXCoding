@@ -21,5 +21,5 @@ clean:
 
 github:
 	git add -A
-	git commit -m $(COMMIT_TERMINAL_FUN)
+	git commit -m $(COMMIT_CREATE_INTERACTIVE_SHELL)
 	git push origin master

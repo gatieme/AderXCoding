@@ -5,3 +5,4 @@
 
 COMMIT_C_LINK_CPP="C++与C之间相互接口和库函数调用--http://blog.csdn.net/gatieme/article/details/52730680"
 COMMIT_TERMINAL_FUN="终端的乐趣--Linux下有趣的终端命令或者工具--http://blog.csdn.net/gatieme/article/details/52144603"
+COMMIT_CREATE_INTERACTIVE_SHELL="Linux如何在交互式shell脚本中创建对话框--http://blog.csdn.net/gatieme/article/details/52738870"
