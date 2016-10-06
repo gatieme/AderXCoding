@@ -32,8 +32,7 @@ https://wiki.ubuntu.com/TrustyTahr/ReleaseNotes/ChangeSummary/14.04.5
 |:---:|:---:|
 | [1404_HWE_EOL](https://wiki.ubuntu.com/1204_HWE_EOL) | 详细的讲解了Ubuntu 14.04 HWE的信息 |
 | [LTSEnablementStack](https://wiki.ubuntu.com/Kernel/LTSEnablementStack) | 详解的讲解了如何升级Ubuntu HWE |
-| [
-求助Ubuntu14.04.5 LTS软件源中提示hardware enablement stack升级的问题](http://forum.ubuntu.org.cn/viewtopic.php?p=3174908) | 如何升级14.04.4到14.04.5 |
+| [求助Ubuntu14.04.5 LTS软件源中提示hardware enablement stack升级的问题](http://forum.ubuntu.org.cn/viewtopic.php?p=3174908) | 如何升级14.04.4到14.04.5 |
 
 
 #1  背景
@@ -201,8 +200,7 @@ DESKTOP桌面版, 请使用如下命令升级
 sudo apt-get install --install-recommends linux-generic-lts-xenial xserver-xorg-core-lts-xenial xserver-xorg-lts-xenial xserver-xorg-video-all-lts-xenial xserver-xorg-input-all-lts-xenial libwayland-egl1-mesa-lts-xenial
 ```
 
-
-MULTIARCH DESKTOP桌面版, 请使用如下命令升级
+MULTIARCH DESKTOP桌面版, 请使用如下命令升级(如果不出意外的话, 多数系统比如`amd64`等架构的桌面系统都应该使用此命令进行升级)
 
 >If you run a multiarch desktop (for example, i386 and amd64 on amd64, for gaming or Wine), you may find you need a slightly more involved command, like this:
 
@@ -235,6 +233,10 @@ update-manager
 
 ![更新HWE对话框](update-manager-hwe.png)
 
+
+> **注意**
+>
+> 使用`apt-get install`命令与使用软件更新管理器`update-manager`没有任何实质的差别, 但是如果您担心自己命令输入错误而导致的一些不稳定因素, 可选择使用软件更新管理器`update-manager`由系统自行执行更新命令
 
 
 Ubuntu14.04的主线支持信息和内核版本, 如下图所示
