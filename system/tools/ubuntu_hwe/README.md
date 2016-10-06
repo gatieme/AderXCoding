@@ -3,7 +3,7 @@ Ubuntu14.04更新硬件实现堆栈(HWE)
 
 | CSDN | GitHub |
 |:----:|:------:|
-| [Ubuntu14.04.4升级硬件实现堆栈(HWE)到14.04.5(Xenial v4.4. Kernel))](http://blog.csdn.net/gatieme/article/details/52744417) | [`AderXCoding/system/tools/ubuntu_hwe_upgrade`](https://github.com/gatieme/AderXCoding/tree/master/system/tools/ubuntu_hwe_upgrade)
+| [Ubuntu14.04.4升级硬件实现堆栈(HWE)到14.04.5(Xenial Kernel-v4.4)](http://blog.csdn.net/gatieme/article/details/52744417) | [`AderXCoding/system/tools/ubuntu_hwe_upgrade`](https://github.com/gatieme/AderXCoding/tree/master/system/tools/ubuntu_hwe_upgrade)
 
 
 
