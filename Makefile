@@ -21,5 +21,5 @@ clean:
 
 github:
 	git add -A
-	git commit -m $(COMMIT_UPGRADE_UBUNTU_HWE)
+	git commit -m $(COMMIT_UBUNTU_MAKE)
 	git push origin master
