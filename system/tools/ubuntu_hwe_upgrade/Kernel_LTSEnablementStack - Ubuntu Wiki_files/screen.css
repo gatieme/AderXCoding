@@ -1,0 +1,176 @@
+@import url('typography.css');
+@import url('general.css');
+
+#wikinav {
+    -moz-border-radius: 4px 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px 4px;
+    margin: 0 16px 5px;
+    background-color: white;
+    -moz-box-shadow: 1px 1px 1px #bbb;
+    -webkit-box-shadow: 1px 1px 1px #bbb;
+    box-shadow: 1px 1px 1px #bbb;
+    height: 42px;
+}
+#wikinav ul {
+    display: inline;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding-left: 0;
+}
+
+#wikinav li {
+    display: block;
+    font-size: 12px;
+    float: left;
+    height: 30px;
+    padding: 12px 10px 0;
+    margin-bottom: 0;
+    border-right: 1px solid #e9e9e9;
+    color: #333;
+}
+#wikinav li a {
+    color: #333;
+}
+
+#wikinav hr {
+    border: 0;
+    width: 100%;
+    color: #d9d9d9;
+    background-color: #d9d9d9;
+    margin: 0;
+    padding: 0;
+}
+#wikinav select {
+    width: 140px;
+    margin-top: 0;
+}
+
+/* header / title area */
+
+h2.entry-title {
+    font-size: 36px;
+    line-height: 40px;
+    margin: 24px 0 32px 0;
+    padding: 0 6px;
+    border:0px;
+}
+
+h2.entry-title a {
+    text-decoration: none;
+    color: #333;
+}
+
+#pagebottom {
+    clear: both;
+}
+
+/* modal message box - should stand out */
+#message {
+    padding: 8px 16px;
+    margin: 8px 0;
+    border: 2px #F7F6F5 solid;
+    font-size: 14px;
+    background-color: white;
+    -moz-border-radius: 4px 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px 4px;
+    -moz-box-shadow: 1px 1px 1px #bbb;
+    -webkit-box-shadow: 1px 1px 1px #bbb;
+    box-shadow: 1px 1px 1px #bbb;
+}
+#message p {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0;
+}
+#message p.status {
+    font-weight: 400;
+}
+
+/* editor page styles */
+
+textarea {
+    display: block;
+    width: 100%;
+    font-size: 100%;
+}
+
+/* quick links menu */
+#wikinav .quicklinks li ul { 
+    font-size:.8em;
+    margin-bottom:1.875em;
+    line-height:1.875em; 
+}
+
+#wikinav .quicklinks li ul li{
+    display: block;
+    border: 1px solid #F58539;
+    background-color: #fff;
+    padding: 3px;
+}
+#wikinav .quicklinks li ul li.current {
+    background-color: #efefef;
+}
+#wikinav .quicklinks li ul li a {
+    color: #4A2811;
+    text-decoration: none;
+    border-bottom-style: none;
+    margin-right: 0;
+}
+
+#wikinav .quicklinks li ul li:hover {
+    background-color: #f5d4bf;
+}
+
+#wikinav .quicklinks li ul li.current:hover {
+    background-color: #efefef;
+}
+
+#wikinav .quicklinks li ul li:hover a {
+    color: #000;
+}
+
+#wikinav .quicklinks li {
+    display: inline;
+    position: relative;
+}
+
+#wikinav .quicklinks li a {
+    margin-right: 10px;
+}
+#wikinav .quicklinks li ul {
+    display: none;
+    position: absolute;
+    top: 1em;
+    left: 0;
+    max-height: 400px;
+    overflow: auto;
+    margin-right: 15px;
+}
+
+#wikinav .quicklinks:hover li ul {
+    display: block;
+}
+
+#wikinav .quicklinks li.wikilink {
+    display: none;
+}
+
+#content ul li p {
+	margin-bottom:0px;
+}
+
+#content ul li {
+	margin-bottom:10px;
+}
+
+
+#content td {
+    padding: 0 8px;
+    border: 1px dotted #AEA79F;
+}
+
+#content td p {
+    margin-bottom: 4px;
+}

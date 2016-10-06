@@ -1,0 +1,216 @@
+/* standard rule ---- */
+hr {
+    height: 1pt;
+    background-color: #C1B496; /* ubuntu dark tan */
+    border: 0;
+}
+
+/* custom rules ----- to ---------- */
+.hr1 {height: 2pt;}
+.hr2 {height: 3pt;}
+.hr3 {height: 4pt;}
+.hr4 {height: 5pt;}
+.hr5 {height: 6pt;}
+.hr6 {height: 7pt;}
+
+/* Replacement for html 3 u tag */
+.u {text-decoration: underline;}
+
+/* eye catchers */
+.warning 
+{
+	color: red;
+}
+
+.error 
+{
+	color: red;
+}
+
+strong.highlight 
+{
+	background-color: #edddba; /* ubuntu pale orange */
+	padding: 1pt;
+}
+
+
+/* Recent changes */
+
+.rcrss {
+	float: right;
+	margin: 0;
+}
+
+.recentchanges[dir="rtl"] .rcrss {
+	float: left;
+}
+
+.recentchanges table {
+	clear: both;
+}
+
+.recentchanges td {
+	vertical-align: top;
+	border: none;
+	border-bottom: 1pt solid #C1B496; /* ubuntu dark tan */
+	background: white;
+}
+
+.rcdaybreak td {
+	background: #EDD097; /* classic: deep yellow */
+	border: none;
+}
+
+.rcdaybreak td a {
+	font-size: 0.88em;
+}
+
+.rcicon1, .rcicon2 {
+	text-align: center;
+}
+
+.rcpagelink {
+	width: 33%;
+}
+
+.rctime {
+	font-size: 0.88em;
+	white-space: nowrap;
+}
+
+.rceditor {
+	white-space: nowrap;
+	font-size: 0.88em;
+}
+
+.rccomment {
+	width: 66%;
+	color: #C1B496; /* ubuntu dark tan */
+	font-size: 0.88em;
+	font-weight: bold;
+}
+
+
+/* User Preferences */
+
+.userpref table, .userpref td {
+	border: none;
+}
+
+/* CSS for new code_area markup used by Colorizer and ParserBase */
+
+div.codearea { /* the div makes the border */
+	margin: 4pt 0;
+	padding: 0;
+	border: 1pt solid #C1B496; /* ubuntu dark tan */
+	background-color: #F7F6F5;  / * light grey */
+	color: black;
+}
+
+div.codearea pre { /* the pre has no border and is inside the div */
+	margin: 0;
+	padding: 4pt;
+	border: none;
+	white-space: pre-wrap;
+}
+
+a.codenumbers { /* format of the line numbering link */
+	margin: 0 4pt;
+	font-size: 0.85em;
+	color: #6d4c07; /* ubuntu dark brown */
+}
+
+/* format of certain syntax spans */
+div.codearea pre span.LineNumber {color: gray;}
+div.codearea pre span.ID         {color: #000000;}
+div.codearea pre span.Operator   {color: #0000C0;}
+div.codearea pre span.Char       {color: #004080;}
+div.codearea pre span.Comment    {color: #008000;}
+div.codearea pre span.Number     {color: #0080C0;}
+div.codearea pre span.String     {color: #004080;}
+div.codearea pre span.SPChar     {color: #0000C0;}
+div.codearea pre span.ResWord    {color: #A00000;}
+div.codearea pre span.ConsWord   {color: #008080; font-weight: bold;}
+div.codearea pre span.Error      {color: #FF8080; border: solid 1.5pt #FF0000;}
+div.codearea pre span.ResWord2   {color: #0080ff; font-weight: bold;}
+div.codearea pre span.Special    {color: #0000ff;}
+div.codearea pre span.Preprc     {color: #803999;}
+
+
+/* Search results */
+
+.searchresults dt {
+    margin-top: 1em;
+	font-weight: normal;
+}
+
+.searchresults dd {
+	font-size: 0.85em;
+}
+
+/* MonthCalendar css */
+
+/* days without and with pages linked to them */
+a.cal-emptyday {
+    color: #777777;
+    text-align: center;
+}
+a.cal-usedday {
+    color: #000000;
+    font-weight: bold;
+    text-align: center;
+}
+/* general stuff: workdays, weekend, today */
+td.cal-workday {
+    background-color: #F1F1ED; /* ubuntu near-white */
+    text-align: center;
+}
+td.cal-weekend {
+    background-color: #edddba; /* ubuntu pale orange */
+    text-align: center;
+}
+td.cal-today {
+    background-color: #DBBA75; /* ubuntu orange */
+    border-style: solid;
+    border-width: 2pt;
+    text-align: center;
+}
+/* invalid places on the monthly calendar sheet */
+td.cal-invalidday {
+    background-color: #CCCCCC;
+}
+/* links to prev/next month/year */
+a.cal-link {
+    color: #F1F1ED; /* ubuntu near-white */
+    text-decoration: none;
+}
+th.cal-header {
+    background-color: #6d4c07; /* ubuntu dark brown */
+    color: white;
+    text-align: center;
+}
+
+/* for MonthCalendar mouseover info boxes */
+TABLE.tip {
+    color: black;
+	border: 1px solid #C1B496; /* ubuntu dark tan */
+	background-color: #f0eee6; /* ubuntu light salmon */
+    font-size: small;
+    font-weight: normal;
+}
+
+TH.tip {
+    background-color: #DBBA75; /* ubuntu orange */
+    font-weight: bold;
+    text-align: center;
+}
+
+TD.tip {
+    text-align: left;
+}
+*[dir="rtl"] TD.tip {
+    text-align: right;
+}
+
+/* end MonthCalendar stuff */
+
