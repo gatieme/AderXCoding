@@ -7,3 +7,4 @@ COMMIT_C_LINK_CPP="C++与C之间相互接口和库函数调用--http://blog.csdn
 COMMIT_TERMINAL_FUN="终端的乐趣--Linux下有趣的终端命令或者工具--http://blog.csdn.net/gatieme/article/details/52144603"
 COMMIT_CREATE_INTERACTIVE_SHELL="Linux如何在交互式shell脚本中创建对话框--http://blog.csdn.net/gatieme/article/details/52738870"
 COMMIT_ZSH="Linux终极shell-Z Shell-用强大的zsh & oh-my-zsh把Bash换掉--http://blog.csdn.net/gatieme/article/details/52741221"
+COMMIT_UPGRADE_UBUNTU_HWE="Ubuntu14.04.4升级硬件实现堆栈(HWE)到14.04.5(Xenial Kernel-v4.4)--http://blog.csdn.net/gatieme/article/details/52744417"
