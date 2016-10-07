@@ -21,5 +21,5 @@ clean:
 
 github:
 	git add -A
-	git commit -m $(COMMIT_UPGRADE_VIM_8)
+	git commit -m $(COMMIT_DOCK_TOOLS)
 	git push origin master
