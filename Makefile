@@ -21,5 +21,5 @@ clean:
 
 github:
 	git add -A
-	git commit -m $(COMMIT_UBUNTU_MAKE)
+	git commit -m $(COMMIT_UPGRADE_VIM_8)
 	git push origin master
