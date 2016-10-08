@@ -21,5 +21,5 @@ clean:
 
 github:
 	git add -A
-	git commit -m $(COMMIT_UPGRADE_UBUNTU_HWE)
+	git commit -m $(COMMIT_BLOG_LICENSES)
 	git push origin master
