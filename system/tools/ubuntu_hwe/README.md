@@ -33,6 +33,9 @@ https://wiki.ubuntu.com/TrustyTahr/ReleaseNotes/ChangeSummary/14.04.5
 | [1404_HWE_EOL](https://wiki.ubuntu.com/1204_HWE_EOL) | 详细的讲解了Ubuntu 14.04 HWE的信息 |
 | [LTSEnablementStack](https://wiki.ubuntu.com/Kernel/LTSEnablementStack) | 详解的讲解了如何升级Ubuntu HWE |
 | [求助Ubuntu14.04.5 LTS软件源中提示hardware enablement stack升级的问题](http://forum.ubuntu.org.cn/viewtopic.php?p=3174908) | 如何升级14.04.4到14.04.5 |
+| [Ubuntu 14.04.5 Released with Kernel 4.4 and 16.04 X Stack](http://ubuntuhandbook.org/index.php/2016/08/ubuntu-14-04-5-released/) | 升级Ubuntu 14.04到14.04.5 |
+
+
 
 
 #1  背景
@@ -74,6 +77,8 @@ apt-get upgrade 和 apt-get dist-upgrade 本质上是没有什么不同的。
 
 其中前两种方法不推荐, 自己新编译的内核，可能会导致某些开发库因为没有相应的适配所以无法正常使用, 同样Ubuntu跨版本升级, 往往导致很多兼容性问题, 请谨慎升级. 相比较来说, 升级硬件实现栈HWE则相对来说安全很多
 
+
+![Ubuntu 14.04.5发布](ubuntu1404-5.jpg)
 
 #2	Ubuntu硬件实现栈HWE介绍
 -------
