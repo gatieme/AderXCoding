@@ -21,5 +21,5 @@ clean:
 
 github:
 	git add -A
-	git commit -m $(COMMIT_DOCK_TOOLS)
+	git commit -m $(COMMIT_SYSTEMBACK)
 	git push origin master
