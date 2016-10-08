@@ -21,5 +21,5 @@ clean:
 
 github:
 	git add -A
-	git commit -m $(COMMIT_BLOG_LICENSES)
+	git commit -m $(COMMIT_FBTERM)
 	git push origin master
