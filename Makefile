@@ -21,5 +21,5 @@ clean:
 
 github:
 	git add -A
-	git commit -m $(COMMIT_WINE_QQ)
+	git commit -m $(COMMIT_PYTHON_PIP)
 	git push origin master
