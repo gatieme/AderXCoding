@@ -13,10 +13,13 @@ Python的包管理工具Pip
 
 
 
->参考
+> **参考**
+>
 >https://pypi.python.org/pypi/setuptools/
+>
 >https://pypi.python.org/pypi/pip#downloads
-
+>
+>[Pip: ImportError: Entry point ('console_scripts', 'pip') not found](http://stackoverflow.com/questions/19427486/pip-importerror-entry-point-console-scripts-pip-not-found)
 
 #1	安装pip
 -------
