@@ -6,6 +6,12 @@ Ubuntu安装wine和Wine QQ
 |:----:|:------:|
 | [Ubuntu安装wine和Wine QQ(2012国际版)](http://blog.csdn.net/gatieme/article/details/52770494#t4) | [`AderXCoding/system/tools/wine`](https://github.com/gatieme/AderXCoding/tree/master/system/tools/wine) |
 
+
+<br>
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>
+本作品采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>进行许可
+
+
 <br>
 >  参照
 >
@@ -115,5 +121,9 @@ sudo apt-get install -f
 ```
 
 ![WineQQ2012](wineqq2012.png)
+
+
+
+
 
 
