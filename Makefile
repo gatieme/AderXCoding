@@ -21,5 +21,5 @@ clean:
 
 github:
 	git add -A
-	git commit -m $(COMMIT_FBTERM)
+	git commit -m $(COMMIT_WINE_QQ)
 	git push origin master
