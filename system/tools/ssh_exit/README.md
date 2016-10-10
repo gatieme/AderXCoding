@@ -198,8 +198,13 @@ nohup ./hello &
 
 ![screen查看进程的状态](screen_ls.png)
 
-There is a screen on: d22292.pts-3.free (Detached)
-1 Socket in /tmp/screens/S-root，这里的22292其实是子界面的pid号；
+```cpp
+There is a screen on:
+    10869.pts-14.kylin (Detached)
+1 Socket in /var/run/screens/S-gatieme.
+```
+
+，这里的10869其实是子界面的pid号；
 
 
 如果回到子界面 用screen –r 22292，一下子弹到了./hello的子界面；
