@@ -21,5 +21,5 @@ clean:
 
 github:
 	git add -A
-	git commit -m $(COMMIT_SSH_EXIT)
+	git commit -m $(COMMIT_SOURCE_COUNT)
 	git push origin master

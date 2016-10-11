@@ -18,7 +18,8 @@ Ubuntu安装wine和Wine QQ
 >[Wine--Ubuntu Wiki](http://wiki.ubuntu.org.cn/Wine)
 >
 >[QQ--Ubuntu Wiki](http://wiki.ubuntu.org.cn/QQ)
-
+>
+>[Wine--Wiki Winehq](https://wiki.winehq.org/Ubuntu)
 
 
 #1	安装wine
@@ -48,7 +49,7 @@ sudo dpkg --add-architecture i386
 
 sudo add-apt-repository ppa:wine/wine-builds
 sudo apt-get update
-sudo apt-get install wine-devel
+sudo apt-get install --install-recommends winehq-devel
 ```
 
 要注意，若安装wine包是老的稳定版, 新开发版本是`wine-devel`, 经常有不少优化和修正。
