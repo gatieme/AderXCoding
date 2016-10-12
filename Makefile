@@ -21,5 +21,5 @@ clean:
 
 github:
 	git add -A
-	git commit -m $(COMMIT_SOURCE_COUNT)
+	git commit -m $(COMMIT_ELECTRONIC_WECHAT)
 	git push origin master
