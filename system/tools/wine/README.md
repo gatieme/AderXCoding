@@ -74,19 +74,42 @@ winecfg
 -------
 
 
-有几个备选方案
+##2.1	备选方案
+-------
+
 
 | 方案 | 描述 |
 |:---:|:----:|
 | UKylin Wine QQ | Ubuntu Kylin麒麟团队做出的wine QQ安装包|
 | longene-wine-qq | [longene](http://www.longene.org/)团队推出的QQ安装包, Longene是一个自由、开源的操作系统项目,致力于在Linux上兼容Windows应用 |
+| winetricks-zh wine QQ |  你可以简单的理解为是winetricks的中文版，可以用wine实现安装迅雷/qq/网易云音乐/酷狗/美图秀秀等等，12月28日还更新了qq音乐 |
+
 | 自己制作wine QQ | 自己通过最原始的方法, 制作wine QQ |
+
+
+一些网友打包了些Wineqq，喜欢就拿去用吧
+QQ是6.4版本和6.6版本，都有些缺陷，比如截不了图啊，键盘输不了密码之类的，下面是下载：
+
+>QQ6.4_32位下载(*.tar.gz)：http://pan.baidu.com/s/1eQgU5xS
+>
+>QQ6.4_64位下载(*.deb)：http://pan.baidu.com/s/1mggLMB2
+
+这个版本是我一直使用的版本，不过，安装包特别大，对吧。
+
+>QQ6.6_32位下载(*.deb)：http://pan.baidu.com/s/1qWt4WUC
+>
+>QQ6.6_64位下载(*.deb)：http://pan.baidu.com/s/1sjnxtyl
 
 
 >参见
 >
 > http://blog.csdn.net/gatieme/article/details/44856359#t35
 
+
+
+
+##2.2	UKylin Wine QQ
+-------
 
 
 但是我们最终选定了`Ubuntu Kylin`的`WineQQ2012`国际版, 因为最稳定
@@ -126,5 +149,13 @@ sudo apt-get install -f
 
 
 
+##2.3	longene-wine-qq
+-------
+
+
+`longene-wine-qq`是`longene`打包的wine QQ, 一直在不间断的更新, 但是由于使用的是新版的QQ, 所以可能在某些系统中有些不稳定
+
+
+![longene-wine-qq](longene-wine-qq.png)
 
 
