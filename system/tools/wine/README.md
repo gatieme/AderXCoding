@@ -162,7 +162,50 @@ sudo apt-get install -f
 
 `longene-wine-qq`是`longene`打包的wine QQ, 一直在不间断的更新, 但是由于使用的是新版的QQ, 所以可能在某些系统中有些不稳定
 
+参见 http://www.longene.org/forum/viewtopic.php?f=6&t=30516
+
+
+```cpp
++-----------------------------------------------------------------------+
+| 作者：LongeneTeam
+| QQ群：【Longene爱好者群】252714468
+| 新浪微博：http://www.weibo.com/longene
+| Email：linux@insigma.com.cn 
++-----------------------------------------------------------------------+
+| 文章版权归原作者所有。 
+| 大家可以自由转载这篇文章，但原版权信息必须保留。 
+| 未经许可不得用于商业用途，任何个人、媒体、其他 
+| 网站不得私自抄袭。 如需用于商业用途，请务必与原 
+| 作者联系，若因未取得授权而收起的版权争议，由侵 
+| 权者自行负责。 
++-----------------------------------------------------------------------+
+
+
+
+本文链接：http://www.longene.org/forum/viewtopic.php?f=6&t=30516
+
++-----------------------------------------------------------------------+
+```
+
+
+Longene团队因为工作内容调整，已有多年未更新Wine QQ（Longene团队一直还是在从事Linux相关的工作），最近，Linux爱好者有关Wine QQ的呼声比较高，团队成员工作之余对QQ7.8版本进行了调试开发，目前已能初步运行使用。但是由于时间紧迫，还存在不少问题，请广大爱好者们多多包涵，我们也会不断地改进。欢迎大家测试使用、如有问题请及时反馈。
+联系方法：linux@insigma.com.cn
+
+Wine QQ 7.8下载
+
+下载地址：[WineQQ7.8-20151109-Longene](http://www.longene.org/download/WineQQ7.8-20151109-Longene.deb)
+百度网盘：[WineQQ7.8-20151109-Longene](http://pan.baidu.com/s/1kTu9ZUZ)
+
+安装
+
+```cpp
+sudo dpkg -i WineQQ7.8-20151109-Longene.deb
+```
+
 
 ![longene-wine-qq](longene-wine-qq.png)
 
 
+使用top查看cpu和内存占用
+
+![](top-longene-wine-qq.png)
