@@ -65,7 +65,7 @@ make TEST
 
 
 ![color-compile颜色高亮输出](color-compile.png)
-
+![这里写图片描述](http://img.blog.csdn.net/20150409112200351)
 
 
 ##3.4	卸载
