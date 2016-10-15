@@ -1,10 +1,23 @@
 #1	gcc4.9.0原生的高亮
 -------
 
-gcc4.9.0是支持诊断信息支持彩色显示
-但是很多发行版源中的gcc版本都太低
-如果我们直接源码安装比较麻烦
-下面我们介绍一个比较简易的方法
+`gcc4.9.0`是支持诊断信息支持彩色显示
+
+其高亮用参数`fdiagnostics-color`制定
+
+>参见
+>
+>https://gcc.gnu.org/gcc-4.9/changes.html
+>
+>https://gcc.gnu.org/onlinedocs/gcc-4.9.2/gcc/Language-Independent-Options.html#index-fdiagnostics-color-252
+
+![gcc4.9.0是支持诊断信息支持彩色显示](-fdiagnostics-color=auto.png)
+
+但是很多发行版源中的`gcc/g++`版本都太低
+如果我们直接源码安装`gcc/g++`比较麻烦
+
+
+下面我们介绍几种比较简易的方法
 
 
 #2	使用`colorgcc`和`colormake`
