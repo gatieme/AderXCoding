@@ -21,5 +21,5 @@ clean:
 
 github:
 	git add -A
-	git commit -m $(COMMIT_ELECTRONIC_WECHAT)
+	git commit -m $(COMMIT_COLOR_COMPILE)
 	git push origin master
