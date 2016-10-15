@@ -10,7 +10,7 @@ all:$(target)
 
 showerrno : showerrno.o
 	$(CC) $^ -o $@ $(LDFLAGS)
-	echo "输出errno的值..."
+	@echo "输出errno的值..."
 
 %.o : %.c
 	$(CC) -c $^ -o $@  $(CFLAGS) $(DEFINES)

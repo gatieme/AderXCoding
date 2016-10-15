@@ -13,6 +13,8 @@
 int main(int argc, char ** argv)
 {
     int i = 0;
+    printf("| errno值 | errno含义  |\n");
+    printf("|:-------:|:----------:|\n");
     for(i = 0; i < 256; i++)
     {
         printf("| %02d | %s |\n", i, strerror(i));
