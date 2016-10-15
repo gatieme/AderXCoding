@@ -128,3 +128,46 @@ wget https://github.com/geeeeeeeeek/electronic-wechat/releases/download/v1.4.0/l
 
 ![运行情况](electronic_wechat.png)
 
+
+##3.3	创建桌面启动器(快捷方式)
+-------
+
+
+每次都在终端中启动微信实在太麻烦了, 所以我决定给微信添加一个桌面启动器, 就是就是windows下面的快捷方式
+
+`Ubuntu`下`dash home`中每个图标对应`/usr/share/applications`当中的一个配置文件(文件后缀为.desktop), 所以要在dash home中 添加一个自定义程序启动器, 需要在该文件目录下创建对应的配置文件
+
+
+首先下载图标
+
+```cpp
+wget https://raw.githubusercontent.com/geeeeeeeeek/electronic-wechat/master/assets/icon.png -O electronic-wechat.png
+```
+
+
+
+![electronic-wechat的图标信息](electronic-wechat.png)
+
+然后把应用程序包和图标拷贝到系统中的合适的目录下, 比如`/usr`等, 我放在了`/opt`下面
+
+
+
+接着我们创建一个微信电脑版的桌面启动器,保存在`/usr/share/applications/electronic-wechat.desktop`中
+
+```cpp
+[Desktop Entry]
+Name=Electronic Wechat
+Name[zh_CN]=微信电脑版
+Name[zh_TW]=微信电脑版
+Exec=/opt/electronic-wechat/electronic-wechat
+Icon=/opt/electronic-wechat/resources/electronic-wechat.png
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Encoding=UTF-8
+Categories=Application;Utility;Network;InstantMessaging;
+StartupNotify=false
+```
+
+示例中我们讲我们的`electronic-wechat`应用程序包放在了`/opt/electronic-wechat`目录下, 而启动器对应`/usr/share/applications`, 这是全局有效的, 而如果我们只是期望对本用户有效, 可以讲应用程序包放在自己的$HOME(~)下面, 而启动器则放到`~/.local/share/applications`目录下
+
