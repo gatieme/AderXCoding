@@ -21,5 +21,5 @@ test_typeid : test_typeid.o
 	$(CXX) -c $^ -o $@ 
 
 clean :
-	rm $(target)
-	rm *.o
+	rm -rf $(target)
+	rm -rf *.o

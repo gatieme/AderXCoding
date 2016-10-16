@@ -19,4 +19,5 @@ dervo: rvo.cpp
 
 
 clean :
-	rm $(target)
+	rm -rf *.o
+	rm -rf $(target)
