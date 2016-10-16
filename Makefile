@@ -21,5 +21,5 @@ clean:
 
 github:
 	git add -A
-	git commit -m $(COMMIT_COLOR_COMPILE)
+	git commit -m $(COMMIT_BUILD_DEB)
 	git push origin master
