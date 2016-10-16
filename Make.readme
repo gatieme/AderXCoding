@@ -19,6 +19,7 @@ COMMIT_SOURCE_COUNT="Linux下源代码行数统计工具(sloccount, cloc等)--ht
 COMMIT_ELECTRONIC_WECHAT="Linux和Mac下的微信电脑版electronic-wechat(非官方)--http://blog.csdn.net/gatieme/article/details/52800015"
 COMMIT_COLOR_COMPILE="Ubuntu设置gcc/g++/make输出颜色高亮--http://blog.csdn.net/gatieme/article/details/44956967"
 COMMIT_BUILD_DEB="Ubuntu下deb包的方法详解--http://blog.csdn.net/gatieme/article/details/52829907"
+COMMIT_MD5SUM="Linux下使用md5sum计算和检验MD5码--http://blog.csdn.net/gatieme/article/details/52833540"
 COMMIT_FBTERM="未添加网址..."
 COMMIT_DOCK_TOOLS="未添加博客网址..."
 COMMIT_SYSTEMBACK="未添加博客网址..."
