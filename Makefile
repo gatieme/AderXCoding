@@ -21,5 +21,5 @@ clean:
 
 github:
 	git add -A
-	git commit -m $(COMMIT_MD5SUM)
+	git commit -m $(COMMIT_NETWORK_MONITOR)
 	git push origin master
