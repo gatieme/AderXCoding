@@ -1,10 +1,10 @@
-Ubuntu下deb包的方法详解
+Ubuntu下制作deb包的方法详解
 =======
 
 
 | CSDN | GitHub |
 |:----:|:------:|
-| [Ubuntu下deb包的方法详解](http://blog.csdn.net/gatieme/article/details/52829907) | [`AderXCoding/system/tools/build_deb`](https://github.com/gatieme/AderXCoding/tree/master/system/tools/build_deb) |
+| [Ubuntu下制作deb包的方法详解](http://blog.csdn.net/gatieme/article/details/52829907) | [`AderXCoding/system/tools/build_deb`](https://github.com/gatieme/AderXCoding/tree/master/system/tools/build_deb) |
 
 
 <br>
