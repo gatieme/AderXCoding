@@ -21,5 +21,5 @@ clean:
 
 github:
 	git add -A
-	git commit -m $(COMMIT_BUILD_DEB)
+	git commit -m $(COMMIT_MD5SUM)
 	git push origin master
