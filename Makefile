@@ -21,5 +21,5 @@ clean:
 
 github:
 	git add -A
-	git commit -m $(COMMIT_NETWORK_MONITOR)
+	git commit -m $(COMMIT_UPGRADE_GCC)
 	git push origin master

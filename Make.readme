@@ -21,6 +21,7 @@ COMMIT_COLOR_COMPILE="Ubuntu设置gcc/g++/make输出颜色高亮--http://blog.cs
 COMMIT_BUILD_DEB="Ubuntu下制作deb包的方法详解--http://blog.csdn.net/gatieme/article/details/52829907"
 COMMIT_MD5SUM="Linux下使用md5sum计算和检验MD5码--http://blog.csdn.net/gatieme/article/details/52833540"
 COMMIT_NETWORK_MONITOR="Linux下网络监控工具总结--http://blog.csdn.net/gatieme/article/details/52843721"
+COMMIT_UPGRADE_GCC="Ubuntu升级gcc版本--http://blog.csdn.net/gatieme/article/details/52871438"
 COMMIT_FBTERM="未添加网址..."
 COMMIT_DOCK_TOOLS="未添加博客网址..."
 COMMIT_SYSTEMBACK="未添加博客网址..."
