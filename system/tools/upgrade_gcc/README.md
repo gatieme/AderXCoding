@@ -4,7 +4,7 @@ Ubuntu升级gcc版本
 
 | CSDN | GitHub |
 |:----:|:------:|
-| [Ubuntu升级gcc版本](http://blog.csdn.net/gatieme/article/details/52871438) | [`AderXCoding/system/tools/upgrade_gcc`](https://github.com/gatieme/AderXCoding/tree/master/system/upgrade_gcc) |
+| [Ubuntu升级gcc版本](http://blog.csdn.net/gatieme/article/details/52871438) | [`AderXCoding/system/tools/upgrade_gcc`](https://github.com/gatieme/AderXCoding/tree/master/system/tool/upgrade_gcc) |
 
 
 <br>
