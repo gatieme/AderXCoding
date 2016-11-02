@@ -21,5 +21,5 @@ clean:
 
 github:
 	git add -A
-	git commit -m $(COMMIT_UPGRADE_GCC)
+	git commit -m $(COMMIT_CCACHE)
 	git push origin master
