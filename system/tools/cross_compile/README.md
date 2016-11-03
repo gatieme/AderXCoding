@@ -1,8 +1,5 @@
-交叉编译详解
+arm交叉编译详解
 =======
-
-
-
 
 转载自 [交叉编译详解--版本：v1.3.0](http://www.crifan.com/files/doc/docbook/cross_compile/release/html/cross_compile.html#crosscompiler_name_examples), 有修改
 
@@ -492,10 +489,10 @@ vendor的值，貌似是可以自己随便填写的
 >
 >```cpp
 >arm-cortex_a8-linux-gnueabi中的cortex_a8，就属于CPU的名字
-mips-ar2315-linux-gnu中的ar2315
-powerpc-e500v2-linux-gnuspe中的e500v2，也是CPU的内核名
-arm-buildroot-linux-uclibcgnueabi中的buildroot，是之前折腾Buildroot时，看到的，即Buildroot把自己视为当前自己制作出来的交叉编译器的vendor
-```
+>mips-ar2315-linux-gnu中的ar2315
+>powerpc-e500v2-linux-gnuspe中的e500v2，也是CPU的内核名
+>arm-buildroot-linux-uclibcgnueabi中的buildroot，是之前折腾Buildroot时，看到的，即Buildroot把自己视为当前自己制作出来的交叉编译器的vendor
+>```
 
 **crosstool-ng中vendor的值**
 
@@ -588,10 +585,10 @@ kernel，直译为，内核
 >
 >
 >```cpp
->arm-bare_newlib_cortex_m3_nommu-eabi中的bare_newlib_cortex_m3_nommu，此处的bare，应该就是指的是bare-metal，用于运行在无OS的环境下
-powerpc-e300c3-linux-gnu中的linux
-m68k-unknown-uclinux-uclibc中的uclinux，就是指的是编译出来的程序，是运行于没有MMU的uclinux下
-```
+>arm-bare_newlib_cortex_m3_nommu-eabi中的>bare_newlib_cortex_m3_nommu，此处的bare，应该就是指的是bare-metal，用于运行在无OS的环境下
+>powerpc-e300c3-linux-gnu中的linux
+>m68k-unknown-uclinux-uclibc中的uclinux，就是指的是编译出来的程序，是运行于没有MMU的uclinux下
+>```
 
 **crosstool-ng中kernel的值**
 
@@ -787,7 +784,7 @@ C-library
 | gnueabi | glibc+eabi |
 | uclibc | uclibc+oabi |
 
-
+<br>
 >举例：交叉编译器中的system的值
 >
 >
@@ -796,9 +793,9 @@ C-library
 >mips-ar2315-linux-gnu中的gnu，即glibc+oabi
 >powerpc-e500v2-linux-gnuspe中的gnuspe，没搞懂啥意思。。
 >x86_64-unknown-mingw32中的mingw32，用的是Windows下的mingw32的库
-```
+>```
 
-
+<br>
 **ABI 和 EABI**
 
 
@@ -807,7 +804,7 @@ C-library
 | ABI | 二进制应用程序接口(Application Binary Interface (ABI) for the ARM Architecture) | 在计算机中, 应用二进制接口描述了应用程序（或者其他类型）和操作系统之间或其他应用程序的低级接口 |
 | EABI | 嵌入式ABI | 嵌入式应用二进制接口指定了文件格式、数据类型、寄存器使用、堆积组织优化和在一个嵌入式软件中的参数的标准约定. 开发者使用自己的汇编语言也可以使用 EABI 作为与兼容的编译器生成的汇编语言的接口 |
 
-
+<br>
 两者主要区别是, ABI是计算机上的, EABI是嵌入式平台上(如ARM, MIPS等).
 
 
@@ -824,11 +821,13 @@ arm-linux-gnueabi-gcc 和 arm-linux-gnueabihf-gcc
 | soft | 无 | 无 | 不用fpu进行浮点计算, 即使有fpu浮点运算单元也不用, 而是使用软件模式 |
 | softfp | armel架构 | arm-linux-gnueabi-gcc |  用fpu计算, 但是传参数用普通寄存器传, 这样中断的时候, 只需要保存普通寄存器, 中断负荷小, 但是参数需要转换成浮点的再计算 |
 | hard | armhf架构 | arm-linux-gnueabihf-gcc | 用fpu计算, 传参数也用fpu中的浮点寄存器传, 省去了转换, 性能最好, 但是中断负荷高 |
+<br>
+把以下测试使用的C文件内容保存成 mfloat.c
 
-把以下测试使用的C文件内容保存成 mfloat.c：
 
 ```cpp
 #include <stdio.h>
+
 int main(void)
 {
     double a,b,c;
@@ -841,7 +840,8 @@ int main(void)
 }
 ```
 
-1.	使用 `arm-linux-gnueabihf-gcc` 编译, 使用"-v"选项以获取更详细的信息
+*	使用 `arm-linux-gnueabihf-gcc` 编译, 使用"-v"选项以获取更详细的信息
+
 ```cpp
 arm-linux-gnueabihf-gcc -v mfloat.c
 COLLECT_GCC_OPTIONS=’-v’ ‘-march=armv7-a’ ‘-mfloat-abi=hard’ ‘-mfpu=vfpv3-d16′ ‘-mthumb’
@@ -850,7 +850,8 @@ COLLECT_GCC_OPTIONS=’-v’ ‘-march=armv7-a’ ‘-mfloat-abi=hard’ ‘-mfp
 
 可看出使用hard硬件浮点模式.
 
-2.	使用 `arm-linux-gnueabi-gcc` 编译
+*	使用 `arm-linux-gnueabi-gcc` 编译
+
 ```cpp
 arm-linux-gnueabi-gcc -v mfloat.c
 COLLECT_GCC_OPTIONS=’-v’ ‘-march=armv7-a’ ‘-mfloat-abi=softfp’ ‘-mfpu=vfpv3-d16′ ‘-mthumb’
@@ -1303,21 +1304,21 @@ crifan@ubuntu:~/develop/crosstool-ng/crosstool-ng-1.18.0_build$
 
 [[3] http://kegel.com/crosstool/](http://kegel.com/crosstool/)
 
-[4] http://www.denx.de/wiki/DULG/ELDK
+[[4] http://www.denx.de/wiki/DULG/ELDK](http://www.denx.de/wiki/DULG/ELDK)
 
-[5] http://www.openembedded.org/wiki/Main_Page
+[[5] http://www.openembedded.org/wiki/Main_Page](http://www.openembedded.org/wiki/Main_Page)
 
-[6] http://en.wikipedia.org/wiki/BitBake
+[[6] http://en.wikipedia.org/wiki/BitBake](http://en.wikipedia.org/wiki/BitBake)
 
-[7] http://www.gentoo.org/proj/en/base/embedded/handbook/
+[[7] http://www.gentoo.org/proj/en/base/embedded/handbook/](http://www.gentoo.org/proj/en/base/embedded/handbook/)
 
-[8] http://www.pengutronix.de/oselas/toolchain/index_en.html
+[[8] http://www.pengutronix.de/oselas/toolchain/index_en.html](http://www.pengutronix.de/oselas/toolchain/index_en.html)
 
-[9] http://anyhu.blog.sohu.com/214755651.html
+[[9] http://anyhu.blog.sohu.com/214755651.html](http://anyhu.blog.sohu.com/214755651.html)
 
-[10] http://ymorin.is-a-geek.org/projects/crosstool
+[[10] http://ymorin.is-a-geek.org/projects/crosstool](http://ymorin.is-a-geek.org/projects/crosstool)
 
-[11] 200910-ELCE-Morin-Building_our_own_toolchains.pdf
+[[11] 200910-ELCE-Morin-Building_our_own_toolchains.pdf](http://crosstool-ng.org/publis/ELC-E/2009/200910-ELCE-Morin-Building_our_own_toolchains.pdf)
 
 [[12] 【整理】交叉编译和现存的交叉编译工具](http://www.crifan.com/summary_cross_compile_cross_compiler_cross_toolchain/)
 
