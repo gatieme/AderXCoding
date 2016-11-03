@@ -194,3 +194,21 @@ sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-6 50
 
 [ToolChain test builds](https://launchpad.net/~ubuntu-toolchain-r/+archive/ubuntu/test)
 
+
+同样Ubuntu也提供了 `Linaro Developers` 交叉编译器的更新释放
+
+参见https://launchpad.net/~team-gcc-arm-embedded/+archive/ubuntu/ppa
+
+```cpp
+sudo add-apt-repository ppa:team-gcc-arm-embedded/ppa
+sudo apt-get update
+sudo apt-get install gcc-arm-embedded
+sudo apt-get remove gcc-arm-none-eabi
+```
+
+或者
+```cpp
+sudo add-apt-repository ppa:linaro-maintainers/toolchain
+sudo apt-get update
+sudo apt-get install gcc-arm-linux-gnueabi
+```
