@@ -24,6 +24,7 @@ COMMIT_NETWORK_MONITOR="Linux下网络监控工具总结--http://blog.csdn.net/g
 COMMIT_UPGRADE_GCC="Ubuntu升级gcc版本--http://blog.csdn.net/gatieme/article/details/52871438"
 COMMIT_CMAKE="Ubuntu安装Cmake"
 COMMIT_CCACHE="ccache"
+COMMIT_CROSS_COMPILE="arm交叉编译详解--http://blog.csdn.net/gatieme/article/details/53021351"
 COMMIT_FBTERM="未添加网址..."
 COMMIT_DOCK_TOOLS="未添加博客网址..."
 COMMIT_SYSTEMBACK="未添加博客网址..."
