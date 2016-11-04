@@ -41,7 +41,13 @@ sudo apt-get install apache2
 安装完成后，重启apache服务，在命令行终端中输入一下命令：
 
 ```cpp
-sudo /etc/init.d/apache2 restart
+sudo /etc/init.d/apache2 [start | stop | restart | status ]
+```
+
+或者
+
+```cpp
+service apache2  [start | stop | restart | status ]
 ```
 
 ##2.2	开机不启动apache服务
@@ -153,13 +159,26 @@ apache2 [warn] NameVirtualHost *:80 has no VirtualHosts
 
 **问题解决**
 
+
+*	方法1, 修改httpd.conf
+
 修改 `/etc/apache2/httpd.conf`, 在文件中添加,
 
 ```cpp
 ServerName localhost:80
 ```
 
+一般来说 `httpd.conf` 是个空文件, 直接添加即可, 如果 `httpd.conf` 文件不存在, 则新建它, 并检查 `/etc/apache2/apache2.conf` 中是否包含了 `httpd.conf`, 如果没有使用如下语句包含
+
+```cpp
+# Include httpd to listen on @/etc/apache2/apache2.conf
+Include httpd.conf
+```
+
+
 或者
+
+*	方法二
 
 修改 `/etc/apache2/sites-available/default`
 

@@ -21,5 +21,5 @@ clean:
 
 github:
 	git add -A
-	git commit -m $(COMMIT_CROSS_COMPILE)
+	git commit -m $(COMMIT_APACHE2)
 	git push origin master

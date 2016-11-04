@@ -25,6 +25,7 @@ COMMIT_UPGRADE_GCC="Ubuntu升级gcc版本--http://blog.csdn.net/gatieme/article/
 COMMIT_CMAKE="Ubuntu安装Cmake"
 COMMIT_CCACHE="ccache"
 COMMIT_CROSS_COMPILE="arm交叉编译详解--http://blog.csdn.net/gatieme/article/details/53021351"
+COMMIT_APACHE2="Ubuntu下apache的安装与配置--http://blog.csdn.net/gatieme/article/details/53025505"
 COMMIT_FBTERM="未添加网址..."
 COMMIT_DOCK_TOOLS="未添加博客网址..."
 COMMIT_SYSTEMBACK="未添加博客网址..."
