@@ -156,6 +156,11 @@ perl -v
 sudo apt-get install mariadb-server
 ```
 
+如果你希望安装10.0版本, 则14.04上需要添加源
+
+```cpp
+
+```
 
 自然我们也需要perl连接数据库的接口`Perl DBI drivers`, 这个我们会在后面讲解其他模块时候进行详细详解
 

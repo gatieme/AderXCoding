@@ -21,5 +21,5 @@ clean:
 
 github:
 	git add -A
-	git commit -m $(COMMIT_APACHE2)
+	git commit -m $(COMMIT_MARIADB)
 	git push origin master
