@@ -31,19 +31,6 @@ http：//localhost/lxr/source
 
 所以就放弃这个了, 自己使用 `lxr` 里面的 `install` 文档摸索着用 `ighttpd + mysql  + lxr` 搭建 `lxr` 本地服务器
 
-#	参考
--------
-
-
-[Ubuntu 14.04 搭建LXR 本地服务器](http://blog.sina.com.cn/s/blog_c3884f930102v6as.html)
-
-[ubuntu 12.04上安装LXR 0.11(zz)](http://brucewuu.lofter.com/post/a6819_3aead51)
-
-[Technical Writing's Rule Of Thumb + Local Web based Code Cross Reference (eg. LXR clone](http://memyselfandtaco.blogspot.com/2008/06/technical-writings-rule-of-thumb-local.html)
-
-[Install. Instructions](http://lxr.sourceforge.net/en/1-0-InstallSteps/1-0-install.php)
-
-[源码阅读工具 lxr 安装配置初探](http://blog.csdn.net/duyiwuer2009/article/details/8958232)
 
 #1	LXR(Linux Cross Referencer)介绍
 -------
@@ -159,8 +146,12 @@ sudo apt-get install mariadb-server
 如果你希望安装10.0版本, 则14.04上需要添加源
 
 ```cpp
-
+sudo apt-get install software-properties-common
+sudo apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xcbcb082a1bb943db
+sudo add-apt-repository 'deb [arch=amd64,i386,ppc64el] http://mirrors.tuna.tsinghua.edu.cn/mariadb/repo/10.0/ubuntu trusty main'
 ```
+
+具体信息请参见[`Ubuntu 14.04`(`Trusty`)安装`MariaDB 10`数据库](http://blog.csdn.net/gatieme/article/details/53048071)
 
 自然我们也需要perl连接数据库的接口`Perl DBI drivers`, 这个我们会在后面讲解其他模块时候进行详细详解
 
@@ -180,6 +171,8 @@ LXR将我们的源代码处理成为网站的形式, 自然就需要http服务�
 ```cpp
 sudo apt-get install apache2
 ```
+
+详细信息请参见[Ubuntu下apache的安装与配置](http://blog.csdn.net/gatieme/article/details/53025505)
 
 
 ##1.1.5	索引系统`glimpse`或者`swish-e`
@@ -366,24 +359,49 @@ sudo apt-get install libxapian15 libsearch-xapian-perl libapache2-mod-perl2 libc
 ##1.2	下载安装lxr
 -------
 
-网址：http://sourceforge.net/projects/lxr/files/latest/download?source=files
 
-下载完成后解压到/usr/local/share (install文档建议目录)
+###1.2.1	下载lxr的源代码
+-------
 
-改名成lxr
 
-进入lxr根目录：
 
-```cpp
-cd /usr/local/share/lxr
-```
+下载地址  : http://sourceforge.net/projects/lxr/files/latest/download?source=files
+
+
+下载完成后解压到`/usr/local/share`, (install文档建议目录), 但是为了方便管理我解压在了 `/opt` 下
+
+解压后的目录如下图所示, `doc`中包含了所有的文档信息,  `INSTALL` 安装建议文件就在此目录
+
+
+![lxr的目录结构](lxr-directory.png)
+
+
+
 
 执行genxref检查lxr的配置环境
 
 ```cpp
 ./genxref --checkonly
 ```
-这个是为了检查LXR配置环境，根据提示缺少什么再安装什么，执行后显示如下：
+这个是为了检查LXR配置环境，根据提示缺少什么再安装什么，执行后显示如下
+
+![执行genxref检查lxr的配置环境](genxref--checkonly.png)
+
+可以看到
+
+1.	我们需要先配置一份 `lxr.conf` 的配置文件
+
+2.	由于我们同时安装了 `swish-e` 和 `glimpse`, 因此需要设置使用哪个
+
+
+##1.2.2	生成配置文件
+-------
+
+可以使用 `scripts/configure-lxr.pl` 脚本来生成默认的配置文件, 执行如下命令
+
+```cpp
+./scripts/configure-lxr.pl -vv 
+```
 
 
 ##1.4	下载安装lxrng
@@ -395,3 +413,19 @@ git	:
 
 ```cpp
 ```
+
+
+
+#	参考
+-------
+
+
+[Ubuntu 14.04 搭建LXR 本地服务器](http://blog.sina.com.cn/s/blog_c3884f930102v6as.html)
+
+[ubuntu 12.04上安装LXR 0.11(zz)](http://brucewuu.lofter.com/post/a6819_3aead51)
+
+[Technical Writing's Rule Of Thumb + Local Web based Code Cross Reference (eg. LXR clone](http://memyselfandtaco.blogspot.com/2008/06/technical-writings-rule-of-thumb-local.html)
+
+[Install. Instructions](http://lxr.sourceforge.net/en/1-0-InstallSteps/1-0-install.php)
+
+[源码阅读工具 lxr 安装配置初探](http://blog.csdn.net/duyiwuer2009/article/details/8958232)
