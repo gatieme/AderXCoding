@@ -1,9 +1,9 @@
-`Ubuntu 14.04(Trusty)` 安装 `MariaDB` 数据库
+`Ubuntu 14.04(Trusty)` 安装 `MariaDB 10` 数据库
 =======
 
 | CSDN | GitHub |
 |:----:|:------:|
-| [Ubuntu 14.04(Trusty)安装MariaDB数据库](http://blog.csdn.net/gatieme/article/details/53048071) | [`AderXCoding/system/tools/mariadb`](https://github.com/gatieme/AderXCoding/tree/master/system/tools/mariadb) |
+| [Ubuntu 14.04(Trusty)安装MariaDB 10数据库](http://blog.csdn.net/gatieme/article/details/53048071) | [`AderXCoding/system/tools/mariadb`](https://github.com/gatieme/AderXCoding/tree/master/system/tools/mariadb) |
 
 
 <br>
