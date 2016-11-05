@@ -253,3 +253,16 @@ MariaDB [mysql]> select count(*) from user;
 [安装MariaDB与MySQL并存](http://www.linuxidc.com/Linux/2014-11/109047.htm)
 
 [Ubuntu 上如何将 MySQL 5.5 数据库迁移到 MariaDB 10]( http://www.linuxidc.com/Linux/2014-11/109471.htm)
+
+
+[关于远程访问及防火墙设置请参考以下这篇文章](http://www.cnblogs.com/meetweb/p/3701443.html)
+
+
+[reference documents](https://mariadb.com/kb/en/mariadb/documentation/getting-started/mariadb-binary-packages/installing-mariadb-deb-files)
+
+
+[是时候放弃MySQL的五大理由](http://www.csdn.net/article/2013-07-12/2816207-5-reasons-its-time-to-ditch-mysql)
+
+[CentOS6.5上安装MariaDB](http://www.it165.net/database/html/201403/5471.html)
+
+[CentOS安装并设置MariaDB](http://blog.csdn.net/renfufei/article/details/17616549)
