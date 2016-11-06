@@ -400,19 +400,315 @@ sudo apt-get install libxapian15 libsearch-xapian-perl libapache2-mod-perl2 libc
 可以使用 `scripts/configure-lxr.pl` 脚本来生成默认的配置文件, 执行如下命令
 
 ```cpp
-./scripts/configure-lxr.pl -vv 
+./scripts/configure-lxr.pl -vv
 ```
 
+配置的过程如下
 
-##1.4	下载安装lxrng
+```cpp
+10:07 gatieme@Aspire:lxr $sudo ./scripts/configure-lxr.pl -vv
+*** LXR configurator (version: 2.1) ***
+
+LXR root directory is /opt/lxr
+Configuration will be stored in custom.d/
+directory custom.d created
+
+#  单树模式还是多树模式, 慎选, 此选项无法通过配置文件来修改
+#  如果想要修改只能删除所有的数据库重新来过
+#  如果只希望索引一个源码和host的话选择S即可
+Configure for single/multiple trees? [S/m] > m
+
+*** LXR web server configuration ***
+
+Many different configurations are possible, they are related to the way
+LXR service is accessed, i.e. to the structure of the URL.
+Refer to the User's Manual for a description of the variants.
+
+LXR can be located at the server-root (so called dedicated)
+or lower in the server hierarchy (shared because there are
+usually other pages or sections).
+# 这里我默认
+Server type? [dedicated/SHARED] > SHARED
+
+Selecting which tree to display can be done in various ways:
+  1. from the host name (all names are different),
+  2. from a prefix to a common host name (similar to previous)
+  3. from the site section name (all different)
+  4. from interpretation of a section name part (similar to previous)
+  5. from the head of script arguments
+Method 5 is highly recommended because it has no impact on webserver
+  configuration.
+Method 3 is second choice but involves manually setting up many
+  symbolic links (one per source-tree).
+Method 1 & 2 do not involve symbolic links but need populating webserver
+  configuration with virtual hosts.
+  Note that method 2 does not work well on //localhost.
+Method 4 is deprecated because it has proved not easily portable
+  under alternate webservers (other than Apache).
+
+# 这里我默认
+Tree designation? [ARGUMENT
+/section name
+/prefix in host
+/hostname
+/embedded in section] > 
+
+The computer hosting the server is described by an URL.
+The form is scheme://host_name:port
+where:
+  - scheme is either http or https (http: can be omitted),
+  - host_name can be given as an IP address such as 123.45.67.89
+              or a domain name like localhost or lxr.url.example,
+  - port may be omitted if standard for the scheme.
+--- Host name or IP? [//localhost] > 
+--- Alias name or IP? > http://mylxr.com
+--- Alias name or IP? > 
+URL section name for LXR in your server? [/lxr] > /lxr
+Will it be shared by all trees? [YES/no] > yes
+
+*** LXR database configuration ***
+
+
+The choice of the database engine can make a difference in indexing performance,
+but resource consumption is also an important factor.
+  * For a small personal project, try SQLite which do not
+    need a server and is free from configuration burden.
+  * For medium to large projects, choice is between MySQL,
+    PostgreSQL and Oracle.
+    Oracle is not a free software, its interface has not been
+    tested for a long time.
+  * PostgreSQL databases are smaller than MySQL's
+    and performance is roughly equivalent.
+  * MySQL is at its best with large-sized projects
+    (such as kernel cross-referencing) where it is fastest at the cost
+    of bigger databases.
+  * Take also in consideration the number of connected users.
+#  选择什么数据库
+Database engine? [MYSQL/oracle/postgres/sqlite] > MYSQL
+The safest option is to create one database per tree.
+You can however create a single database for all your trees with a specific set of
+tables for each tree (though this is not recommended).
+#  使用全局数据库还是每课树一个数据库
+#  比较保险的选项是PER TREE, 这样的话各个树的数据互相不干扰
+#  但是我为了方便管理, 选择了global
+How do you setup the databases? [PER TREE/global] > global
+Name of global database? [lxr] > lxr
+All databases can be accessed with the same username and
+can also be described under the same names.
+Will you share database characteristics? [YES/no] > YES
+#  数据库的用户名和密码默认就行
+--- DB user name? [lxr] > lxr
+--- DB password ? [lxrpw] > lxrpw
+#  glimpse/swish-e数据的存储路径
+--- Directory for glimpse databases? > /opt/lxr/database/glimpse
+--- Directory for swish-e databases? > /opt/lxr/database/swish-e
+REMINDER: after this configuration step, open lxr.conf
+and comment out one of 'glimpsebin' or 'swishbin'.
+
+file .htaccess written into LXR root directory
+file apache2-require.pl written into configuration directory
+file apache-lxrserver.conf written into configuration directory
+ERROR: unknown %virtroot% substitution marker!
+ERROR: unknown %virtroot% substitution marker!
+file lighttpd-lxrserver.conf written into configuration directory
+file nginx-lxrserver.conf written into configuration directory
+file thttpd-lxrserver.conf written into configuration directory
+Mercurial support files written into configuration directory
+
+*** LXR master configuration file setup ***
+    Global section part
+
+*** Configuring auxiliary tool paths
+*** Host name previously defined as http://localhost
+*** Configuring HTML parameters
+*** 'Buttons-and-menus' interface is recommended for the kernel
+*** to avoid screen cluttering.
+--- Use 'buttons-and-menus' instead of 'link' interface? [YES/no] > YES
+*** Configuring file subsection
+*** Configuring "common factors"
+*** Marking tree section
+
+*** LXR master configuration file setup ***
+    Tree section part
+    SQL script for database initialisation
+
+*** Configuring LXR server parameters
+*** The virtual root is the fixed URL part after the hostname.
+*** You previously defined the virtual root as /lxr
+--- Caption in page header? (e.g. Project XYZZY displayed by LXR) > gatieme-lxr
+Do you want a speed switch button for this tree ? [YES/no] > YES
+--- Short title for button? (e.g. XYZZY) > speed-gatieme
+--- Tree identification in URL? (e.g. the-tree) > the-tree
+Do you need a specific encoding for this tree ? [yes/NO] > yes
+--- Encoding name? (e.g. iso-8859-1) > UTF-8
+*** Describing tree location
+How is your tree stored? [FILES/cvs/git/svn/hg/bk] > FILES
+*** A source directory contains one sub-directory for every version.
+--- Source directory? (e.g. /home/myself/project-tree) >  /opt/lxr/database/source
+Name to display for the path root? (e.g. Project or $v for version) [$v] > 
+*** Enumerating versions
+Label for version selection menu?  [Version] > 
+  * Versions can be explicitly enumerated, be read from a file or computed
+*** by a function. The latter case is recommended for VCS-stored trees.
+Version enumeration method? [LIST/file/function] > 
+--- Version name?  > 4.4.6
+--- Version name? (hit return to stop) > 
+*** By default, first version in list is displayed. You may also indicate
+*** a prefered version.
+--- Default displayed version is first in 'range'? [YES/no] > YES
+*** Setting directory lists
+*** Some directories may contain non-public project data (binaries,
+*** compilers caches, SCM control data, ...). They can be hidden from LXR.
+--- Directory to ignore, e.g. CVSROOT or CVS? (hit return to stop) >
+*** If your source code uses "include" statements (#include, require, ...)
+*** LXR needs hints to resolve the destination file.
+--- Include directory, e.g. /include? (hit return to stop) >
+*** Configuring data storage
+#  数据库表的前缀, 命名规范的话删除很方便
+--- DB table prefix? [lxr_] > lxr_
+
+#  是否继续配置另外一颗树
+*** Configure another tree? [YES/no] > no
+configuration saved in custom.d/lxr.conf
+DB initialisation sript is custom.d/initdb.sh
+
+```
+
+配置完成后, 会在 `lxr` 目录下生成一个 `custom.d`的目录用于存放生成的脚本和配置文件
+
+![配置目录custom.d](custom-directory.png)
+
+
+
+| 脚本/配置文件 | 描述 |
+|:-----------:|:----:|
+| lxr.conf | lxr的配置文件, 配置了源码树和数据库路径等信息 |
+| initdb.sh | 创建数据库的脚本 |
+| lxr.ctxt |  |
+| hg-lxr-ext.py |  |
+| hg.rc |   |
+| apache2-require.pl |  |
+| apache-lxrserver.conf |  |
+| nginx-lxrserver.conf |  |
+| lighttpd-lxrserver.conf |  |
+| thttpd-lxrserver.conf |  |
+
+
+关于配置选项的详细信息, 可以查看[Step 3: LXR and Database Configuration](http://lxr.sourceforge.net/en/1-0-InstallSteps/1-0-install3config.php)
+
+
+##1.2.3	初始化数据库
 -------
 
 
-网站 :
-git	:
+```cpp
+sudo ./custom.d/initdb.sh
+```
+
+![执行脚本创建数据库](sh-initdb.png)
+
+查看 `./custom.d/initdb.sh` 文件内容, 再登录到 `MySQL` 看 `lxr` 用户、`lxr` 数据库、表是否跟 `./custom.d/initdb.sh` 文件中的一致
+
+
+![显示所有的数据库的信息](show-lxr-tables.png)
+
+
+###1.2.4	配置文件
+-------
+
+拷贝刚刚生成的 `lxr` 配置文件
 
 ```cpp
+sudo cp custom.d/lxr.conf .
 ```
+
+注意由于我们需要从 `glimpse` 和 `swish-e` 中选择一个, 因此找到配置文件中如下信息, 注释掉不需要的
+
+```cpp
+	, 'glimpsebin'     => '/usr/local/bin/glimpse'
+	, 'glimpseindex'   => '/usr/local/bin/glimpseindex'
+	, 'glimpsedirbase' => '/opt/lxr/database/glimpse'
+#	, 'swishbin'     => '/usr/bin/swish-e'
+#	, 'swishdirbase' => '/opt/lxr/database/swish-e'
+#	, 'swishconf' => '/opt/lxr/templates/swish-e.conf'
+
+```
+
+###1.2.5	配置源码
+-------
+
+现在我们配置已经完成了, 在生成源代码的索引之前, 我们需要一份完成的源代码的信息
+
+依照之前的配置, 我们的源代码应该防止在sourceroot制定的目录, 即 `/opt/lxr/database/source/$v`, 我们现在要索引`linux-4.4.6`, 就需要将源代码拷贝到 `/opt/lxr/database/source/4.4.6`, 当然也可以做一个链接
+
+```cpp
+sudo ln -s  linux-linaro-stable-rt-4.4.6 /opt/lxr/database/source/4.4.6
+```
+
+###1.2.6	生成索引
+
+
+```cpp
+sudo ./genxref --url=http://localhost/lxr --version=4.4.6
+```
+
+或者
+
+```cpp
+sudo ./genxref --allurls 4.4.6
+```
+
+
+更加详细的信息请参见[Step 4: Populate LXR Database](http://lxr.sourceforge.net/en/1-0-InstallSteps/1-0-install4genxref.php)
+
+
+等待配置完成即可, 等待的时间会很漫长
+
+![生成索引信息](genxref-lxr.png)
+
+
+
+###1.2.7	配置服务器
+-------
+
+
+拷贝apache的配置文件到apache2的配置目录
+
+```cpp
+sudo cp custom.d/apache-lxrserver.conf  /etc/apache2/conf-enabled/
+```
+
+重启apache2服务
+
+```cpp
+sudo service apache2 restart
+```
+
+其他服务器的配置请参见[Step 5: Configure the Web Server](http://lxr.sourceforge.net/en/1-0-InstallSteps/1-0-install5server.php)
+
+##1.3	验证
+-------
+
+然后我们直接访问
+
+http://localhost/lxr
+
+或者之前绑定的本地域名
+
+http://mylxr.com
+
+即可
+
+##1.3	关于lxrng
+-------
+
+
+`lxrng` 是一个`lxr`的实验性分支, 添加了很多新的功能
+
+关于lxrng的使用, 请参见
+
+[Technical Writing's Rule Of Thumb + Local Web based Code Cross Reference (eg. LXR clone](http://memyselfandtaco.blogspot.com/2008/06/technical-writings-rule-of-thumb-local.html)
+
 
 
 
@@ -429,3 +725,6 @@ git	:
 [Install. Instructions](http://lxr.sourceforge.net/en/1-0-InstallSteps/1-0-install.php)
 
 [源码阅读工具 lxr 安装配置初探](http://blog.csdn.net/duyiwuer2009/article/details/8958232)
+
+
+codeinsight VS opengrok

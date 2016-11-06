@@ -21,5 +21,5 @@ clean:
 
 github:
 	git add -A
-	git commit -m $(COMMIT_MARIADB)
+	git commit -m $(COMMIT_LXR)
 	git push origin master
