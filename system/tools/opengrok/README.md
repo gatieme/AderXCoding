@@ -1,6 +1,10 @@
 Ubuntu环境下OpenGrok的安装及使用
 =======
 
+http://blog.csdn.net/stephenzhu/article/details/38705035
+
+http://blog.csdn.net/jeffyin_wh/article/details/21465323
+
 
 #1	OpenGrok介绍
 -------
@@ -23,7 +27,7 @@ Ubuntu环境下OpenGrok的安装及使用
 
 在 `Ubuntu` 环境下, 推荐使用 `Tomcat`.
 
-`Ubuntu14.04` 的源中已经提供了`Tomcat 7` 的包, 参见 
+`Ubuntu14.04` 的源中已经提供了`Tomcat 7` 的包, 参见
 
 http://packages.ubuntu.com/trusty/tomcat7
 
@@ -70,6 +74,7 @@ http://opengrok.github.io/OpenGrok
 ```cpp
 tar xvzf opengrok-0.11.1.tar.gz
 ```
+
 解压完成后进入到解压目录, 将./lib目录下的source.war包拷贝到/data_2/tools/apache-tomcat-7.0.40/webapps目录下, 在浏览器中输入http://localhost:8080/source/网址（备注：war包会自动解压）看到以下界面证明OpenGrok运行成功. 
 
 接下需要更改/data_2/tools/apache-tomcat-7.0.40/webapps/source/WEB-INF目录下的web.xml配置文件
