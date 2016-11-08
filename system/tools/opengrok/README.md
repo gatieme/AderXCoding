@@ -201,14 +201,21 @@ http://localhost:8080/source/
 
 接下需要更改 `apache-tomcat/webapps/source/WEB-INF` 目录下的web.xml配置文件
 
-```cpp
+```html
 <context-param>
    <param-name>CONFIGURATION</param-name>
-   <param-value><span style="color:#ff0000;">/data_2/tools/opengrok-0.11.1/</span>etc/configuration.xml</param-value>
+   <param-value>/opt/opengrok/etc/configuration.xml</param-value>
    <description>Full path to the configuration file where OpenGrok can read it's configuration</description>  
  </context-param>
 ```
-其中红色标注的为上文OpenGrok解压路径. 最后就是建立源码的索引. 进入～./opengrok-0.11.1/bin 目录 执行以下命令建立源码索引：
+
+配置 `configuration.xml` 的路径
+
+> **提示**
+>
+> 实验发现这个xml不配置也是可以正常使用的
+
+
 
 
 ##2.5	建立源码索引
