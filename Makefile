@@ -21,5 +21,5 @@ clean:
 
 github:
 	git add -A
-	git commit -m $(COMMIT_TOMCAT)
+	git commit -m $(COMMIT_OPENGROK)
 	git push origin master
