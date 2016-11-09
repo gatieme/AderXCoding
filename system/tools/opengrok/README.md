@@ -1,6 +1,10 @@
 Ubuntu环境下OpenGrok的安装及使用
 =======
 
+http://tangzm.com/blog/?p=277
+
+http://blog.csdn.net/gaolegao3/article/details/51674224
+
 | CSDN | GitHub |
 |:----:|:------:|
 | [Aderstep--紫夜阑珊-青伶巷草](http://blog.csdn.net/gatieme) | [`AderXCoding/system/tools`](https://github.com/gatieme/AderXCoding/tree/master/system/tools) |
