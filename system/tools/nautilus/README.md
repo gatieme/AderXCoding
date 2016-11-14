@@ -1,9 +1,9 @@
-Ubuntu中Terminal和GNOME文件管理器的互通方法及命令
+Ubuntu中终端Terminal和GNOME文件管理器nautilus的互通方法及命令
 =======
 
 | CSDN | GitHub |
 |:----:|:------:|
-| [Aderstep--紫夜阑珊-青伶巷草](http://blog.csdn.net/gatieme) | [`AderXCoding/system/tools`](https://github.com/gatieme/AderXCoding/tree/master/system/tools) |
+| [Ubuntu中终端Terminal和GNOME文件管理器nautilus的互通方法及命令](http://blog.csdn.net/gatieme/article/details/53165915) | [`AderXCoding/system/tools/nautilus`](https://github.com/gatieme/AderXCoding/tree/master/system/tools/nautilus) |
 
 
 <br>

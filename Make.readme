@@ -31,6 +31,7 @@ COMMIT_LXR="Ubuntu14.04搭建LXR本地服务器阅读Linux内核代码--http://b
 COMMIT_TOMCAT="Ubunt安装和配置tomcat8服务--http://blog.csdn.net/gatieme/article/details/53073548"
 COMMIT_OPENGROK="Ubuntu搭建OpenGrok环境阅读Linux内核源代码--http://blog.csdn.net/gatieme/article/details/53083987"
 COMMIT_YAFFS2="内核添加对yaffs2文件系统的支持--http://blog.csdn.net/gatieme/article/details/53157829"
+COMMIT_NAUTILUS="Ubuntu中终端Terminal和GNOME文件管理器nautilus的互通方法及命令--http://blog.csdn.net/gatieme/article/details/53165915"
 COMMIT_FBTERM="未添加网址..."
 COMMIT_DOCK_TOOLS="未添加博客网址..."
 COMMIT_SYSTEMBACK="未添加博客网址..."
