@@ -164,14 +164,26 @@ Native  Language  support  --->
 	<*>  NLS  UTF-8
 ```
 
-![](kernel-yaffs2.png)
+![配置内核](kernel-yaffs2.png)
 
-注：若在 `make menuconfig` 中没有出现 `yaffs2` 文件系统的支持, 请检查 `MTD` 的配置, `yaffs2` 依赖于 `MTD` .
+>注
+>
+>若在 `make menuconfig` 中没有出现 `yaffs2` 文件系统的支持, 请检查 `MTD` 的配置, `yaffs2` 依赖于 `MTD` . `MTD`中配置了 `linux` 内核对 `NANDFlash` 的支持.
+>
+>```cpp
+>Device Drivers	--->
+>	Memory Technology Device (MTD) support	--->
+>
+># 进一步把其中的NAND Flase的支持打开
+>```
+>
+>![mtd-support](mtd-support.png)
+>
+>![mtd-support](mtd-support2.png)
 
 
-现在内核已经支持 `NandFlash` 和 `yaffs2` 文件系统，将内核烧入 `NandFlash`后, 再烧入 `yaffs2`
+内核支持 `NandFlash` 和 `yaffs2` 文件系统，将内核烧入 `NandFlash`后, 再烧入 `yaffs2` 文件系统, 可以使用制作好的文件系统, 也可以自己制作
 
-文件系统, 可以使用制作好的文件系统, 也可以自己制作
 启动时（成功挂载文件系统）输出:
 
 ```cpp
