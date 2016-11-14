@@ -21,5 +21,5 @@ clean:
 
 github:
 	git add -A
-	git commit -m $(COMMIT_OPENGROK)
+	git commit -m $(COMMIT_YAFFS2)
 	git push origin master
