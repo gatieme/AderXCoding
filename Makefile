@@ -21,5 +21,5 @@ clean:
 
 github:
 	git add -A
-	git commit -m $(COMMIT_YAFFS2)
+	git commit -m $(COMMIT_ENCODING)
 	git push origin master
