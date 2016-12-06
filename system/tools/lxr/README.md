@@ -686,18 +686,92 @@ sudo service apache2 restart
 
 其他服务器的配置请参见[Step 5: Configure the Web Server](http://lxr.sourceforge.net/en/1-0-InstallSteps/1-0-install5server.php)
 
-##1.3	验证
+###1.2.8	验证
 -------
 
 然后我们直接访问
 
-http://localhost/lxr
+http://localhost/lxr/source
 
 或者之前绑定的本地域名
 
-http://mylxr.com
+http://mylxr.com/source
 
 即可
+
+![`lxr` 搭建成功](lxr-success.png)
+
+###1.2.9	可能遇到的问题
+-------
+
+
+一下, 参照  [`liuqiaoyu080512`](http://blog.csdn.net/liuqiaoyu080512) 提供的帮助
+
+
+*	显示 `source` 源码 而, 不是运行结果
+
+配置完成之后, 访问 http://localhost/lxr/source
+
+发现浏览器中看到的是 `source` 的源码，而不是运行结果
+
+![`lxr` 显示的是 `source` 的源码](lxr-source-error.png)
+
+
+则说明 `cgi` 模块未开启, `cgi` 模块的信息请参见 `apache2`  配置目录下的 `mods-available` 和 `mods-enabled`.
+
+```cpp
+sudo a2enmod cgid
+```
+
+![开启 `cgid` 模块](apache-enable-cgid.png)
+
+
+>新装的 `apache2` 由于当前的环境最后开启的是 `cgid` 模块，这个没关系, 功能应该跟 `cgi` 一样。
+
+
+*	浏览器缓存的问题
+
+至此已经配置成功了, 但是但是浏览器有一点很恶心, 先说一下：Firefox 会缓存页面，也许你配置已经成功了，但是 Firefox 直接展示缓存的页面，你看到的还是 source 文件的 perl 源码，
+所以在判断是否配置成功前清除缓存：首选项->高级->网络->网络内容缓存 选立即清除。
+
+*	`custom.d/apache-lxrserver.conf` 配置文件不管用
+
+
+
+正常来说 `/etc/apache2/apache2.conf` 内部的如下两行, 会加载 `conf-enabled` 和 `sites-enabled` 下的所有配置文件
+
+```cpp
+# Include generic snippets of statements
+IncludeOptional conf-enabled/*.conf
+
+# Include the virtual host configurations:
+IncludeOptional sites-enabled/*.conf
+```
+
+但是如果仍然出现 `custom.d/apache-lxrserver.conf` 的配置不管用, 因此可以直接修改了默认的配置文件 `/etc/apache2/sites-enabled/000-default.conf` 为
+
+
+```cpp
+<VirtualHost *:80>
+ServerAdmin webmaster@localhost
+DocumentRoot /var/www/html
+
+# 这里开始是新增内容
+ScriptAlias /lxr/ /opt/lxr/
+<Directory "/opt/lxr/">
+AllowOverride None
+Options +ExecCGI -MultiViews +SymLinksIfOwnerMatch
+Require all granted
+AddHandler default-handler .jpg .png .css # 避免这些文件也被当做脚本执行
+</Directory>
+# 新增内容结束
+
+ErrorLog ${APACHE_LOG_DIR}/error.log
+CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+</VirtualHost>
+```
+
 
 ##1.3	关于lxrng
 -------

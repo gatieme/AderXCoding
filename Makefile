@@ -21,5 +21,5 @@ clean:
 
 github:
 	git add -A
-	git commit -m $(COMMIT_ENCODING)
+	git commit -m $(COMMIT_LXR)
 	git push origin master
