@@ -4,6 +4,9 @@
 setenv console "ttyS0,115200 kgdboc=ttyS0,115200 kgdbwait"
 ```
 
+
+http://blog.chinaunix.net/uid-27159438-id-3280019.html
+
 http://blog.csdn.net/gqb_driver/article/details/9117597
 
 http://blog.chinaunix.net/uid-632207-id-2083377.html
@@ -13,6 +16,7 @@ http://blog.csdn.net/u013470224/article/details/51314231
 
 http://www.kgdb.info/kgdb/kdb_kgdb_mode_change/
 
+http://www.arm9home.net/read.php?tid-25888.html
 
 http://www.tinylab.org/kgdb-debugging-kernel/
 
