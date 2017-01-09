@@ -21,5 +21,5 @@ clean:
 
 github:
 	git add -A
-	git commit -m $(COMMIT_LXR)
+	git commit -m $(COMMIT_BENCHMARK)
 	git push origin master

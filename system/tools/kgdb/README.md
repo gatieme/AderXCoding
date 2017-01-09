@@ -4,7 +4,19 @@
 
 
 ```cpp
-setenv console "ttyS0,115200 kgdboc=ttyS0,115200 kgdbwait"
+setenv kgdboc "ttyS0,115200 kgdbwait"
+
+setenv setargs_cubie "setenv bootargs console=${console} \
+kgdboc=${kgdboc} \
+root=${mmc_root} \
+loglevel=${logle}"  \
+rootfstype=ext2
+
+
+setenv setargs_cubie "setenv bootargs console=${console} \
+root=${mmc_root} \
+loglevel=${logle} \
+rootfstype=ext4"
 ```
 
 

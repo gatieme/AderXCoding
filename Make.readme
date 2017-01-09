@@ -37,4 +37,4 @@ COMMIT_GET_NPROCS="Linuxc获取可用的处理器(cpu)核数..."
 COMMIT_FBTERM="未添加网址..."
 COMMIT_DOCK_TOOLS="未添加博客网址..."
 COMMIT_SYSTEMBACK="未添加博客网址..."
-
+COMMIT_BENCHMARK="几款优秀的Linux基准测试工具--http://blog.csdn.net/gatieme/article/details/43792589"
