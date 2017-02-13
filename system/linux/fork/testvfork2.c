@@ -14,8 +14,9 @@ int main(void)
 
     printf("Before create son, the father's count is : %d\n", count);
 
-    if((child = vfork())< 0)
+    if((child = vfork()) < 0)
     {
+        printf("%d", child);
         perror("fork error : ");
     }
     else if(child == 0)     //  fork return 0 in the child process because child can get hid PID by getpid( )

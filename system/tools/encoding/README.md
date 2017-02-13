@@ -1,9 +1,9 @@
-Ubuntu下apache的安装与配置
+Linux下文件编码转换
 =======
 
 | CSDN | GitHub |
 |:----:|:------:|
-| [Ubuntu下apache的安装与配置](http://blog.csdn.net/gatieme) | [`AderXCoding/system/tools`](https://github.com/gatieme/AderXCoding/tree/master/system/tools) |
+| [Linux查看文件编码格式及文件编码转换](http://blog.csdn.net/gatieme/article/details/55045883) | [`AderXCoding/system/tools`](https://github.com/gatieme/AderXCoding/tree/master/system/tools/encoding) |
 
 
 http://liulanmi.com/zt/10306.html
@@ -106,7 +106,7 @@ fileencodings提供的编码列表尝试，如果没有找到合适的编码，�
 | cstocs | 转换文件编码 |
 | convmv | 转换文件名编码 |
 | enca | 分析给定文件的编码 |
-
+| enconv | 转换文件编码 |
 
 
 *	Windows:
