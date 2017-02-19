@@ -21,5 +21,5 @@ clean:
 
 github:
 	git add -A
-	git commit -m $(COMMIT_BENCHMARK)
+	git commit -m $(COMMIT_THE_FUCK)
 	git push origin master
