@@ -21,5 +21,5 @@ clean:
 
 github:
 	git add -A
-	git commit -m $(COMMIT_THE_FUCK)
+	git commit -m $(COMMIT_FLASHPLAYER)
 	git push origin master
