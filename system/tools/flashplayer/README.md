@@ -3,7 +3,7 @@ Ubuntu安装adobe flash player插件(PPAPI和NPAPI)
 
 | CSDN | GitHub |
 |:----:|:------:|
-| [Aderstep--紫夜阑珊-青伶巷草](http://blog.csdn.net/gatieme) | [`AderXCoding/system/tools`](https://github.com/gatieme/AderXCoding/tree/master/system/tools) |
+| [Aderstep--紫夜阑珊-青伶巷草](http://blog.csdn.net/gatieme/article/details/56481893e) | [`AderXCoding/system/tools/flashplayer`](https://github.com/gatieme/AderXCoding/tree/master/system/tools/flashplayer) |
 
 
 <br>
@@ -14,11 +14,9 @@ Ubuntu安装adobe flash player插件(PPAPI和NPAPI)
 
 
 
-<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>
-<br>
-本作品采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>进行许可
 
 
+各平台不同浏览器使用的 [`adobe flash player`](http://www.adobe.com/software/flash/about/)
 
 | Platform | Browser | Player |
 |:------:|:---------:|:------:|
@@ -58,7 +56,7 @@ Ubuntu安装adobe flash player插件(PPAPI和NPAPI)
 `NPAPI` 是当今最流行的插件架构, 由网景开发, 后 `Mozilla` 维护, 几乎所有浏览器都支持, 不过存在很大的安全隐患, 插件可以窃取系统底层权限, 发起恶意攻击.
 
 
-`2010`年, `Google`在原有网景 `NPAPI(Netscape Plugin API)` 基础上开发了新的 `PPAPI(Pepper Plugin API)`, 将外挂插件全部放到沙盒里运行, `2012`年 `Windows、Mac` 版本的 `Chrome` 浏览器先后升级了 `PPAPI Flash Player`, 并希望今年底值钱彻底淘汰 `NPAPI`.
+`2010`年, `Google`在原有网景 `NPAPI(Netscape Plugin API)` 基础上开发了新的 `PPAPI(Pepper Plugin API)`, 将外挂插件全部放到沙盒里运行, `2012`年 `Windows、Mac` 版本的 `Chrome` 浏览器先后升级了 `PPAPI Flash Player`, 随后彻底淘汰了 `NPAPI`.
 
 `PPAPI` 的 `flash` 相较于 `NPAPI` 来讲, 内存占用更大, 因为全在沙盒里面运行, 顺便一提 `flash` 每次更新基本上都是修补安全漏洞.
 
@@ -256,3 +254,9 @@ http://blog.sina.com.cn/s/blog_6c9d65a10101hz8q.html
 [askubuntu-lash-plugin-doesnt-appear-in-opera](http://askubuntu.com/questions/630835/flash-plugin-doesnt-appear-in-opera)
 
 [askubuntu-opera-directory-at-usr-lib-is-missing](http://askubuntu.com/questions/580247/opera-directory-at-usr-lib-is-missing)
+
+
+
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>
+<br>
+本作品采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>进行许可
