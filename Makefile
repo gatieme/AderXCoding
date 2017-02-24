@@ -21,5 +21,5 @@ clean:
 
 github:
 	git add -A
-	git commit -m $(COMMIT_FLASHPLAYER)
+	git commit -m $(COMMIT_MATPLOTLIB_BARPLOT)
 	git push origin master
