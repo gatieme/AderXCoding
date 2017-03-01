@@ -21,5 +21,5 @@ clean:
 
 github:
 	git add -A
-	git commit -m $(COMMIT_MATPLOTLIB_BARPLOT)
+	git commit -m $(COMMIT_REPAIR_GRUB)
 	git push origin master
