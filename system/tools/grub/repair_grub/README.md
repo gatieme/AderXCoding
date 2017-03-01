@@ -3,7 +3,7 @@ Grub引导项修复
 
 | CSDN | GitHub |
 |:----:|:------:|
-| [Grub引导项修复详解](http://blog.csdn.net/gatieme/article/details/59127020) | [`AderXCoding/system/tools/repair_boot`](https://github.com/gatieme/AderXCoding/tree/master/system/tools/repair_boot) |
+| [Grub引导项修复详解](http://blog.csdn.net/gatieme/article/details/59127020) | [`AderXCoding/system/tools/grub/repair_grub`](https://github.com/gatieme/AderXCoding/tree/master/system/tools/grub/repair_grub) |
 
 
 <br>
