@@ -21,5 +21,5 @@ clean:
 
 github:
 	git add -A
-	git commit -m $(COMMIT_REPAIR_GRUB)
+	git commit -m $(COMMIT_CEREBRO)
 	git push origin master
