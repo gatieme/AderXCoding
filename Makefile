@@ -21,5 +21,5 @@ clean:
 
 github:
 	git add -A
-	git commit -m $(COMMIT_CEREBRO)
+	git commit -m $(COMMIT_MATPLOTLIB_SUBPLOT)
 	git push origin master
