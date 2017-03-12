@@ -118,7 +118,7 @@ you-get -p mpv http://www.bilibili.com/video/av3458634/
 ```
 
 
-下载的视频可以使用 ffmpeg 来合并视频, 参见![使用 `you-get` 或 `youtube-dl` 下载优酷/土豆/爱奇艺高清视频，`FFmpeg` 合并视频](http://blog.csdn.net/abel_qy/article/details/51067964)
+下载的视频可以使用 ffmpeg 来合并视频, 参见[使用 `you-get` 或 `youtube-dl` 下载优酷/土豆/爱奇艺高清视频，`FFmpeg` 合并视频](http://blog.csdn.net/abel_qy/article/details/51067964)
 
 
 
@@ -127,24 +127,24 @@ you-get -p mpv http://www.bilibili.com/video/av3458634/
 #   参考内容
 -------
 
-![`You-Get` 中文说明 `Wiki`](https://github.com/soimort/you-get/wiki/中文说明#%E9%80%89%E9%A1%B9-3-%E4%BA%8Egithub%E4%B8%8B%E8%BD%BD)
+[`You-Get` 中文说明 `Wiki`](https://github.com/soimort/you-get/wiki/中文说明#%E9%80%89%E9%A1%B9-3-%E4%BA%8Egithub%E4%B8%8B%E8%BD%BD)
 
-![使用 `you-get` 或 `youtube-dl` 下载优酷/土豆/爱奇艺高清视频，`FFmpeg` 合并视频](http://blog.csdn.net/abel_qy/article/details/51067964)
+[使用 `you-get` 或 `youtube-dl` 下载优酷/土豆/爱奇艺高清视频，`FFmpeg` 合并视频](http://blog.csdn.net/abel_qy/article/details/51067964)
 
-![`mpv` + `you-get` 是在线看视频的神器](https://www.v2ex.com/t/246998)
+[`mpv` + `you-get` 是在线看视频的神器](https://www.v2ex.com/t/246998)
 
-![`You-Get` 官网](https://you-get.org)
+[`You-Get` 官网](https://you-get.org)
 
-![(侵删)转载 <You-Get——基于Python3的媒体下载工具](http://tieba.baidu.com/p/4553147718)
+[(侵删)转载 <You-Get——基于Python3的媒体下载工具](http://tieba.baidu.com/p/4553147718)
 
-![You-Get——基于Python3的媒体下载工具](http://www.jianshu.com/p/a3f8df948395)
+[You-Get——基于Python3的媒体下载工具](http://www.jianshu.com/p/a3f8df948395)
 
-![http://www.codingpy.com/article/using-you-get-to-download-videos/](http://www.codingpy.com/article/using-you-get-to-download-videos/)
+[http://www.codingpy.com/article/using-you-get-to-download-videos/](http://www.codingpy.com/article/using-you-get-to-download-videos/)
 
-![You-Get 一款开源网络视频获取神奇](http://www.bilibili.com/video/av4366369/)
+[You-Get 一款开源网络视频获取神奇](http://www.bilibili.com/video/av4366369/)
 
 
-![命令行视频下载工具：You-get 数十个网站都可解析](https://baijiahao.baidu.com/po/feed/share?wfr=spider&for=pc&context=%7B"sourceFrom"%3A"bjh"%2C"nid"%3A"news_4031325661465239968"%7D)
+[命令行视频下载工具：You-get 数十个网站都可解析](https://baijiahao.baidu.com/po/feed/share?wfr=spider&for=pc&context=%7B"sourceFrom"%3A"bjh"%2C"nid"%3A"news_4031325661465239968"%7D)
 
 
 
