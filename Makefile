@@ -21,5 +21,5 @@ clean:
 
 github:
 	git add -A
-	git commit -m $(COMMIT_MATPLOTLIB_SUBPLOT)
+	git commit -m $(COMMIT_YOU_GET)
 	git push origin master
