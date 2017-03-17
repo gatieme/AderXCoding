@@ -21,5 +21,5 @@ clean:
 
 github:
 	git add -A
-	git commit -m $(COMMIT_YOU_GET)
+	git commit -m $(COMMIT_FLUX)
 	git push origin master
