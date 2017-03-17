@@ -1,4 +1,4 @@
-Ubuntu中安装F.lux
+Ubuntu(护眼设置)安装屏幕色温调节软件F.lux
 =======
 
 
