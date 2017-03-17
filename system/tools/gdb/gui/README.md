@@ -18,11 +18,28 @@ GDB图形界面
 如果之前对gdb和vim比较熟悉的话，用这个就会很顺手 |
 | ddd | 采用gdb作为后端，强大之处在于能够图形化显示程序中的结构体 |
 | insight | |
-| Nemiver | |
-| KDevelop | |
+| [Nemiver](https://github.com/GNOME/nemiver) | |
+| [KDevelop](https://www.kdevelop.org/) | |
 
 http://blog.csdn.net/shenyuflying/article/details/53931865
 http://shenyu.wiki/2017/03/12/source-insight-color-theme/
+
+| vim调试插件 | 描述 |
+|：----：|：——---：|
+vimgdb和clewn，pyclewn相对较少，gdbmgr
+vgdb，pyclewn，VimDebug
+https://www.lainme.com/doku.php/blog/2010/11/vim的调试插件_gdbmgr
+http://blog.163.com/skyshore@126/blog/static/1339551362014828113227568/
+
+
+gdb 插件
+-------
+
+http://www.freebuf.com/sectool/94235.html
+http://www.cnblogs.com/0xmuhe/p/5627172.html
+https://github.com/longld/peda
+http://www.cjjjs.com/paper/czxt/20161215202120669.html
+
 
 #KDbg
 -------
