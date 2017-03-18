@@ -48,3 +48,4 @@ COMMIT_MATPLOTLIB_SUBPLOT="python使用matplotlib:subplot绘制多个子图--htt
 COMMIT_YOU_GET="You-Get--基于Python3的开源网络视频下载工具--http://blog.csdn.net/gatieme/article/details/61623891"
 COMMIT_FLUX="Ubuntu(护眼设置)安装屏幕色温调节软件F.lux--http://blog.csdn.net/gatieme/article/details/62922164"
 COMMIT_GDB_PLUGIN="GDB插件使用插件(peda, gef, gdbinit)全解--http://blog.csdn.net/gatieme/article/details/63254211"
+COMMIT_GITHUB_SUBTREE="github subtree"
