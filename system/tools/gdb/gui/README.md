@@ -54,7 +54,7 @@ Insight是一个Tcl/Tk编写的gdb的图形用户接口，它是由在Red hat以
 
 
 target和host都是linux，一般很少GUI前端，不管是ddd还是insight，感觉都不如gdb自带的tui好用（在gdb的命令行模式下,ctrl+x+a 可以切换), 具体可以参考http://mingxinglai.com/cn/2013/07/gdbtui/;
-
+http://wiki.ubuntu.org.cn/Insight的使用方法（gdb的最优前端）
 
 #Affinic Debugger GUI
 ------
