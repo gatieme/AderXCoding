@@ -1,0 +1,2 @@
+break /home/gatieme/Work/GitHub/AderXCoding/system/tools/gdb/core_dump_test.c:21
+
