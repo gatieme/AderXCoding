@@ -1,22 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
-
-void show()
+int main()
 {
-    static char a[0];
-    printf("%p\n", a);
+    char a[0];
+    char *b = NULL;
 
-    static char b[0];
-    printf("%p\n", b);
-}
-
-
-int main(void)
-{
-
-    show( );
-
-    return EXIT_SUCCESS;
+    printf("sizeof(a) = %d, address = %p %p\n", sizeof(a), &a, a);
+    printf("sizeof(b) = %d, address = %p %p\n", sizeof(b), &b, b);
 }

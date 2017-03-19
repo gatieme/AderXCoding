@@ -383,6 +383,41 @@ struct f3 {
 http://blog.csdn.net/pngynghay/article/details/24802719
 http://blog.csdn.net/ssdsafsdsd/article/details/8234736
 
+
+0长度数组与指针实现有什么区别呢, 为什么0长度数组不占用存储空间呢?
+
+
+其实本质上涉及到的是一个C语言里面的数组和指针的区别问题. `char a[1]`里面的`a`和`char *b`的`b`相同吗？
+
+《 Programming Abstractions in C》（Roberts, E. S.，机械工业出版社，2004.6）82页里面说
+
+
+>“arr is defined to be identical to &arr[0]”。
+
+也就是说，char a[1]里面的a实际是一个常量，等于&a[0]。而char *b是有一个实实在在的指针变量b存在。 所以，a=b是不允许的，而b=a是允许的。 两种变量都支持下标式的访问，那么对于a[0]和b[0]本质上是否有区别？我们可以通过一个例子来说明。
+
+
+```cpp
+// 2.c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    char a[0];
+    char *b;
+
+    printf("%d %d\n", sizeof(a), sizeof(b));
+}
+```
+
+
+![运行结果](2.png)
+
+http://blog.csdn.net/pngynghay/article/details/24802719
+
+
+
 #参考
 -------
 
