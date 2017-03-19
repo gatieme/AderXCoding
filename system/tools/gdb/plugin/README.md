@@ -1,9 +1,9 @@
-GDB插件使用插件(peda, gef, gdbinit)全解
+GDB实用插件(peda, gef, gdbinit)全解
 =======
 
 | CSDN | GitHub |
 |:----:|:------:|
-| [GDB插件使用插件(peda, gef, gdbinit)全解](http://blog.csdn.net/gatieme/article/details/63254211) | [`AderXCoding/system/tools/gdb/plugin`](https://github.com/gatieme/AderXCoding/tree/master/system/tools/gdb/plugin) |
+| [GDB实用插件(peda, gef, gdbinit)全解](http://blog.csdn.net/gatieme/article/details/63254211) | [`AderXCoding/system/tools/gdb/plugin`](https://github.com/gatieme/AderXCoding/tree/master/system/tools/gdb/plugin) |
 
 
 <br>
