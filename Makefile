@@ -21,5 +21,5 @@ clean:
 
 github:
 	git add -A
-	git commit -m $(COMMIT_GITHUB_SUBTREE)
+	git commit -m $(COMMIT_GDB_PLUGIN)
 	git push origin master
