@@ -21,5 +21,5 @@ clean:
 
 github:
 	git add -A
-	git commit -m $(COMMIT_ZERO_LENGTH_ARRAY)
+	git commit -m $(COMMIT_GITHUB_SUBTREE)
 	git push origin master
