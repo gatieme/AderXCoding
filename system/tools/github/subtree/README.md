@@ -145,7 +145,8 @@ git subtree pull --prefix=ai --squash git@github.com:aoxu/ai.git master
 git subtree push --prefix=ai ai master
 ```
 
-#3  参考资料：
+#3  参考资料
+-------
 
 [speackerdeck](https://speakerdeck.com/cloudsben/git-subtree-ti-dai-git-submodule)
 
