@@ -7,11 +7,8 @@
 int main(void)
 {
 
-    char a[0];
+    char *a;
     printf("%p\n", a);
-
-    char b[0];
-    printf("%p\n", b);
 
     return EXIT_SUCCESS;
 }

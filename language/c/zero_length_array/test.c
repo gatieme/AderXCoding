@@ -14,7 +14,8 @@ struct ptrdemo{
 
 #define LEN (sizeof(char)*100)
 
-int main(){
+int main(void)
+{
         struct zerodemo *zd =(struct zerodemo *)malloc(sizeof(struct zerodemo) + LEN);
         zd->num = 10;
         memset(zd->zero,'a', LEN);

@@ -582,9 +582,14 @@ int main(void)
 #4	0长度数组的其他特征
 -------
 
+##4.1	为什么0长度数组不占用存储空间
+-------
 
-http://blog.csdn.net/pngynghay/article/details/24802719
-http://blog.csdn.net/ssdsafsdsd/article/details/8234736
+>参见
+>
+>[结构体中的指针与零长度数组](http://blog.csdn.net/pngynghay/article/details/24802719)
+>
+>[GNU C中的零长度数组](http://blog.csdn.net/ssdsafsdsd/article/details/8234736)
 
 
 0长度数组与指针实现有什么区别呢, 为什么0长度数组不占用存储空间呢?
@@ -599,26 +604,176 @@ http://blog.csdn.net/ssdsafsdsd/article/details/8234736
 
 也就是说，char a[1]里面的a实际是一个常量，等于&a[0]。而char *b是有一个实实在在的指针变量b存在。 所以，a=b是不允许的，而b=a是允许的。 两种变量都支持下标式的访问，那么对于a[0]和b[0]本质上是否有区别？我们可以通过一个例子来说明。
 
+参见如下两个程序 `gdb_zero_length_array.c` 和 `gdb_zero_length_array.c`
+
 
 ```cpp
-// 4.c
+//  gdb_zero_length_array.c
 #include <stdio.h>
 #include <stdlib.h>
 
-int main()
+struct str
 {
-    char a[0];
-    char *b;
+    int len;
+    char s[0];
+};
 
-    printf("%d %d\n", sizeof(a), sizeof(b));
+struct foo
+{
+    struct str *a;
+};
+
+int main(void)
+{
+    struct foo f = { NULL };
+
+    printf("sizeof(struct str) = %d\n", sizeof(struct str));
+
+    printf("before f.a->s.\n");
+    if(f.a->s)
+    {
+        printf("before printf f.a->s.\n");
+        printf(f.a->s);
+        printf("before printf f.a->s.\n");
+    }
+
+    return EXIT_SUCCESS;
 }
 ```
 
+![测试结果](gdb_test.png)
 
-![运行结果](2.png)
+```cpp
+//  gdb_pzero_length_array.c
+#include <stdio.h>
+#include <stdlib.h>
 
-http://blog.csdn.net/pngynghay/article/details/24802719
+struct str
+{
+    int len;
+    char *s;
+};
 
+struct foo
+{
+    struct str *a;
+};
+
+int main(void)
+{
+    struct foo f = { NULL };
+
+    printf("sizeof(struct str) = %d\n", sizeof(struct str));
+
+    printf("before f.a->s.\n");
+
+    if (f.a->s)
+    {
+        printf("before printf f.a->s.\n");
+        printf(f.a->s);
+        printf("before printf f.a->s.\n");
+    }
+
+    return EXIT_SUCCESS;
+}
+```
+
+![测试结果](gdb_ptest.png)
+
+可以看到这两个程序虽然都存在访问异常, 但是段错误的位置却不同
+
+我们将两个程序编译成汇编, 然户 `diff` 查看他们的汇编代码有何不同
+
+
+```cpp
+gcc -S gdb_zero_length_array.c -o gdb_test.s
+gcc -S gdb_pzero_length_array.c -o gdb_ptest
+diff gdb_test.s gdb_ptest.s
+
+1c1
+< 	.file	"gdb_zero_length_array.c"
+---
+> 	.file	"gdb_pzero_length_array.c"
+23c23
+< 	movl	$4, %esi
+---
+> 	movl	$16, %esi
+30c30
+< 	addq	$4, %rax
+---
+> 	movq	8(%rax), %rax
+36c36
+< 	addq	$4, %rax
+---
+> 	movq	8(%rax), %rax
+```
+
+```cpp
+#    printf("sizeof(struct str) = %d\n", sizeof(struct str));
+23c23
+< 	movl	$4, %esi    #printf("sizeof(struct str) = %d\n", sizeof(struct str));
+---
+> 	movl	$16, %esi	#printf("sizeof(struct str) = %d\n", sizeof(struct str));
+```
+
+从64位系统中, 汇编我们看出, 变长数组结构的大小为4, 而指针形式的结构大小为16
+
+```cpp
+f.a->s
+30c30/36c36
+< 	addq	$4, %rax
+---
+> 	movq	8(%rax), %rax
+```
+
+可以看到有
+
+*	对于 `char s[0]` 来说, 汇编代码用了 `addq` 指令, addq $4, %rax
+
+*	对于 `char*s` 来说，汇编代码用了 `movq` 指令, `movq 8(%rax), %rax`
+
+`addq` 对 `%rax + sizeof(struct str)`, 即`str`结构的末尾即是`char s[0]`的地址, 这一步只是拿到了其地址, 而 `movq` 则是把地址里的内容放进去, 因此有时也被翻译为`leap`指令, 参见下一列子
+
+从这里可以看到, 访问成员数组名其实得到的是数组的相对地址, 而访问成员指针其实是相对地址里的内容(这和访问其它非指针或数组的变量是一样的)
+
+*	访问相对地址，程序不会crash，但是，访问一个非法的地址中的内容，程序就会crash。
+
+
+有时候
+
+
+```cpp
+// 4-1.c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
+{
+
+    char *a;
+    printf("%p\n", a);
+
+    return EXIT_SUCCESS;
+}
+```
+
+```cpp
+4-2.c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
+{
+
+    char a[0];
+    printf("%p\n", a);
+
+    return EXIT_SUCCESS;
+}
+
+```
+
+##4.2	
 
 
 #参考
