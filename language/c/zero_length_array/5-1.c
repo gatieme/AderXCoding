@@ -1,20 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
-
-
 int main(void)
 {
 
-    const char *a = "Hello";
+    char a[0];
     printf("%p\n", a);
 
-    const char *b = "Hello";
+    char b[0];
     printf("%p\n", b);
-
-    const char c[] = "Hello";
-    printf("%p\n", c);
 
     return EXIT_SUCCESS;
 }

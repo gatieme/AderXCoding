@@ -773,7 +773,75 @@ int main(void)
 
 ```
 
-##4.2	
+```cpp
+$ diff 4-1.s 4-2.s
+1c1
+<       .file   "4-1.c"
+---
+>       .file   "4-2.c"
+13c13
+<       subl    $16, %esp
+---
+>       subl    $32, %esp
+15c15
+<       leal    16(%esp), %eax
+---
+>       movl    28(%esp), %eax
+```
+*	对于 `char a[0]` 来说, 汇编代码用了 `leal` 指令, `leal    16(%esp), %eax`
+
+*	对于 `char *a` 来说，汇编代码用了 `movl` 指令, `movl    28(%esp), %eax`
+
+##4.2	地址优化
+-------
+
+```cpp
+// 5-1.c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
+{
+
+    char a[0];
+    printf("%p\n", a);
+
+    char b[0];
+    printf("%p\n", b);
+
+    return EXIT_SUCCESS;
+}
+```
+
+![4](4.png)
+
+由于0长度数组是 GNU C 的扩展, 不被标准库任可, 那么一些巧妙编写的诡异代码, 其执行结果就是依赖于编译器和优化策略的实现的.
+
+比如上面的代码, a和b的地址就会被编译器优化到一处, 因为a[0] 和 b[0] 对于程序来说是无法使用的, 这让我们想到了什么?
+
+编译器对于相同字符串常量, 往往地址也是优化到一处, 减少空间占用
+
+```cpp
+//  5-2.c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
+{
+
+    const char *a = "Hello";
+    printf("%p\n", a);
+
+    const char *b = "Hello";
+    printf("%p\n", b);
+
+    const char c[] = "Hello";
+    printf("%p\n", c);
+
+    return EXIT_SUCCESS;
+}
+
+```
 
 
 #参考
