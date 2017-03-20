@@ -434,7 +434,34 @@ struct buffer
 
 在`C99`之后，也加了类似的扩展，只不过用的是 `char payload[]`这种形式（所以如果你在编译的时候确实需要用到`-pedantic`参数，那么你可以将`char payload[0]`类型改成`char payload[]`, 这样就可以编译通过了，当然你的编译器必须支持C99标准的，如果太古老的编译器，那可能不支持了)
 
-所以结构体的末尾, 就是指向了其后面的内存数据。因此我们可以很好的将该类型的结构体作为数据报文的头格式，并且最后一个成员变量，也就刚好是负载或内容了.
+```cpp
+// 2.c payload
+#include <stdio.h>
+#include <stdlib.h>
+
+struct payload
+{
+    int   len;
+    char  data[];
+};
+
+int main(void)
+{
+    struct payload pay;
+    printf("%ld", sizeof(pay));
+    return EXIT_SUCCESS;
+}
+```
+使用 `-pedantic` 编译后, 不出现警告, 说明这种语法是 `C` 标准的
+
+```cpp
+gcc 2.c -pedantic -std=c99
+```
+
+
+所以结构体的末尾, 就是指向了其后面的内存数据。因此我们可以很好的将该类型的结构体作为数据报文的头格式，并且最后一个成员变量，也就刚好是数据内容了.
+
+
 
 
 GNU手册还提供了另外两个结构体来说明，更容易看懂意思：
@@ -456,11 +483,8 @@ struct f2 {
 
 ```cpp
 f1.x = 1
-
 f1.y[0] = 2
-
 f1.y[1] = 3
-
 f1.y[2] = 4
 ```
 
@@ -468,15 +492,12 @@ f1.y[2] = 4
 
 ```cpp
 f2.f1.x = 1
-
 f2.f1.y[0] = 5
-
 f2.f1.y[1] = 6
-
 f2.f1.y[2] = 7
 ```
 
-如果你不是很确认其是否占用空间。你可以用sizeof来计算一下。就可以知道sizeof(struct f1)=4,也就是int y[]其实是不占用空间的。但是这个0长度的数组，必须放在结构体的末尾。如果你没有把它放在末尾的话。编译的时候，会有如下的错误：
+如果你不是很确认其是否占用空间. 你可以用sizeof来计算一下。就可以知道sizeof(struct f1)=4,也就是int y[]其实是不占用空间的。但是这个0长度的数组，必须放在结构体的末尾。如果你没有把它放在末尾的话。编译的时候，会有如下的错误：
 
 ```cpp
 main.c:37:9: error: flexible array member not at end of struct
@@ -484,7 +505,7 @@ main.c:37:9: error: flexible array member not at end of struct
          ^
 ```
 
-到这边，你可能会有疑问，如果将struct f1中的int y[]替换成int *y，又会是如何？这就涉及到数组和指针的问题了。有时候吧，这两个是一样的，有时候又有区别。
+到这边，你可能会有疑问，如果将struct f1中的int y[]替换成int *y，又会是如何？这就涉及到数组和指针的问题了. 有时候吧，这两个是一样的，有时候又有区别。
 
 首先要说明的是，支持0长度数组的扩展，重点在数组，也就是不能用int *y指针来替换。sizeof的长度就不一样了。把struct f1改成这样：
 
@@ -494,7 +515,55 @@ struct f3 {
     int *y;
 };
 ```
-在64位下，sizeof(struct f1)=4，而sizeof(struct f3)=16。因为int *y是指针，指针在64位下，是64位的，如果在32位环境的话，sizeof(struct f3)则是8了，sizeof(struct f1)不变。所以int *y是不能替代int y[]的。
+在32/64位下, `int`均是4个字节, `sizeof(struct f1)=4`，而`sizeof(struct f3)=16`
+
+因为 `int *y` 是指针, 指针在`64`位下, 是`64`位的， `sizeof(struct f3) = 16`, 如果在`32`位环境的话, `sizeof(struct f3)` 则是 `8` 了, `sizeof(struct f1)` 不变. 所以 `int *y` 是不能替代 `int y[]` 的.
+
+代码如下
+
+```cpp
+// 3.c
+#include <stdio.h>
+#include <stdlib.h>
+
+
+struct f1 {
+    int x;
+    int y[];
+} f1 = { 1, { 2, 3, 4 } };
+
+struct f2 {
+    struct f1 f1;
+    int data[3];
+} f2 = { { 1 }, { 5, 6, 7 } };
+
+
+struct f3
+{
+    int x;
+    int *y;
+};
+
+int main(void)
+{
+    printf("sizeof(f1) = %d\n", sizeof(struct f1));
+    printf("sizeof(f2) = %d\n", sizeof(struct f2));
+    printf("szieof(f3) = %d\n\n", sizeof(struct f3));
+
+    printf("f1.x = %d\n", f1.x);
+    printf("f1.y[0] = %d\n", f1.y[0]);
+    printf("f1.y[1] = %d\n", f1.y[1]);
+    printf("f1.y[2] = %d\n", f1.y[2]);
+
+
+    printf("f2.f1.x = %d\n", f1.x);
+    printf("f2.f1.y[0] = %d\n", f2.f1.y[0]);
+    printf("f2.f1.y[1] = %d\n", f2.f1.y[1]);
+    printf("f2.f1.y[2] = %d\n", f2.f1.y[2]);
+
+    return EXIT_SUCCESS;
+}
+```
 
 
 #4	0长度数组的其他特征
@@ -513,7 +582,7 @@ http://blog.csdn.net/ssdsafsdsd/article/details/8234736
 《 Programming Abstractions in C》（Roberts, E. S.，机械工业出版社，2004.6）82页里面说
 
 
->“arr is defined to be identical to &arr[0]”。
+> "arr is defined to be identical to &arr[0]".
 
 也就是说，char a[1]里面的a实际是一个常量，等于&a[0]。而char *b是有一个实实在在的指针变量b存在。 所以，a=b是不允许的，而b=a是允许的。 两种变量都支持下标式的访问，那么对于a[0]和b[0]本质上是否有区别？我们可以通过一个例子来说明。
 
