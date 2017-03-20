@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <string.h>
 
 #define MAX_LENGTH      1024
 #define CURR_LENGTH      512
