@@ -1,22 +1,11 @@
+// 4.c
 #include <stdio.h>
 #include <stdlib.h>
 
-
-
-void show()
+int main()
 {
-    static char a[0];
-    printf("%p\n", a);
+    char a[0];
+    char *b;
 
-    static char b[0];
-    printf("%p\n", b);
-}
-
-
-int main(void)
-{
-
-    show( );
-
-    return EXIT_SUCCESS;
+    printf("%d %d\n", sizeof(a), sizeof(b));
 }

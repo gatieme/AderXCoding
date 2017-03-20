@@ -359,7 +359,7 @@ int main(void)
 ```
 
 
-![运行结果]()
+![运行结果](zero_length_array.png)
 
 
 *	长度为0的数组并不占有内存空间, 而指针方式需要占用内存空间.
@@ -420,6 +420,8 @@ cc1: warnings being treated as errors
 1.c:7: error: ISO C forbids zero-size array ‘a’
 ```
 
+![运行结果](1.png)
+
 0长度数组其实就是灵活的运用的数组指向的是其后面的连续的内存空间
 
 ```cpp
@@ -462,6 +464,9 @@ int main(void)
 ```cpp
 gcc 2.c -pedantic -std=c99
 ```
+
+
+
 
 
 所以结构体的末尾, 就是指向了其后面的内存数据。因此我们可以很好的将该类型的结构体作为数据报文的头格式，并且最后一个成员变量，也就刚好是数据内容了.
@@ -571,6 +576,9 @@ int main(void)
 ```
 
 
+![运行结果](3.png)
+
+
 #4	0长度数组的其他特征
 -------
 
@@ -593,7 +601,7 @@ http://blog.csdn.net/ssdsafsdsd/article/details/8234736
 
 
 ```cpp
-// 2.c
+// 4.c
 #include <stdio.h>
 #include <stdlib.h>
 
