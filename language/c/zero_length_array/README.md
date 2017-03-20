@@ -465,7 +465,7 @@ int main(void)
 gcc 2.c -pedantic -std=c99
 ```
 
-
+![2](2.png)
 
 
 
