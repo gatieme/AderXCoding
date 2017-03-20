@@ -109,7 +109,7 @@ git remote add -f ai git@github.com:aoxu/ai.git
 git subtree add --prefix=ai ai master --squash
 ```
 
-##2.2 从远程仓库更新子目录
+##2.2 从远程仓库pull更新子目录
 -------
 
 更新子目录有2条命令. 
