@@ -162,9 +162,9 @@ git subtree push --prefix=ai ai master
 [Git Submodule 和 Git SubTree](http://blogs.atlassian.com/2013/05/alternatives-to-git-submodule-git-subtree/)
 
 
-![Git submodule 还是 Git Subtree](http://blog.zlxstar.me/blog/2014/07/18/git-submodule-vs-git-subtree/?utm_source=tuicool&utm_medium=referral)
+[Git submodule 还是 Git Subtree](http://blog.zlxstar.me/blog/2014/07/18/git-submodule-vs-git-subtree/?utm_source=tuicool&utm_medium=referral)
 
-![使用GIT SUBTREE集成项目到子目录](http://aoxuis.me/post/2013-08-06-git-subtree)
+[使用GIT SUBTREE集成项目到子目录](http://aoxuis.me/post/2013-08-06-git-subtree)
 
 http://www.cjjjs.com/paper/czxt/20161215202120669.html
 
