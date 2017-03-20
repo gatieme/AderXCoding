@@ -1,9 +1,9 @@
-GDB实用插件(peda, gef, gdbinit)全解
+C语言0长度数组(可变数组/柔性数组)详解
 =======
 
 | CSDN | GitHub |
 |:----:|:------:|
-| [GDB实用插件(peda, gef, gdbinit)全解](http://blog.csdn.net/gatieme/article/details/63254211) | [`AderXCoding/system/tools/gdb/plugin`](https://github.com/gatieme/AderXCoding/tree/master/system/tools/gdb/plugin) |
+| [C语言0长度数组(可变数组/柔性数组)详解](http://blog.csdn.net/gatieme/article/details/64131322) | [`AderXCoding/language/c/zero_length_array`](https://github.com/gatieme/AderXCoding/tree/master/language/c/zero_length_array) |
 
 
 <br>
@@ -813,7 +813,7 @@ int main(void)
 }
 ```
 
-![4](4.png)
+![5](5-1.png)
 
 由于0长度数组是 GNU C 的扩展, 不被标准库任可, 那么一些巧妙编写的诡异代码, 其执行结果就是依赖于编译器和优化策略的实现的.
 
@@ -840,9 +840,9 @@ int main(void)
 
     return EXIT_SUCCESS;
 }
-
 ```
 
+![5-2](5-2.png)
 
 #参考
 -------

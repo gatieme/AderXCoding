@@ -21,5 +21,5 @@ clean:
 
 github:
 	git add -A
-	git commit -m $(COMMIT_GDB_PLUGIN)
+	git commit -m $(COMMIT_ZERO_LENGTH_ARRAY)
 	git push origin master
