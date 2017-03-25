@@ -14,7 +14,7 @@ You-Get--基于Python3的开源网络视频下载工具
 
 [ftrace的使用](http://blog.csdn.net/cybertan/article/details/8258394)
 
-
+[ftrcae](http://blog.csdn.net/yiyeguzhou100/article/category/6110487)
 
 
 
