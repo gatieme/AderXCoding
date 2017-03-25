@@ -88,7 +88,7 @@ SecureCRT &
 
 
 
-
+[Linux（Ubuntu）下面SecureFX 完全破解](http://blog.csdn.net/lxyg06/article/details/46502545)
 
 用SecureCRT 实现 WIN7 与 Linux 双向通信的问题及文件互传问题解决 http://www.linuxidc.com/Linux/2014-08/105412.htm
 
