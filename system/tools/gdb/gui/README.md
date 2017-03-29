@@ -20,6 +20,8 @@ GDB图形界面
 | insight | |
 | [Nemiver](https://github.com/GNOME/nemiver) | |
 | [KDevelop](https://www.kdevelop.org/) | |
+| [gdbgui](https://github.com/cs01/gdbgui/) | 一个基于浏览器的gdb前端 |
+
 
 http://blog.csdn.net/shenyuflying/article/details/53931865
 http://shenyu.wiki/2017/03/12/source-insight-color-theme/
