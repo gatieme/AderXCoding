@@ -21,5 +21,5 @@ clean:
 
 github:
 	git add -A
-	git commit -m $(COMMIT_SOUGOUPINYIN)
+	git commit -m $(COMMIT_SYSLOG)
 	git push origin master
