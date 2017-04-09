@@ -20,7 +20,10 @@
 [10 Best Video Players for Windows 7/8/8.1/10 PC in 2017](http://www.mobipicker.com/10-best-video-players-windows-use/)
 
 
-[Contact Us Top 10 Video Player For Linux Ubuntu](http://toppersworld.com/top-10-video-player-for-linux-ubuntu/)
+[Top 10 Video Player For Linux Ubuntu](http://toppersworld.com/top-10-video-player-for-linux-ubuntu/)
+
+
+[10 Best Open Source Video Players For Linux in 2016](http://www.tecmint.com/10-best-open-source-video-players-for-linux-in-2015/)
 
 原文地址：
 http://www.ctolib.com/topics-113369.html
