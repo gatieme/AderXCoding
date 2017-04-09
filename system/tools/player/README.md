@@ -19,6 +19,7 @@
 
 [10 Best Video Players for Windows 7/8/8.1/10 PC in 2017](http://www.mobipicker.com/10-best-video-players-windows-use/)
 
+[10 Best Video Players For Windows](https://beebom.com/10-best-video-players-for-windows/)
 
 [Top 10 Video Player For Linux Ubuntu](http://toppersworld.com/top-10-video-player-for-linux-ubuntu/)
 
