@@ -10,6 +10,18 @@
 本作品采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>进行许可, 转载请注明出处, 谢谢合作
 <br>
 
+
+[The Five Best Linux Video Players](https://www.linux.com/news/five-best-linux-video-players)
+
+
+[Your Best Video Players in Linux](https://www.linux.com/news/your-best-video-players-linux)
+
+
+[10 Best Video Players for Windows 7/8/8.1/10 PC in 2017](http://www.mobipicker.com/10-best-video-players-windows-use/)
+
+
+[Contact Us Top 10 Video Player For Linux Ubuntu](http://toppersworld.com/top-10-video-player-for-linux-ubuntu/)
+
 原文地址：
 http://www.ctolib.com/topics-113369.html
 
