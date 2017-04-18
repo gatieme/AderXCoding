@@ -21,5 +21,5 @@ clean:
 
 github:
 	git add -A
-	git commit -m $(COMMIT_SYSLOG)
+	git commit -m $(COMMIT_EPEL)
 	git push origin master
