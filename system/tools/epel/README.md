@@ -1,6 +1,6 @@
 | CSDN | GitHub |
 |:----:|:------:|
-| [CentOS7/RHEL7安装EPEL扩展仓库步骤详解](http://blog.csdn.net/gatieme/article/details/70232358) | [`AderXCoding/system/tools/flashplayer`](https://github.com/gatieme/AderXCoding/tree/master/system/tools/epel) |
+| [CentOS7/RHEL7安装EPEL扩展仓库步骤详解](http://blog.csdn.net/gatieme/article/details/70232358) | [`AderXCoding/system/tools/epel`](https://github.com/gatieme/AderXCoding/tree/master/system/tools/epel) |
 
 
 <br>
