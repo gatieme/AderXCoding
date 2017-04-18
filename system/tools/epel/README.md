@@ -62,13 +62,13 @@ yum -y install epel-release
 我们使用的 `x86_64`, 就要进入该目录下寻找相应包, 安装方法如下 :
 
 ```cpp
-rpm -vih http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-2.noarch.rpm
+rpm -vih http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-9.noarch.rpm
 ```
 
 或者：
 
 ```cpp
-wget http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-2.noarch.rpm
+wget http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-9.noarch.rpm
 rpm -vih epel-release-7-2.noarch.rpm
 ```
 
