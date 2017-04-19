@@ -77,11 +77,13 @@ https://code.google.com/p/exfat/ ，当前版本是 : `1.0.1`
 sudo yum install fuse-exfat
 ```
 
-如果提示未找着软件包, 说明您未添加 `rpmfusion` 源, 下载[rpmfusion-free-release-7.noarch.rpm](http://download1.rpmfusion.org/free/el/rpmfusion-free-release-7.noarch.rpm)
+如果提示未找着软件包, 说明您未添加 `rpmfusion` 源, 请先添加下载[rpmfusion-free-release-7.noarch.rpm](http://download1.rpmfusion.org/free/el/rpmfusion-free-release-7.noarch.rpm)
+
 
 *	可尝试添加源后, 再安装
 
 *	下载 [`fuse-exfat`包](http://download1.rpmfusion.org/free/el/updates/7/x86_64/f)(必须)和[`exfat-utils`](http://download1.rpmfusion.org/free/el/updates/7/x86_64/e)包直接进行安装
+
 
 下载地址 [`fuse-exfat-1.0.1-1.el7.x86_64.rpm`](http://download1.rpmfusion.org/free/el/updates/7/x86_64/f/fuse-exfat-1.0.1-1.el7.x86_64.rpm)
 
