@@ -11,7 +11,9 @@ AderXCoding
 本作品采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>进行许可, 转载请注明出处
 <br>
 
-
+http://www.cnblogs.com/kevingrace/p/5870814.html
+http://www.cnblogs.com/ilovexiao/p/3946467.html
+http://www.ithao123.cn/content-8081931.html
 
 
 #language 编程语言的学习
