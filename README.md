@@ -53,6 +53,17 @@ recordterminal
 securecrt
 
 systemback
+asm
+
+http://www.embeddedlinux.org.cn/emb-linux/entry-level/201704/01-6467.html
+http://www.embeddedlinux.org.cn/emb-linux/industry-news/201704/11-6509.html
+http://www.embeddedlinux.org.cn/emb-linux/kernel-driver/201704/11-6525.html
+
+http://www.pouet.net/party.php?which=1744
+https://www.zhihu.com/question/20204817?utm_campaign=rss&utm_medium=rss&utm_source=rss&utm_content=title
+http://www.rgba.org/webpages/prods.php?museo=0
+
+
 
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>
