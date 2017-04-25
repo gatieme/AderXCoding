@@ -18,36 +18,11 @@ http://www.ithao123.cn/content-8081931.html
 
 #language 编程语言的学习
 -------
-## c language
--------
-## cpp language
--------
 
-## csharp language
--------
-
-##  python language
--------
-
-## shell script
-----------
-
-#library  一些库的学习
--------
-
-## qt C++图形界面类库
--------
 
 # system  操作系统的学习
--------
-#unix  --  类Unix系统编程
-##zombie -- 僵死进程
 
-僵尸进程与孤儿进程的区别和联系
 
-僵尸进程和孤儿进程的示例代码
-
-僵尸进程的危害和预防
 
 http://blog.csdn.net/gatieme/article/details/50253481
 
@@ -56,12 +31,28 @@ http://blog.csdn.net/gatieme/article/details/50253481
 #technology  一些技术的学习
 -------
 
-## algorithm 算法的学习
+#todolist
 -------
 
-## machinelearning  机器学习算法的学习
--------
+screen
+yum
+ia32
+centos_mount_exfat_ntfs
+cpuinfo
+dock
+fbterm
+gdbgui
 
+mplayer
+mpv
+player
+
+recordmy
+recordterminal
+
+securecrt
+
+systemback
 
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>
