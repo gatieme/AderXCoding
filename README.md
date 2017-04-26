@@ -64,7 +64,21 @@ https://www.zhihu.com/question/20204817?utm_campaign=rss&utm_medium=rss&utm_sour
 http://www.rgba.org/webpages/prods.php?museo=0
 
 
+编译安卓
+http://www.jianshu.com/p/367f0886e62b
+http://www.cnblogs.com/mr-raptor/archive/2012/06/07/2540359.html
 
+
+编译安卓的问题
+[Android7.0 JACK编译器不支持多用户同时编译的问题的解决](http://blog.csdn.net/lizekun2010/article/details/52535591)
+
+
+[Android7.0成长之路---新特性Jack server](http://blog.csdn.net/xz10561/article/details/53886691)
+
+
+[Linux下编译Android源码问题汇总](http://blog.csdn.net/u014485786/article/details/51556655)
+
+[Android 源码编译错误](http://www.cnblogs.com/dirt2/p/5431508.html)
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>
 <br>
