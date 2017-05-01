@@ -33,7 +33,6 @@ http://blog.csdn.net/gatieme/article/details/50253481
 
 #todolist
 -------
-sudo_timeout
 screen
 yum
 ia32
