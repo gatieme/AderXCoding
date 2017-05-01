@@ -55,3 +55,4 @@ COMMIT_SYSLOG=" ubuntu /var/log/下各个日志文件描述及修复无message�
 COMMIT_EPEL="CentOS7/RHEL7安装EPEL扩展仓库步骤详解--http://blog.csdn.net/gatieme/article/details/70232358"
 COMMIT_SUDO_TIMEOUT="Linux设置sudo会话密码的超时时长--http://blog.csdn.net/gatieme/article/details/7105602"
 COMMIT_CENTOS_YUM="RHEL/CentOS/Fedora各种源(EPEL、Remi、RPMForge、RPMFusion)配置--http://blog.csdn.net/gatieme/article/details/71056309"
+COMMIT_IA32_INSTALL="Linux 64位安装32位运行库(解决rk3399 make kernel.img error)--http://blog.csdn.net/gatieme/article/details/71074831"

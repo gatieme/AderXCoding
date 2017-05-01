@@ -34,7 +34,7 @@ http://blog.csdn.net/gatieme/article/details/50253481
 #todolist
 -------
 screen
-yum
+
 ia32
 centos_mount_exfat_ntfs
 cpuinfo
