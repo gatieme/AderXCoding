@@ -1,9 +1,9 @@
-2017年最佳Linux视频播放器
+Linux设置sudo会话密码的超时时长
 =======
 
 | CSDN | GitHub |
 |:----:|:------:|
-| [You-Get--基于Python3的开源网络视频下载工具](http://blog.csdn.net/gatieme/article/details/61623891) | [`AderXCoding/system/tools/you-get`](https://github.com/gatieme/AderXCoding/tree/master/system/tools/you-get) |
+| [Linux设置sudo会话密码的超时时长](http://blog.csdn.net/gatieme/article/details/71056020) | [`AderXCoding/system/tools/sudo_timeout`](https://github.com/gatieme/AderXCoding/tree/master/system/tools/sudo_timeout) |
 
 <br>
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>
