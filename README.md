@@ -33,9 +33,8 @@ http://blog.csdn.net/gatieme/article/details/50253481
 
 #todolist
 -------
-screen
 
-centos_mount_exfat_ntfs
+screen
 cpuinfo
 dock
 fbterm
