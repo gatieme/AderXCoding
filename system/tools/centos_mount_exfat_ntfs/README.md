@@ -1,9 +1,10 @@
 CentOS下支持挂载exFAT与NTFS文件系统
 =======
 
+
 | CSDN | GitHub |
 |:----:|:------:|
-| [You-Get--基于Python3的开源网络视频下载工具](http://blog.csdn.net/gatieme/article/details/61623891) | [`AderXCoding/system/tools/you-get`](https://github.com/gatieme/AderXCoding/tree/master/system/tools/you-get) |
+| [CentOS下支持挂载exFAT与NTFS文件系统](http://blog.csdn.net/gatieme/article/details/71075394) | [`AderXCoding/system/tools/centos_mount_exfat_ntfs`](https://github.com/gatieme/AderXCoding/tree/master/system/tools/centos_mount_exfat_ntfs) |
 
 <br>
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>

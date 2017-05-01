@@ -35,7 +35,6 @@ http://blog.csdn.net/gatieme/article/details/50253481
 -------
 screen
 
-ia32
 centos_mount_exfat_ntfs
 cpuinfo
 dock
