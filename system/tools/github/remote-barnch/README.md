@@ -3,7 +3,8 @@ AderXCoding
 
 | CSDN | GitHub |
 |:----:|:------:|
-| [`Git` 远程操作详解](http://blog.csdn.net/gatieme) | [`AderXCoding/system/tools`](https://github.com/gatieme/AderXCoding/tree/master/system/tools) |
+| [`Git` 远程操作详解](http://blog.csdn.net/gatieme/article/details/77803421) | [`AderXCoding/system/tools/github/remote-barnch`](https://github.com/gatieme/AderXCoding/tree/master/system/tools/github/remote-barnch) |
+
 
 <br>
 
