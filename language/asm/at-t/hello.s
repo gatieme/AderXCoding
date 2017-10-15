@@ -1,4 +1,8 @@
-#hello.s
+#
+#http://blog.csdn.net/shallnet/article/details/45544271
+#hello.s sample program to print hello world information
+#
+
 .data                    # 数据段声明
         msg : .string "Hello, world!\n" # 要输出的字符串
         len = . - msg                   # 字串长度
