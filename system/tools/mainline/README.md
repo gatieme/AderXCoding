@@ -24,6 +24,7 @@ Ubuntu安装主线内核
 
 [KernelTesting](https://wiki.ubuntu.com/Kernel/Dev/KernelTesting?action=show&redirect=Testing%2FKernelPPA)
 
+[mainline-daily-build-package](http://kernel.ubuntu.com/~kernel-ppa/mainline/daily/current/)
 
 <br>
 
