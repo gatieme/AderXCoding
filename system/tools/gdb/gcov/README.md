@@ -1,9 +1,9 @@
-AderXCoding
+GCOV+LCOV 代码调试和覆盖率统计工具
 =======
 
 | CSDN | GitHub |
 |:----:|:------:|
-| [Aderstep--紫夜阑珊-青伶巷草](http://blog.csdn.net/gatieme) | [`AderXCoding/system/tools`](https://github.com/gatieme/AderXCoding/tree/master/system/tools) |
+| [GCOV+LCOV 代码调试和覆盖率统计工具](http://blog.csdn.net/gatieme/article/details/78368667) | [`AderXCoding/system/tools/gdb/gcov`](https://github.com/gatieme/AderXCoding/tree/master/system/tools/gdb/gcov) |
 
 <br>
 
@@ -26,6 +26,7 @@ AderXCoding
 `gcov` 是 `Linux` 下 `GCC` 自带的一个 `C/C++` 代码覆盖率分析工具.
 
 `gcov` 常用参数 :
+
 | 参数 | 描述 |
 |:---:|:---:|
 | -a | 输出每个基本块的运行计数, 此选项可用于统计在同一行中的若干语句的各自运行次数 |
@@ -264,8 +265,6 @@ genhtml -o result main_test.info
 
 
 
-
-
 [Gcov 详解 + 内核函数覆盖率测试方法详述及产生错误解决办法](http://blog.csdn.net/wangyezi19930928/article/details/42638345)
 
 [代码覆盖率——gcov lcov的使用](http://blog.csdn.net/yukin_xue/article/details/7653482)
@@ -281,10 +280,17 @@ genhtml -o result main_test.info
 [GCOV 用法](http://blog.csdn.net/kelsel/article/details/52758206)
 
 
+[试用内核gcov](http://blog.csdn.net/samssm/article/details/45721423)
+
+[gcov-kernel - a gcov infrastructure for the Linux kernel](http://ltp.sourceforge.net/coverage/gcov.php)
+
+[Gcov单元测试覆盖率 ( by quqi99 )](http://blog.csdn.net/quqi99/article/details/7920399)
+
+[GCC Coverage代码分析-.gcda/.gcno文件及其格式分析](http://blog.csdn.net/livelylittlefish/article/details/6448885)
 
 <br>
 
-*	本作品/博文 ( [AderStep-紫夜阑珊-青伶巷草 Copyright ©2013-2017](http://blog.csdn.net/gatieme) ), 由 [成坚(gatieme)](http://blog.csdn.net/gatieme) 创作, 
+*	本作品/博文 ( [AderStep-紫夜阑珊-青伶巷草 Copyright ©2013-2017](http://blog.csdn.net/gatieme) ), 由 [成坚(gatieme)](http://blog.csdn.net/gatieme) 创作.
 
 *	采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>进行许可. 欢迎转载、使用、重新发布, 但务必保留文章署名[成坚gatieme](http://blog.csdn.net/gatieme) ( 包含链接: http://blog.csdn.net/gatieme ), 不得用于商业目的.
 
