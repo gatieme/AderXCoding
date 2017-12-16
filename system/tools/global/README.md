@@ -3,7 +3,7 @@ Ubuntu 安裝 GNU Global(gtags) 阅读内核源码
 
 | CSDN | GitHub |
 |:----:|:------:|
-| [Ubuntu 安裝 GNU Global(gtags) 阅读Linux内核源码](http://blog.csdn.net/gatieme/78819740) | [`AderXCoding/system/tools/global`](https://github.com/gatieme/AderXCoding/tree/master/system/tools/global) |
+| [Ubuntu 安裝 GNU Global(gtags) 阅读Linux内核源码](http://blog.csdn.net/gatieme/article/details/78510497) | [`AderXCoding/system/tools/global`](https://github.com/gatieme/AderXCoding/tree/master/system/tools/global) |
 
 
 <br>
