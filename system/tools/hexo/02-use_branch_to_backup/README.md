@@ -37,7 +37,7 @@
 
 在 `github` 上新建一个 `GitHub Page : gatieme.github.io`. 在这个仓库下, 另外新增加一个 `hexo` 分支, 并且设置该分支为主分支.
 
-[01-hexo_branch](https://github.com/gatieme/AderXCoding/blob/master/system/tools/hexo/02-use_branch_to_backup/01-hexo_branch.png)
+![01-hexo_branch](https://github.com/gatieme/AderXCoding/blob/master/system/tools/hexo/02-use_branch_to_backup/01-hexo_branch.png)
 
 这样, `master` 用来上传 `hexo` 搭建的博客编译好的博客. `hexo` 分支用来备份源文件.
 
