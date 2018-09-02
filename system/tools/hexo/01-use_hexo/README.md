@@ -1,9 +1,9 @@
-使用 Hexo 创建属于你自己的 GitHub Page 博客(一)
+使用 Hexo 搭建 GitHub Page 博客(一)
 =======
 
 | CSDN | GitHub | Hexo |
 |:----:|:------:|:----:|
-| [使用 Hexo 创建属于你自己的 GitHub Page 博客(一)](http://blog.csdn.net/gatieme) | [`AderXCoding/system/tools`](https://github.com/gatieme/AderXCoding/tree/master/system/tools) |
+| [使用 Hexo 搭建 GitHub Page 博客(一)](https://blog.csdn.net/gatieme/article/details/82317681) | [`AderXCoding/blob/master/system/tools/hexo/01-use_hexo`](https://github.com/gatieme/AderXCoding/blob/master/system/tools/hexo/01-use_hexo) |
 
 <br>
 
