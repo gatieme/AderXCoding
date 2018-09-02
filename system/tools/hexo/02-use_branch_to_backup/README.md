@@ -1,9 +1,9 @@
-使用 Hexo 搭建 GitHub 博客(二)--备份至 GitHub 过程
+使用 Hexo 搭建 GitHub Page 博客(二)--备份至 GitHub 过程
 =======
 
 | CSDN | GitHub | Hexo |
 |:----:|:------:|:----:|
-| [Aderstep--紫夜阑珊-青伶巷草](http://blog.csdn.net/gatieme) | [`AderXCoding/system/tools`](https://github.com/gatieme/AderXCoding/tree/master/system/tools) |
+| [使用 Hexo 搭建 GitHub Page 博客(二)--使用 GitHub 分支保存 Hexo 环境和博文](https://blog.csdn.net/gatieme/article/details/82317704) | [`AderXCoding/system/tools/hexo/02-use_branch_to_backup`](https://github.com/gatieme/AderXCoding/tree/master/system/tools/hexo/02-use_branch_to_backup) |
 
 <br>
 
