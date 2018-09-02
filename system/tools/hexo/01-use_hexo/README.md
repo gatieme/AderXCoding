@@ -91,7 +91,7 @@ npm install
 
 [`Hexo Themes`](https://hexo.io/themes/) 官网收录了很多主题. 我本人挑选了 [`Xups`](http://jelon.top/)
 
-![xups_theme](./01-xups_theme.png)
+![xups_theme](https://github.com/gatieme/AderXCoding/blob/master/system/tools/hexo/01-use_hexo/01-xups_theme.png)
 
 
 
