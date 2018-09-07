@@ -1,9 +1,19 @@
-AderXCoding
-=======
+---
 
-| CSDN | GitHub |
-|:----:|:------:|
-| [Aderstep--紫夜阑珊-青伶巷草](http://blog.csdn.net/gatieme) | [`AderXCoding/system/tools`](https://github.com/gatieme/AderXCoding/tree/master/system/tools) |
+title: 使用 Hexo 搭建 GitHub Page 博客(一)
+date: 2018-09-02 18:40
+author: gatieme
+tags: hexo
+categories:
+        - hexo
+thumbnail: 
+blogexcerpt: 博文摘要
+
+---
+
+| CSDN | GitHub | Hexo |
+|:----:|:------:|:----:|
+| [Aderstep--紫夜阑珊-青伶巷草](http://blog.csdn.net/gatieme) | [`AderXCoding/system/tools`](https://github.com/gatieme/AderXCoding/tree/master/system/tools) | [gatieme.github.io](https://gatieme.github.io) |
 
 <br>
 
