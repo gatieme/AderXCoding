@@ -3,17 +3,17 @@
 title: qemu中使用 9p virtio, 支持 host 和 guest 中共享目录
 date: 2018-09-02 18:40
 author: gatieme
-tags: hexo
+tags: qemu
 categories:
-        - hexo
+        - qemu
 thumbnail: 
-blogexcerpt: 博文摘要
+blogexcerpt: 在使用qemu调试内核的时候, 如果没有网络，想要部署点驱动或者程序上去都需要重新制作文件系统，本文讲解了如何通过 9p virtio fs 实现在 qemu 和 host 机器上共享文件和目录。
 
 ---
 
 | CSDN | GitHub | Hexo |
 |:----:|:------:|:----:|
-| [Aderstep--紫夜阑珊-青伶巷草](http://blog.csdn.net/gatieme) | [`AderXCoding/system/tools`](https://github.com/gatieme/AderXCoding/tree/master/system/tools) | [gatieme.github.io](https://gatieme.github.io) |
+| [qemu中使用 9p virtio, 支持 host 和 guest 中共享目录](https://blog.csdn.net/gatieme/article/details/82912921) | [`AderXCoding/system/tools/qemu/0001-9p_virtio`](https://github.com/gatieme/AderXCoding/tree/master/system/tools/qemu/0001-9p_virtio) | [gatieme.github.io](https://gatieme.github.io) |
 
 <br>
 
@@ -29,6 +29,11 @@ blogexcerpt: 博文摘要
 #1	问题描述
 -------
 
+使用 qemu 调试内核是很方便的，但是我们有时候想传点驱动或者程序上去跑一下子，都需要重新制作和打包文件系统，这样花费了我们的精力，也很烦。
+
+那有没有什么办法能够在 qemu 和 host 机器之间共享文件呢，这样我们就省去了很多工作量。
+
+> 于是 9p virtio fs 就登场了
 
 #2	问题分析
 -------
@@ -125,6 +130,17 @@ CONFIG_NET_9P_DEBUG=y (Optional可选)
 
 然后就可以使用了, 如果再加上 `virtio console` 的支持, 那么既有 `shell`, 又可以传输文件
 基本可以代替 `adb` 的常用功能了.
+
+
+最后, 一切就绪之后, 启动 qemu, 就可以看到目录正常挂载了.
+
+host 机器的共享目录
+
+![host 机器的共享目录](001-9p_virtio_host.png)
+
+guest 机器的挂载点
+
+![guest 机器的挂载点](002-9p_virtio_guest.png)
 
 
 #4	参考
