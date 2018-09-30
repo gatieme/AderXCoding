@@ -153,6 +153,11 @@ guest 机器的挂载点
 
 [qemu中使用9p，支持host和guest中共享目录](https://blog.csdn.net/ayu_ag/article/details/52956351)
 
+[Qemu share folder - 9pnet_virtio: no channels available for device](https://superuser.com/questions/1317119/qemu-share-folder-9pnet-virtio-no-channels-available-for-device)
+
+[Documentation/9psetup](https://wiki.qemu.org/Documentation/9psetup)
+
+[Linux-KVM-9P_virtio](https://www.linux-kvm.org/page/9p_virtio)
 
 <br>
 
