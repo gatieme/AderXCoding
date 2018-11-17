@@ -416,7 +416,83 @@ objdump -DS ./handler | grep -6  "400b90"
 >[kernel perf source dump_stack](https://elixir.bootlin.com/linux/v4.19.2/source/tools/perf/util/debug.c#L260)
 
 
-#3	参考资料
+#3	更低层次的函数
+-------
+
+只有使用 `glibc 2.1` 或更新版本, 可以使用 `backtrace()` 函数, 参看 `<execinfo.h>`, 并且不同架构和系统中可能有不同的支持.
+
+因此 `GCC` 提供了两个内置函数用来在运行时取得函数调用栈中的返回地址和框架地址
+
+
+```cpp
+void *__builtin_return_address(int level);
+```
+
+得到当前函数层次为 level 的返回地址， 即此函数被别的函数调用, 然后此函数执行完毕后, 返回, 所谓返回地址就是调用的时候的地址(其实是调用位置的下一条指令的地址).
+
+```cpp
+void* __builtin_frame_address (unsigned int level);
+```
+
+得到当前函数的栈帧的地址.
+
+```cpp
+#include <memory.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <signal.h>
+#include <ucontext.h>
+#include <dlfcn.h>
+#include <execinfo.h>
+
+void showBacktrace()
+{
+        void * ret = __builtin_return_address(1);
+        printf("ret address [%p]\n", ret);
+        void * caller = __builtin_frame_address(0);
+        printf("call address [%p]\n", caller);
+#ifdef __cplusplus
+        Dl_info dlinfo;
+
+        void *ip = ret;
+        if(!dladdr(ip, &dlinfo)) {
+                perror("addr not found\n");
+                return;
+        }
+
+        const char *symname = dlinfo.dli_sname;
+        int f = 0;
+        fprintf(stderr, "% 2d: %p %s+%u (%s)\n",
+                        ++f,
+                        ip,
+                        symname, 0,
+// (unsigned)(ip - dlinfo.dli_saddr),
+
+                        dlinfo.dli_fname);
+#endif
+}
+
+int MyFunc_A()
+{
+        showBacktrace();
+        return 10;
+}
+
+int MyFunc_B()
+{
+        return MyFunc_A();
+}
+
+int main()
+{
+        MyFunc_B();
+        return 0;
+}
+```
+
+![运行结果](./builtin.png)
+
+#4	参考资料
 -------
 
 [Stack backtrace 的实现](https://www.douban.com/group/topic/54568167/)
@@ -429,6 +505,10 @@ objdump -DS ./handler | grep -6  "400b90"
 
 
 [在Linux中如何利用backtrace信息解决问题](https://blog.csdn.net/jxgz_leo/article/details/53458366)
+
+
+[内核中dump_stack()的实现，并在用户态模拟dump_stack()](https://blog.csdn.net/jasonchen_gbd/article/details/44066815?utm_source=blogxgwz8)
+
 
 <br>
 
