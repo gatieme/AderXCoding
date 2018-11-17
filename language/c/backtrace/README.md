@@ -1,7 +1,7 @@
 ---
 
 title: 用户态使用 glibc/backtrace 追踪函数调用堆栈定位段错误
-date: 2018-09-02 18:40
+date: 2018-11-17 15:22
 author: gatieme
 tags: linux
 categories:
