@@ -411,8 +411,24 @@ objdump -DS ./handler | grep -6  "400b90"
 
 参考代码:
 
->https://github.com/castoz/backtrace
+>[a user-space simulated dump_stack(), based on mips.](https://github.com/castoz/backtrace)
 >
+>[kernel perf source dump_stack](https://elixir.bootlin.com/linux/v4.19.2/source/tools/perf/util/debug.c#L260)
+
+
+#3	参考资料
+-------
+
+[Stack backtrace 的实现](https://www.douban.com/group/topic/54568167/)
+
+
+[backtrace.c：Code Content](http://en.verysource.com/code/6087935_1/backtrace.c.html)
+
+
+[一个glibc中abort不能backtrace的问题](https://www.xuebuyuan.com/2867142.html)
+
+
+[在Linux中如何利用backtrace信息解决问题](https://blog.csdn.net/jxgz_leo/article/details/53458366)
 
 <br>
 
