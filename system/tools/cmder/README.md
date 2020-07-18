@@ -8,7 +8,7 @@ Cmder 是 Windows 下替换原有 cmd 的绝佳工具，但是与默认的 cmd �
 
 
 
-![0001-cmder 中文乱码](./1.png)
+![0001-cmder 中文乱码](https://raw.githubusercontent.com/gatieme/AderXCoding/master/system/tools/cmder/1.png)
 
 
 
@@ -27,7 +27,7 @@ cmder 是一个伪 unix 的终端工具, 可以在 win 下为我们提供一个�
 
 locale这个单词中文翻译成地区或者地域，其实这个单词包含的意义要宽泛很多。Locale是根据计算机用户所使用的语言，所在国家或者地区，以及当地的文化传统所定义的一个软件运行时的语言环境。
 
-![0002-LOCALE 信息](./2.png)
+![0002-LOCALE 信息](https://raw.githubusercontent.com/gatieme/AderXCoding/master/system/tools/cmder/2.png)
 
 那么我们一般设置 LC 等变量的格式为 zh_CN.GB2312, 这到底是在说什么？ 
 
@@ -58,7 +58,7 @@ set LANG=zh_CN.UTF-8
 可以看到,  cmder 中 git 能正常显示中文了.
 
 
-![0003-正常显示中文](./3.png)
+![0003-正常显示中文](https://raw.githubusercontent.com/gatieme/AderXCoding/master/system/tools/cmder/3.png)
 
 # 3 问题解决
 -------
