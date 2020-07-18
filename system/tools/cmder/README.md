@@ -12,7 +12,7 @@ blogexcerpt: Cmder 是 Windows 下替换原有 cmd 的绝佳工具, 但是与默
 
 | 日期 | 作者 | GitHub| CSDN | BLOG |
 | ------- |:-------:|:-------:|:-------:|:-------:|
-| 2020-07-18 |  [gatieme](https://blog.csdn.net/gatieme/article/details/106315848) | [AderXCoding](https://github.com/gatieme/AderXCoding/blob/master/system/tools/cmder/README.md) | [Linux进程管理与调度](http://blog.csdn.net/gatieme/article/details/51456569) |
+| 2020-07-18 |  [gatieme](https://blog.csdn.net/gatieme) | [AderXCoding](https://github.com/gatieme/AderXCoding/blob/master/system/tools/cmder/README.md) | [Cmder中文乱码设置](https://blog.csdn.net/gatieme/article/details/107433834) |
 
 
 # 1    问题描述-cmder git 中文乱码
