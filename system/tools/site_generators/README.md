@@ -21,7 +21,7 @@ These static blog generator are based on Bash, C/C++, C# and Perl, Clojure, Comm
 
 A definitive list of tools for generating static websites.
 
-#1. Table of Contents
+# 1. Table of Contents
 -----------------
 
 * [.NET](##1.1  .NET)
@@ -53,17 +53,17 @@ A definitive list of tools for generating static websites.
 * [Shell](#shell)
 * [Tcl](#tcl)
 
-##1.1  .NET
+## 1.1  .NET
 -------
 
 * [Pretzel](https://github.com/Code52/pretzel)
 * [Wyam](http://wyam.io)
 
-##1.2  Awk
+## 1.2  Awk
 
 * [zodiac](https://github.com/nuex/zodiac)
 
-##1.3  Bash
+## 1.3  Bash
 
 * [baker](https://github.com/taylorchu/baker/)
 * [bashblog](https://github.com/carlesfe/bashblog)
@@ -71,15 +71,15 @@ A definitive list of tools for generating static websites.
 * [Pagegen](http://pagegen.phnd.net/)
 * [SKF](http://skf.jeannedhack.org/)
 
-##1.4  C++
+## 1.4  C++
 
 * [Leo](http://leohtml.sourceforge.net/)
 
-##1.5  C Sharp
+## 1.5  C Sharp
 
 * [Graze](https://github.com/mikoskinen/graze)
 
-##1.6  C and Perl
+## 1.6  C and Perl
 
 * [BlazeBlogger](http://blaze.blackened.cz/)
 * [blosxom](http://blosxom.sourceforge.net/documentation/users/configure/static.html)
@@ -96,19 +96,19 @@ A definitive list of tools for generating static websites.
 * [XDO](http://www.idocs.com/xdo/)
 * [Zucchini](https://metacpan.org/pod/Zucchini)
 
-##1.7  Clojure
+## 1.7  Clojure
 
 * [Cryogen](http://cryogenweb.org/)
 * [incise](http://www.ryanmcg.com/incise/)
 * [misaki](https://github.com/liquidz/misaki)
 * [Static](http://nakkaya.com/static.html)
 
-##1.8  Common Lisp
+## 1.8  Common Lisp
 
 * [coleslaw](http://www.cliki.net/coleslaw)
 * [regenerate](https://gist.github.com/TeMPOraL/4190622)
 
-##1.9  Dropbox
+## 1.9  Dropbox
 
 * [900dpi](http://900dpi.com/)
 * [Blogmark](https://blogmark.me/)
@@ -126,15 +126,15 @@ A definitive list of tools for generating static websites.
 * [Telegram](https://telegr.am/)
 * [Yoozon](https://yoozon.com/)
 
-##1.10 Elixir
+## 1.10 Elixir
 
 * [Obelisk](https://github.com/BennyHallett/obelisk)
 
-##1.11 Erlang
+## 1.11 Erlang
 
 * [LambdaPad](https://github.com/gar1t/lambdapad)
 
-##1.12 Go
+## 1.12 Go
 
 * [gor](https://github.com/wendal/gor)
 * [gostatic](https://github.com/piranha/gostatic)
@@ -143,23 +143,23 @@ A definitive list of tools for generating static websites.
 * [jkl](https://github.com/drone/jkl)
 * [kkr](https://github.com/dchest/kkr)
 
-##1.13  Groovy
+## 1.13  Groovy
 
 * [Grain](http://sysgears.com/grain/)
 * [Rizzo](https://github.com/fifthposition/rizzo/)
 
-##1.14  Haskell
+## 1.14  Haskell
 
 * [Hakyll](http://jaspervdj.be/hakyll/)
 * [yst](https://github.com/jgm/yst)
 
-##1.15  Java
+## 1.15  Java
 
 * [FMPP](http://fmpp.sourceforge.net/)
 * [JBake](http://jbake.org/)
 * [StaGen](https://github.com/wiztools/stagen)
 
-##1.16  Language Agnostic
+## 1.16  Language Agnostic
 
 * [Hammer](http://hammerformac.com/)
 * [LiveReload](http://livereload.com/)
@@ -168,15 +168,15 @@ A definitive list of tools for generating static websites.
 * [StaticMate](https://staticmate.com/)
 * [vimwiki](https://github.com/vim-scripts/vimwiki)
 
-##1.17  Lua
+## 1.17  Lua
 
 * [Luapress](https://github.com/Fizzadar/Luapress)
 
-##1.18  Nimrod
+## 1.18  Nimrod
 
 * [ipsum genera](https://github.com/dom96/ipsumgenera)
 
-##1.19  Node.js
+## 1.19  Node.js
 
 * [antwar](https://github.com/antwarjs/antwar)
 * [Apto](https://github.com/modparadigm/apto)
@@ -268,12 +268,12 @@ A definitive list of tools for generating static websites.
 * [yassg](https://npmjs.org/package/yassg)
 * [Yeoman](http://yeoman.io/)
 
-##1.20  OCaml
+## 1.20  OCaml
 
 * [Stog](http://zoggy.github.io/stog/)
 * [Ultra Simple Site Maker](http://loup-vaillant.fr/projects/ussm/)
 
-##1.21  PHP
+## 1.21  PHP
 
 * [Animal](https://github.com/billpatrianakos/animal-f)
 * [BloggerCMS](https://github.com/sarfraznawaz2005/BloggerCMS)
@@ -300,7 +300,7 @@ A definitive list of tools for generating static websites.
 * [Yellow](http://github.com/datenstrom/yellow)
 * [Wadoo](https://github.com/alpacaaa/wadoo)
 
-##1.22  Python
+## 1.22  Python
 
 * [Acrylamid](https://github.com/posativ/acrylamid)
 * [Blatter](https://bitbucket.org/jek/blatter/)
@@ -368,10 +368,10 @@ A definitive list of tools for generating static websites.
 * [Webber](http://gitorious.org/webber)
 * [Wok](https://github.com/mythmon/wok)
 
-##1.23  Racket
+## 1.23  Racket
 * [Frog](https://github.com/greghendershott/frog)
 
-##1.24  Ruby
+## 1.24  Ruby
 
 * [Ace](https://github.com/botanicus/ace)
 * [Bonsai](http://tinytree.info/)
@@ -418,14 +418,14 @@ A definitive list of tools for generating static websites.
 * [zenweb](http://www.zenspider.com/projects/zenweb.html)
 * [{ :awestruct }](http://awestruct.org/)
 
-##1.25  Scala
+## 1.25  Scala
 * [monkeyman](https://github.com/wspringer/monkeyman)
 * [Scalate](https://github.com/scalate/scalate)
 
-##1.26  Scheme
+## 1.26  Scheme
 *  [Hyde](http://wiki.call-cc.org/eggref/4/hyde)
 
-##1.27  Shell
+## 1.27  Shell
 
 * [Exposé](https://github.com/Jack000/Expose)
 * [fugitive](https://gitorious.org/fugitive)
@@ -435,12 +435,12 @@ A definitive list of tools for generating static websites.
 * [Vee](http://www.0x743.com/vee/)
 * [werc](http://werc.cat-v.org/)
 
-##1.28  Tcl
+## 1.28  Tcl
 
 * [Tclssg](https://github.com/dbohdan/tclssg)
 
 
-#2  For Help
+# 2  For Help
 
 | WebSite | Description |
 |:-------:|:-------:|
@@ -451,7 +451,7 @@ A definitive list of tools for generating static websites.
 | [Godaddy](https://www.godaddy.com/) | Get a free domain with a website from GoDaddy. |
 | [Dnspod](https://www.dnspod.cn/) | DNS resolution service, add a new domain name, and apply a Github Pages A record points to the ip: 207.97.227.245 |
 
-#3	About This Site
+# 3	About This Site
 -------
 
 Our Site is based on Pelican(Python)
