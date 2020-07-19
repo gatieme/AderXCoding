@@ -1,10 +1,19 @@
-使用 Hexo 搭建 GitHub Page 博客(一)
-=======
+---
+
+title: 使用 Hexo 搭建 GitHub Page 博客(一)
+date: 2018-09-02 18:40
+author: gatieme
+tags: hexo
+categories:
+        - hexo
+thumbnail: 
+blogexcerpt: Hexo 是一个快速、简洁且高效的博客框架. 支持使用 Markdown (或其他渲染引擎)解析文章. Hexo 生成静态网页的素服非常快, 在几秒内，即可利用靓丽的主题生成静态网页. 本文将介绍如果使用 Hexo 来搭建属于你自己的 Github Page 博客
+
+---
 
 | CSDN | GitHub | Hexo |
 |:----:|:------:|:----:|
-| [使用 Hexo 搭建 GitHub Page 博客(一)](https://blog.csdn.net/gatieme/article/details/82317681) | [`AderXCoding/blob/master/system/tools/hexo/01-use_hexo`](https://github.com/gatieme/AderXCoding/blob/master/system/tools/hexo/01-use_hexo) |
-
+| [使用 Hexo 搭建 GitHub Page 博客(一)](https://blog.csdn.net/gatieme/article/details/82317681) | [`AderXCoding/blob/master/system/tools/hexo/01-use_hexo`](https://github.com/gatieme/AderXCoding/blob/master/system/tools/hexo/01-use_hexo) | [gatieme.github.io/2018/09/0001-use_hexo_to_build_your_github_page_blog](https://gatieme.github.io/2018/09/02/2018/09/0001-use_hexo_to_build_your_github_page_blog/) |
 <br>
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>

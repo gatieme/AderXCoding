@@ -1,7 +1,7 @@
 ---
 
 title: qemu中使用 9p virtio, 支持 host 和 guest 中共享目录
-date: 2018-09-02 18:40
+date: 2018-09-30 19:46
 author: gatieme
 tags: qemu
 categories:
@@ -13,7 +13,8 @@ blogexcerpt: 在使用qemu调试内核的时候, 如果没有网络，想要部�
 
 | CSDN | GitHub | Hexo |
 |:----:|:------:|:----:|
-| [qemu中使用 9p virtio, 支持 host 和 guest 中共享目录](https://blog.csdn.net/gatieme/article/details/82912921) | [`AderXCoding/system/tools/qemu/0001-9p_virtio`](https://github.com/gatieme/AderXCoding/tree/master/system/tools/qemu/0001-9p_virtio) | [KernelShow(gatieme.github.io)](https://gatieme.github.io/2018/09/30/2018/09/0003-qemu_use_9pnet_virtio_fs_to_share_folder/index) | 
+| [qemu中使用 9p virtio, 支持 host 和 guest 中共享目录](https://blog.csdn.net/gatieme/article/details/82912921) | [`AderXCoding/system/tools/qemu/0001-9p_virtio`](https://github.com/gatieme/AderXCoding/tree/master/system/tools/qemu/0001-9p_virtio) | [gatieme.github.io](https://gatieme.github.io) |
+
 <br>
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>
@@ -135,7 +136,7 @@ CONFIG_NET_9P_DEBUG=y (Optional可选)
 
 host 机器的共享目录
 
-![host 机器的共享目录](001-9p_virtio_host.png)
+![host 机器的共享目录](https://github.com/gatieme/AderXCoding/blob/master/system/tools/qemu/0001-9p_virtio/001-9p_virtio_host.png)
 
 guest 机器的挂载点
 
