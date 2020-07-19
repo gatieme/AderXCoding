@@ -24,7 +24,7 @@ blogexcerpt: Hexo 是一个快速、简洁且高效的博客框架. 支持使用
 
 <br>
 
-#1  Hexo 简介
+# 1  Hexo 简介
 -------
 
 `Hexo` 是一个快速、简洁且高效的博客框架.
@@ -40,10 +40,10 @@ blogexcerpt: Hexo 是一个快速、简洁且高效的博客框架. 支持使用
 [`Hexo Doc`](https://hexo.io/zh-cn/docs/) 也有详细的帮助文档方便我们使用.
 
 
-#2  搭建 `Hexo` 环境
+# 2  搭建 `Hexo` 环境
 -------
 
-##2.1 依赖环境
+## 2.1 依赖环境
 ------- 
 
 环境搭建：
@@ -53,7 +53,7 @@ Git：[下载地址](https://gitforwindows.org/)
 markdown 编辑器 : [Sublime](http://www.sublimetext.com) 或者 [markdownpad](http://markdownpad.com/)
 
 
-##2.2   安装 Hexo
+## 2.2   安装 Hexo
 -------
 
 安装了 `Node.js` 之后, 我们就可以使用 `NPM`. `NPM` 是随同 `NodeJS` 一起安装的包管理工具, 能解决 `NodeJS` 代码部署上的很多问题.
@@ -62,7 +62,7 @@ markdown 编辑器 : [Sublime](http://www.sublimetext.com) 或者 [markdownpad](
 npm install -g hexo
 ```
 
-##2.3   配置 `Hexo` 博客环境
+## 2.3   配置 `Hexo` 博客环境
 -------
 
 
@@ -95,7 +95,7 @@ npm install
 可以在 [http://localhost:4000/](http://localhost:4000/) 查看
 
 
-##2.4    配置主题
+## 2.4    配置主题
 -------
 
 [`Hexo Themes`](https://hexo.io/themes/) 官网收录了很多主题. 我本人挑选了 [`Xups`](http://jelon.top/)
@@ -104,10 +104,10 @@ npm install
 
 
 
-#3  Github Pages设置
+# 3  Github Pages设置
 -------
 
-##3.1   Github Pages 简介
+## 3.1   Github Pages 简介
 -------
 
 `GitHub Pages` 是 `GitHub` 为用户提供的免费空间免费稳定, 用来做搭建一个博客再好不过了.
@@ -117,7 +117,7 @@ npm install
 这里特别提醒一下, 需要注意的**个人主页的网站内容是在 `master` 分支下的**.
 
 
-##3.2   创建自己的 `Github Pages`
+## 3.2   创建自己的 `Github Pages`
 -------
 
 注册及使用 `Github  Pages` 的过程并不是本文的重点, 这部分内容有很多资源, 在此不再详述, 可以参考 :
@@ -136,7 +136,7 @@ npm install
 
 在这里我创建了一个 `github repo` 叫做 [`gatieme.github.io`](https://github.com/gatieme/gatieme.github.io) 创建完成之后, 需要有一次提交(`git commit`)操作, 然后就可以通过链接 [https://gatieme.github.io](https://gatieme.github.io/)访问了.
 
-##3.3   部署Hexo到Github Pages
+## 3.3   部署Hexo到Github Pages
 -------
 
 下面我们就需要把本地 `web` 环境下预览到的博客部署到 `github` 上, 然后就可以直接通过 `http://gatieme.github.io` 访问了. 
@@ -146,7 +146,7 @@ npm install
 
 2.  那我们 `Hexo` 就是用来生成这些静态网页的, `Hexo -g` 会生成一个静态网站(`public` 目录下), 这个静态文件可以直接访问. 我们只需要将 `hexo` 生成的静态网站, 提交(`git commit`)到 `github` 上那个 `repo` 的 `master` 分支即可.
 
-##3.4   使用 `hexo deploy` 部署
+## 3.4   使用 `hexo deploy` 部署
 -------
 
 ```
@@ -166,7 +166,7 @@ hexo d
 
 即可完成部署.
 
-#4  参考资料
+# 4  参考资料
 -------
 
 
