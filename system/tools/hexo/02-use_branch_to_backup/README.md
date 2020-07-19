@@ -24,7 +24,7 @@ blogexcerpt: Hexo 是一个快速、简洁且高效的博客框架. 支持使用
 
 <br>
 
-#1  问题提出
+# 1  问题提出
 -------
 
 使用 `GitHub Page` 搭建个人博客, 经常会遇到一个问题.
@@ -41,17 +41,17 @@ blogexcerpt: Hexo 是一个快速、简洁且高效的博客框架. 支持使用
 
 
 
-##2 问题解决
+## 2 问题解决
 -------
 
 在 `github` 上新建一个 `GitHub Page : gatieme.github.io`. 在这个仓库下, 另外新增加一个 `hexo` 分支, 并且设置该分支为主分支.
 
-![01-hexo_branch](https://github.com/gatieme/AderXCoding/blob/master/system/tools/hexo/02-use_branch_to_backup/01-hexo_branch.png)
+![01-hexo_branch](https://raw.githubusercontent.com/gatieme/AderXCoding/master/system/tools/hexo/02-use_branch_to_backup/01-hexo_branch.png)
 
 这样, `master` 用来上传 `hexo` 搭建的博客编译好的博客. `hexo` 分支用来备份源文件.
 
 
-##2.1   **完整操作如下(首次搭建环境建议运行)**
+## 2.1   **完整操作如下(首次搭建环境建议运行)**
 -------
 
 
@@ -86,7 +86,7 @@ blogexcerpt: Hexo 是一个快速、简洁且高效的博客框架. 支持使用
 7. 执行 hexo generate -d 生成网站并部署到 GitHub 上。
 
 
-##2.2   **日常博文修改**
+## 2.2   **日常博文修改**
 -------
 
 第一次配置完成后, 以后只需要循环进行 `6-7` 操作即可.
@@ -99,7 +99,7 @@ blogexcerpt: Hexo 是一个快速、简洁且高效的博客框架. 支持使用
 2.  然后才执行 hexo generate -d 发布网站到 master 分支上.
 
 
-##2.3   本地资料丢失 
+## 2.3   本地资料丢失 
 -------
 
 当重装电脑之后，或者想在其他电脑上修改博客，可以使用下列步骤 :
@@ -123,7 +123,7 @@ blogexcerpt: Hexo 是一个快速、简洁且高效的博客框架. 支持使用
 >如果万不得已出现 `Hexo` 环境损坏, 需要重新初始化, 可以先拷贝出 `.git` 文件夹, 然后搭建环境并初始化之后, 将 .git 信息重新拷贝回来.
 
 
-#3  参考资料
+# 3  参考资料
 -------
 
 [使用hexo，如果换了电脑怎么更新博客？](https://www.zhihu.com/question/21193762)
