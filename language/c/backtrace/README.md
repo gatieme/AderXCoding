@@ -13,7 +13,7 @@ blogexcerpt: 一般用户态程序出现段错误, 而我们想要察看函数�
 
 | CSDN | GitHub | Hexo |
 |:----:|:------:|:----:|
-| [用户态使用 glibc/backtrace 追踪函数调用堆栈定位段错误](https://blog.csdn.net/gatieme/article/details/84189280) | [`AderXCoding/language/c/backtrace`](https://github.com/gatieme/AderXCoding/tree/master/language/c/backtrace) | [KernelShow(gatieme.github.io)](https://gatieme.github.io/2018/09/30/2018/09/0003-qemu_use_9pnet_virtio_fs_to_share_folder/index) |
+| [用户态使用 glibc/backtrace 追踪函数调用堆栈定位段错误](https://blog.csdn.net/gatieme/article/details/84189280) | [`AderXCoding/language/c/backtrace`](https://github.com/gatieme/AderXCoding/tree/master/language/c/backtrace) | [KernelShow(gatieme.github.io)](https://gatieme.github.io/2018/11/17/2018/1117-0001-0001-use_glibc_backtrace_to_report_active_stack_frames_userspace) |
 
 <br>
 
