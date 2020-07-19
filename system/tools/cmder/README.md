@@ -17,6 +17,16 @@ blogexcerpt: Cmder 是 Windows 下替换原有 cmd 的绝佳工具, 但是与默
 | 2020-07-18 | [gatieme](https://blog.csdn.net/gatieme) | [AderXCoding](https://github.com/gatieme/AderXCoding/blob/master/system/tools/cmder/README.md) | [Cmder中文乱码设置](https://blog.csdn.net/gatieme/article/details/107433834) | [Cmder中文乱码设置](https://kernelshow.com/2020/07/18/2020/0718-0001-Cmder_Chinese_garbled_settings)|
 
 
+<br>
+
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>
+
+本作品采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>进行许可, 转载请注明出处, 谢谢合作
+
+因本人技术水平和知识面有限, 内容如有纰漏或者需要修正的地方, 欢迎大家指正, 也欢迎大家提供一些其他好的调试工具以供收录, 鄙人在此谢谢啦
+
+<br>
+
 # 1    问题描述-cmder git 中文乱码
 -------
 
@@ -88,3 +98,14 @@ set LANG=zh_CN.UTF-8
 
 
 这样就可以解决中文乱码的问题.
+
+
+<br>
+
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>
+
+本作品采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>进行许可, 转载请注明出处, 谢谢合作
+
+因本人技术水平和知识面有限, 内容如有纰漏或者需要修正的地方, 欢迎大家指正, 也欢迎大家提供一些其他好的调试工具以供收录, 鄙人在此谢谢啦
+
+<br>
