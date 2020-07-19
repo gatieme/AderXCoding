@@ -193,7 +193,7 @@ Obtained 5 stack frames.
 ./example() [0x400839]
 ```
 
-![example](./example.png)
+![example](https://raw.githubusercontent.com/gatieme/AderXCoding/master/language/c/backtrace/example.png)
 
 ##2.2	简单使用(man手册)
 -------
@@ -271,7 +271,7 @@ backtrace() returned 8 addresses
 
 ```
 
-![prog](./prog.png)
+![prog](https://raw.githubusercontent.com/gatieme/AderXCoding/master/language/c/backtrace/prog.png)
 
 
 ##2.3	段错误时自动触发 `call trace`
@@ -378,7 +378,7 @@ Obtained 9 stack frames.
 ./handler() [0x4009a9]
 ```
 
-![程度异常后自动打印调用栈](./handler.png)
+![程度异常后自动打印调用栈](https://raw.githubusercontent.com/gatieme/AderXCoding/master/language/c/backtrace/handler.png)
 
 可以看出, 真正出异常的函数位置在 `./handler(func_c+0x9) [0x400b90]`.
 
@@ -390,11 +390,11 @@ Obtained 9 stack frames.
 addr2line -C -f -e  ./handler 0x400b90
 ```
 
-![addr2line 将行号显示出来](./addr2line.png)
+![addr2line 将行号显示出来](https://raw.githubusercontent.com/gatieme/AderXCoding/master/language/c/backtrace/addr2line.png)
 
 对应错误的行号.
 
-![bugline](./bugline.png)
+![bugline](https://raw.githubusercontent.com/gatieme/AderXCoding/master/language/c/backtrace/bugline.png)
 
 *	使用 `objdump`
 
@@ -406,7 +406,7 @@ addr2line -C -f -e  ./handler 0x400b90
 objdump -DS ./handler | grep -6  "400b90"
 ```
 
-![objdump 将异常欣喜 dump 出来](./objdump.png)
+![objdump 将异常欣喜 dump 出来](https://raw.githubusercontent.com/gatieme/AderXCoding/master/language/c/backtrace/objdump.png)
 
 
 参考代码:
@@ -490,7 +490,7 @@ int main()
 }
 ```
 
-![运行结果](./builtin.png)
+![运行结果](https://raw.githubusercontent.com/gatieme/AderXCoding/master/language/c/backtrace/builtin.png)
 
 #4	参考资料
 -------
