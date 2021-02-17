@@ -2,9 +2,12 @@
 title: Static site generators
 date: 2018-08-05 14:37
 author: gatieme
-tags: linux
+tags: 
+	- linux
+	- tools
+	- debug
 categories:
-        - linux
+        - 编程珠玑
 thumbnail: 
 blogexcerpt: With the CMS of Wordpress and other blog systems, increasingly bloated. The emergence of static blog system to a certain extent, solve this problem, and thus get a lot of personal bloggers of all ages. So, what are static blog program in the end it?
 

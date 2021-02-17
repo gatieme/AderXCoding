@@ -3,10 +3,11 @@
 title: 使用模糊搜索神器 FZF 来提升办公效率
 date: 2021-02-15 00:32
 author: gatieme
-tags: linux
+tags: 
+	- linux
+	- tools
 categories:
-        - linux
-        - debug
+        - 技术积累
 thumbnail:
 blogexcerpt: FZF 是目前最快的模糊搜索工具. 使用golang编写. 结合其他工具(比如 ag 和 fasd)可以完成非常多的工作. 前段时间, 有同事给鄙人推荐了 FZF, 通过简单的配置, 配合 VIM/GIT 等工具食用, 简直事半功倍, 效率指数级提升, 因此推荐给大家.
 

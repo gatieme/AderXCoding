@@ -3,9 +3,11 @@
 title: Cmder 中文乱码设置
 date: 2020-07-18 21:37
 author: gatieme
-tags: linux
+tags: 
+	- linux
+	- tools
 categories:
-        - linux
+        - 编程珠玑
 thumbnail:
 blogexcerpt: Cmder 是 Windows 下替换原有 cmd 的绝佳工具, 但是与默认的 cmd 一样, 都与 git 等工具命令行存在一些兼容性问题, 比如中文乱码问题.
 

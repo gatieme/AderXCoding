@@ -3,9 +3,11 @@
 title: 使用 Hexo 搭建 GitHub Page 博客(一)
 date: 2018-09-02 18:40
 author: gatieme
-tags: hexo
+tags: 
+	- hexo
+	- blog
 categories:
-        - hexo
+        - 编程珠玑
 thumbnail: 
 blogexcerpt: Hexo 是一个快速、简洁且高效的博客框架. 支持使用 Markdown (或其他渲染引擎)解析文章. Hexo 生成静态网页的素服非常快, 在几秒内，即可利用靓丽的主题生成静态网页. 本文将介绍如果使用 Hexo 来搭建属于你自己的 Github Page 博客
 

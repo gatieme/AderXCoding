@@ -3,9 +3,11 @@
 title: 用户态使用 glibc/backtrace 追踪函数调用堆栈定位段错误
 date: 2018-11-17 15:22
 author: gatieme
-tags: linux
+tags: 
+	- linux
+	- debug
 categories:
-        - debug
+        - 编程珠玑
 thumbnail:
 blogexcerpt: 一般用户态程序出现段错误, 而我们想要察看函数运行时堆栈, 常用的方法是使用GDB(bt命令)之类的外部调试器,但是有些时候为了分析程序的BUG,(主要针对长时间运行程序的分析),在程序出错时打印出函数的调用堆栈是非常有用的. C 库中提供了一些堆栈 backtrace 的函数用于跟踪函数的堆栈信息, 我们也可以通过注册异常处理函数来实现函数异常时自动打印调用栈.
 

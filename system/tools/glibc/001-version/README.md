@@ -3,9 +3,11 @@
 title: Linux(Ubuntu/CentOS) 下查看 GLIBC 版本
 date: 2020-10-06 23:35
 author: gatieme
-tags: linux
+tags: 
+	- linux
+	- debug
 categories:
-        - linux
+        - 技术积累
 thumbnail:
 blogexcerpt: 之前在工作中, 经常有同事问我怎么知道当前系统中 GLIBC 的版本号是多少. 今天安装软件的时候, 想到了这个问题, 于是记录下, 与大家共勉.
 

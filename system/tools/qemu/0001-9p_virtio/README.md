@@ -3,9 +3,10 @@
 title: qemu中使用 9p virtio, 支持 host 和 guest 中共享目录
 date: 2018-09-30 19:46
 author: gatieme
-tags: qemu
+tags: 
+	- qemu
 categories:
-        - qemu
+        - 编程珠玑
 thumbnail: 
 blogexcerpt: 在使用qemu调试内核的时候, 如果没有网络，想要部署点驱动或者程序上去都需要重新制作文件系统，本文讲解了如何通过 9p virtio fs 实现在 qemu 和 host 机器上共享文件和目录。
 
