@@ -3,7 +3,7 @@
 title: 使用模糊搜索神器 FZF 来提升办公效率
 date: 2021-02-15 00:32
 author: gatieme
-tags: 
+tags:
 	- linux
 	- tools
 categories:
@@ -13,6 +13,17 @@ blogexcerpt: FZF 是目前最快的模糊搜索工具. 使用golang编写. 结�
 
 ---
 
+<br>
+
+本作品采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>进行许可, 转载请注明出处, 谢谢合作
+
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>
+
+因本人技术水平和知识面有限, 内容如有纰漏或者需要修正的地方, 欢迎大家指正, 鄙人在此谢谢啦
+
+**转载请务必注明出处, 谢谢, 不胜感激**
+
+<br>
 
 | 日期 | 作者 | GitHub| CSDN | BLOG |
 | ------- |:-------:|:-------:|:-------:|:-------:|
@@ -76,7 +87,7 @@ fzf 默认会启用用户交互查找, 从标准输入流(STDIN)读取, 并将�
 find * -type f | fzf
 ```
 
-fzf 如果没有接受标准输入流, 那么就会直接进行文件查找(不包含隐藏文件), 可以通过设置 `FZF_DEFAULT_COMMAND` 修改该默认动作: 
+fzf 如果没有接受标准输入流, 那么就会直接进行文件查找(不包含隐藏文件), 可以通过设置 `FZF_DEFAULT_COMMAND` 修改该默认动作:
 
 ## 3.2 FZF 基本操作
 -------
@@ -85,7 +96,7 @@ fzf 如果没有接受标准输入流, 那么就会直接进行文件查找(不�
 fzf # 直接输入 fzf, 打开文件搜索功能
 ```
 
-> 注: 在 fzf 的用户交互界面中, 用户的操作有如下动作可选: 
+> 注: 在 fzf 的用户交互界面中, 用户的操作有如下动作可选:
 
 *   使用CTRL-J/CTRL-K(或者CTRL-N/CTRL-P)进行上下选择
 *   使用Enter选中条目, CTRL-C/CTRTRL-G/ESC进行退出操作
@@ -104,7 +115,7 @@ fzf 默认会以 "extened-search" 模式启动, 这种模式下不支持正则�
 
 如 ^music .mp3$, sbtrkt !fire.
 
-fzf 提供了一些增强功能的搜索语法, 如下表所示: 
+fzf 提供了一些增强功能的搜索语法, 如下表所示:
 
 
 | 标记 | 匹配类型  |  描述 |
@@ -118,19 +129,19 @@ fzf 提供了一些增强功能的搜索语法, 如下表所示:
 | !.mp3$  | 后缀反转匹配         | 不以.mp3结尾                       |
 
 > 注: 如果不想使用模糊匹配或者不想"引用"每个文字, 可以使用 `-e/--exact` 选项. 注意如果使用 `-e/--exact`, 那么 `'` 就变成了解引用, 即:'abc表示匹配a,b和c(a,b,c有序), 而不仅仅是匹配abc.
- 
+
 
 ### 3.3.2 或操作
 -------
 
 
-fzf 以空格分隔, 默认使用的是 与 操作(无序), 如果想使用 或 操作, 那么可以使用 `|` : 
+fzf 以空格分隔, 默认使用的是 与 操作(无序), 如果想使用 或 操作, 那么可以使用 `|` :
 
 ```cpp
 ^core go$ | rb$ | py$ # 表示以`core`开头, 且以`go`或`rb`或`py`结尾
 ```
 
->注: | 前后必须带空格. 
+>注: | 前后必须带空格.
 
 ### 3.3.3 模糊补全
 -------
@@ -145,7 +156,7 @@ vim **<TAB>
 
 * 进程 ID 模糊补全
 
-在使用kill命令时, fzf 会自动触发其自动补全功能: 
+在使用kill命令时, fzf 会自动触发其自动补全功能:
 
 
 ```cpp
@@ -155,7 +166,7 @@ kill -9 <TAB>
 
 * 主机名补全
 
-如下例子所示: 
+如下例子所示:
 
 ```cpp
 ssh **<TAB>
@@ -164,7 +175,7 @@ telnet **<TAB>
 
 * 自定义模糊补全
 
-在 bash 上, fzf 的模糊补全功能只对一些预定义的命令集有效(具体命令集: `complete | grep _fzf`), 但是我们也可以为其他命令设置 fzf 模糊补全功能, 如下所示: 
+在 bash 上, fzf 的模糊补全功能只对一些预定义的命令集有效(具体命令集: `complete | grep _fzf`), 但是我们也可以为其他命令设置 fzf 模糊补全功能, 如下所示:
 
 ```cpp
 # 为 rg 增加模糊补全, rg -F "def main(" **<TAB>
@@ -174,8 +185,8 @@ complete -F _fzf_path_completion -o default -o bashdefault rg
 complete -F _fzf_dir_completion -o default -o bashdefault tree
 ```
 
-fzf 目前有提供相关 API 供我们自定义模糊补全功能, 具体步骤如下: 
-1) 首先自定义一个函数, 使用 fzf 提供的 API: `_fzf_complete` 提供补全功能: 
+fzf 目前有提供相关 API 供我们自定义模糊补全功能, 具体步骤如下:
+1) 首先自定义一个函数, 使用 fzf 提供的 API: `_fzf_complete` 提供补全功能:
 
 ```cpp
 # Custom fuzzy completion for "doge" command
@@ -190,7 +201,7 @@ _fzf_complete_doge() {
 }
 ```
 
-2) 在 bash 中, 使用complete指令链接我们的自定义函数: 
+2) 在 bash 中, 使用complete指令链接我们的自定义函数:
 
 ```cpp
 [ -n "$BASH" ] && complete -F _fzf_complete_doge -o default -o bashdefault doge
@@ -201,7 +212,7 @@ _fzf_complete_doge() {
 ## 3.4 按键绑定
 -------
 
-fzf 的安装脚本会为 bash, zsh 和 fish 终端设置以下按键绑定: 
+fzf 的安装脚本会为 bash, zsh 和 fish 终端设置以下按键绑定:
 
 | 按键 | 描述 |
 | ---     | ---                            |
@@ -225,17 +236,17 @@ fzf 的安装脚本会为 bash, zsh 和 fish 终端设置以下按键绑定:
 | FZF_ALT_C_OPTS       | 按键映射<CTRL-C>选项设置                                                   |
 
 
-fzf 默认会以全屏方式显示交互界面, 可以使用--height选项设置交互界面高度: 
+fzf 默认会以全屏方式显示交互界面, 可以使用--height选项设置交互界面高度:
 
 ```cpp
 vim $(fzf --height 40%)
 ```
 
-可以通过设置$FZF_DEFAULT_OPTS变量更改 fzf 默认行为: 
+可以通过设置$FZF_DEFAULT_OPTS变量更改 fzf 默认行为:
 
 ```cpp
 # 设置 fzf 默认交互界面大小
-export FZF_DEFAULT_OPTS='--height 40%' 
+export FZF_DEFAULT_OPTS='--height 40%'
 ```
 
 
@@ -258,7 +269,7 @@ fzf --preview 'rg -F "def main(" -C 3 {}' # 预览 Python 文件 main 函数前�
 ### 3.7.1 更改查找引擎
 -------
 
-默认情况下, fzf 使用的查找引擎是系统自带的 `find` 命令, 这里我们可以对其进行更改, 换成更高效的查找引擎. 
+默认情况下, fzf 使用的查找引擎是系统自带的 `find` 命令, 这里我们可以对其进行更改, 换成更高效的查找引擎.
 
 ```cpp
 # 使用 rg 进行搜索
@@ -274,7 +285,7 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden'
 
 ```cpp
 # 在交互界面选中文件后, 按下 F1, 直接使用 vim 打开
-fzf --bind 'f1:execute(vim {})' 
+fzf --bind 'f1:execute(vim {})'
 ```
 
 * 简化命令
@@ -299,7 +310,7 @@ vg() {
 
 像 fzf 其实已经有为我们提供了一些按键映射, 比如<CTRL-T>, 可以打印出选中文件. 现在我们也仿照写一个该功能脚本, 全局快捷键设为<CTRL-G><CTRL-O>:
 
-1) 首先先写目录搜索(fzf)并打印输出功能脚本: 
+1) 首先先写目录搜索(fzf)并打印输出功能脚本:
 
 ```cpp
 # .bashrc
@@ -310,7 +321,7 @@ outputDir() {
 }
 ```
 
-2)然后进行全局按键映射: 
+2)然后进行全局按键映射:
 
 ```cpp
 # .bashrc
@@ -318,22 +329,22 @@ bind '"\er": redraw-current-line'
 bind '"\C-g\C-o": "$(outputDir)\e\C-e\er"'
 ```
 
-> 注: 
-> 1) \e\C-e: shell-expand-line默认按键绑定, 这是最容易的方式进行按键绑定, 缺点就是它对于别名(alias)也会同样进行展开. 
-> 2) redraw-current-line: 在非 tmux 终端上, 该选项必须存在, 否则无法清除提示. 
-> 3) 先source .bashrc, 然后按快捷键: <CTRL-G><CTRL-O>, 运行结果如下: 
+> 注:
+> 1) \e\C-e: shell-expand-line默认按键绑定, 这是最容易的方式进行按键绑定, 缺点就是它对于别名(alias)也会同样进行展开.
+> 2) redraw-current-line: 在非 tmux 终端上, 该选项必须存在, 否则无法清除提示.
+> 3) 先source .bashrc, 然后按快捷键: <CTRL-G><CTRL-O>, 运行结果如下:
 
 ### 3.7.3 为预览窗口增加语法高亮:
 -------
 
-预览窗口支持 ANSI 颜色, 因此我们可以为文件内容增加语法高亮. 我们借助 bat 这个库来为我们的文本显示语法高亮功能: 
+预览窗口支持 ANSI 颜色, 因此我们可以为文件内容增加语法高亮. 我们借助 bat 这个库来为我们的文本显示语法高亮功能:
 
 
 > 建议安装bat， 是一个Rust编写的独立程序
 > 也可以安装rougify(先安装ruby, 然后gem intall rouge)
 
-1) 首先, 安装 bat 库. 具体步骤请查看文档. 
-2) 终端输入以下内容: 
+1) 首先, 安装 bat 库. 具体步骤请查看文档.
+2) 终端输入以下内容:
 
 ```cpp
 fzf --preview '[[ $(file --mime {}) =~ binary ]] &&
@@ -345,7 +356,7 @@ fzf --preview '[[ $(file --mime {}) =~ binary ]] &&
                   cat {}) 2> /dev/null | head -500'
 ```
 
-结果如下: 
+结果如下:
 
 
 # 4 用 FZF 提升其他工具的效率
@@ -390,7 +401,7 @@ function gitblame()
 
 function gitcheckout()
 {
-  git checkout $(git branch -a) | fzf --preview="git log --oneline {1}"
+  git checkout $(git branch -a | fzf --preview="git log --oneline {1}")
 }
 ```
 
@@ -435,15 +446,6 @@ fzf 本身并不是一个vim 插件, 本来作者只提供了基本的wrapper函
 
 [Improve Your Workflow in the Terminal with These fzf Tips](https://revelry.co/resources/development/terminal-workflow-fzf)
 
-本作品采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>进行许可, 转载请注明出处, 谢谢合作
-
-<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>
-
-因本人技术水平和知识面有限, 内容如有纰漏或者需要修正的地方, 欢迎大家指正, 鄙人在此谢谢啦
-
-**转载请务必注明出处, 谢谢, 不胜感激**
-
-<br>
 
 
 
